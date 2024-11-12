@@ -1,6 +1,7 @@
 "use client";
 import { useChat } from "ai/react";
 import { Bot, Loader2, Send, User2 } from "lucide-react";
+import { useState } from "react";
 import Markdown from "./component/markdown";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
 
   // inner render functions
   function RenderForm() {
+    const [years, setYears] = useState("");
     return (
       <form
         onSubmit={(event) => {
@@ -26,11 +28,15 @@ export default function Home() {
           handleSubmit(event, {
             data: {
               prompt: input,
+              yearsOfExperience: years
             },
           });
         }}
         className="w-full flex flex-row gap-2 items-center h-full"
       >
+        
+        <input type="text" name="yearsOfExperience" value={years}
+        onChange={(e) => setYears(e.target.value)} placeholder="Years of experience..." />
         <input
           type="text"
           placeholder={isLoading ? "Generating . . ." : "ask something . . . "}
