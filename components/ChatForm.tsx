@@ -2,8 +2,8 @@
 
 import { Loader2, Send } from "lucide-react";
 import { useState } from "react";
-import { PromptInput } from "./PromptInput";
-import { YearsInput } from "./YearsInput";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 interface ChatFormProps {
   input: string;
@@ -35,25 +35,35 @@ export function ChatForm({
       }}
       className="flex h-full w-full flex-row items-center gap-2"
     >
-      <YearsInput years={years} setYears={setYears} />
-      <PromptInput
-        input={input}
-        isLoading={isLoading}
-        handleInputChange={handleInputChange}
+      <Input
+        type="number"
+        value={years}
+        onChange={(e) => setYears(parseInt(e.target.value))}
       />
-      <button
-        type="submit"
-        className="flex flex-row rounded-full border shadow-md"
-      >
+      <Input
+        type="text"
+        placeholder={
+          isLoading
+            ? "Generating . . ."
+            : "Paste the job description here . . . "
+        }
+        value={input}
+        disabled={isLoading}
+        onChange={handleInputChange}
+      />
+      <Button type="submit">
         {isLoading ? (
-          <Loader2
-            onClick={stop}
-            className="h-10 w-10 animate-spin stroke-stone-500 p-3"
-          />
+          <>
+            Loading
+            <Loader2 onClick={stop} />
+          </>
         ) : (
-          <Send className="h-10 w-10 stroke-stone-500 p-3" />
+          <>
+            Send
+            <Send />
+          </>
         )}
-      </button>
+      </Button>
     </form>
   );
 }

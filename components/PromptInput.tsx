@@ -6,6 +6,7 @@ interface PromptInputProps {
 
 export function PromptInput({ input, isLoading, handleInputChange }: PromptInputProps) {
   return (
+    
     <input
       type="text"
       placeholder={isLoading ? "Generating . . ." : "ask something . . . "}
