@@ -13,6 +13,7 @@ const FirstNameInput = () => {
         type="text"
         className="mt-1"
         value={firstName}
+        autoComplete="given-name"
         onChange={(e) => setField("firstName", e.target.value)}
       />
     </div>

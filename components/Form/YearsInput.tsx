@@ -27,6 +27,7 @@ export function YearsInput({ form }: YearsInputProps) {
             <Input
               min={0}
               max={100}
+              autoComplete="years-of-experience"
               type="number"
               {...field}
               onChange={(e) => {
