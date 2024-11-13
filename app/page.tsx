@@ -4,7 +4,7 @@ import { useChat } from "ai/react";
 import { ChatForm } from "@/components/ChatForm";
 import dynamic from "next/dynamic";
 
-const Pdf = dynamic(() => import("@/components/Pdf"), {
+const Pdf = dynamic(() => import("@/components/Pdf/PdfWrapper"), {
   ssr: false,
 });
 

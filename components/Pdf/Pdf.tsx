@@ -1,13 +1,9 @@
 import React from "react";
-import { Message } from "ai";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
-
-interface PdfProps {
-  messages: Message[];
-}
+import { PdfProps } from "@/components/Pdf/PdfWrapper";
 
 const Pdf = ({ messages }: PdfProps) => {
-  return messages && messages.length > 0 ? (
+  return (
     <PDFViewer>
       <Document>
         <Page size="A4">
@@ -17,21 +13,6 @@ const Pdf = ({ messages }: PdfProps) => {
             </Text>
             <Text x={0} y={0}>
               {messages[messages.length - 1].content || "No content available."}
-            </Text>
-          </View>
-        </Page>
-      </Document>
-    </PDFViewer>
-  ) : (
-    <PDFViewer>
-      <Document>
-        <Page size="A4">
-          <View>
-            <Text x={10} y={10}>
-              Cover letter
-            </Text>
-            <Text x={0} y={0}>
-              Fill the form on the left side
             </Text>
           </View>
         </Page>
