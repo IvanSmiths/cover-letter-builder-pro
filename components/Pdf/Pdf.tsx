@@ -2,7 +2,9 @@ import React from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import { PdfProps } from "@/components/Pdf/PdfWrapper";
 import { usePdfStyleStore, useUserFormStore } from "@/lib/store";
-import { style1, style2, style3 } from "@/components/Pdf/PdfStyles/PdfStyles";
+import { style1 } from "@/components/Pdf/PdfStyles/style1";
+import { style2 } from "@/components/Pdf/PdfStyles/style2";
+import { style3 } from "@/components/Pdf/PdfStyles/style3";
 
 const Pdf = ({ messages }: PdfProps) => {
   const { firstName, lastName } = useUserFormStore();
