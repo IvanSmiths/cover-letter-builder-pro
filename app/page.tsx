@@ -16,7 +16,7 @@ export default function Home() {
     });
 
   return (
-    <main className="flex h-full w-full items-center">
+    <main className="flex h-full w-full">
       <Form
         input={input}
         isLoading={isLoading}
@@ -24,7 +24,9 @@ export default function Home() {
         handleSubmit={handleSubmit}
         stop={stop}
       />
-      {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
+      <div className="h-full w-8/12">
+        {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
+      </div>
     </main>
   );
 }

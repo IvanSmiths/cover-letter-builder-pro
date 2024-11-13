@@ -37,7 +37,7 @@ export function Form({
   });
 
   return (
-    <>
+    <div className="flex w-4/12">
       <FormComponent {...form}>
         <form
           onSubmit={(event) => {
@@ -62,6 +62,6 @@ export function Form({
           <PromptButton stop={stop} isLoading={isLoading} />
         </form>
       </FormComponent>
-    </>
+    </div>
   );
 }
