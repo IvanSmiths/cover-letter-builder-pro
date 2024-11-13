@@ -1,10 +1,19 @@
 import React from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
-import { styles } from "@/components/Pdf/PdfStyle";
+import { style1, style2, style3 } from "@/components/Pdf/PdfStyles/PdfStyles";
+import { usePdfStyleStore } from "@/lib/store";
 
 const PdfSkeleton = () => {
+  const styles = {
+    style1,
+    style2,
+    style3,
+  };
+
+  const { selectedStyle } = usePdfStyleStore();
+
   return (
-    <PDFViewer style={styles.viewer}>
+    <PDFViewer style={styles[selectedStyle].viewer}>
       <Document>
         <Page size="A4">
           <View>
