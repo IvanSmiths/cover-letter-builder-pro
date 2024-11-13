@@ -16,7 +16,7 @@ const Pdf = ({ messages }: PdfProps) => {
               Cover letter
             </Text>
             <Text x={0} y={0}>
-              {messages[1]?.content || "No content available"}
+              {messages[messages.length - 1].content || "No content available."}
             </Text>
           </View>
         </Page>
