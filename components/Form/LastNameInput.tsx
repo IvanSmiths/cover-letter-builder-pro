@@ -12,7 +12,7 @@ const LastNameInput = () => {
         id="lastName"
         type="text"
         value={lastName}
-        onChange={(e) => setField("firstName", e.target.value)}
+        onChange={(e) => setField("lastName", e.target.value)}
       />
     </>
   );
