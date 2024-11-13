@@ -4,7 +4,7 @@ import { useChat } from "ai/react";
 import { ChatForm } from "@/components/ChatForm";
 import dynamic from "next/dynamic";
 
-const Pdf = dynamic(() => import("@/components/Pdf/PdfWrapper"), {
+const PdfWrapper = dynamic(() => import("@/components/Pdf/PdfWrapper"), {
   ssr: false,
 });
 
@@ -23,7 +23,7 @@ export default function Home() {
         handleSubmit={handleSubmit}
         stop={stop}
       />
-      {isLoading ? null : <Pdf messages={messages} />}
+      {isLoading ? null : <PdfWrapper messages={messages} />}
     </main>
   );
 }
