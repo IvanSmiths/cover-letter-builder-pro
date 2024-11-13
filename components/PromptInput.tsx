@@ -31,7 +31,7 @@ export function PromptInput({
       name="prompt"
       render={() => (
         <FormItem>
-          <FormLabel>JobDescription</FormLabel>
+          <FormLabel>Job Description</FormLabel>
           <FormControl>
             <Textarea
               minLength={10}
