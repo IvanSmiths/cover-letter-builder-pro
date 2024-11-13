@@ -5,6 +5,7 @@ import { Form } from "@/components/Form/Form";
 import dynamic from "next/dynamic";
 import PdfSkeleton from "@/components/Pdf/PdfSkeleton";
 import SelectCoverLetterStyle from "@/components/SelectCoverLetterStyle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const PdfWrapper = dynamic(() => import("@/components/Pdf/PdfWrapper"), {
   ssr: false,
@@ -17,8 +18,8 @@ export default function Home() {
     });
 
   return (
-    <main className="flex h-full w-full">
-      <div className="h-full w-2/12">
+    <main className="bg-light dark:bg-dark flex h-full w-full">
+      <div className="p-small h-full w-4/12">
         <Form
           input={input}
           isLoading={isLoading}
@@ -26,11 +27,12 @@ export default function Home() {
           handleSubmit={handleSubmit}
           stop={stop}
         />
+        <ThemeToggle />
       </div>
       <div className="h-screen w-8/12">
         {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
       </div>
-      <div className="h-full w-2/12">
+      <div className="p-small h-full w-4/12">
         <SelectCoverLetterStyle />
       </div>
     </main>

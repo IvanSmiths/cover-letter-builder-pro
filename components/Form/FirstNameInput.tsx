@@ -6,15 +6,16 @@ import { Label } from "@/components/ui/label";
 const FirstNameInput = () => {
   const { firstName, setField } = useUserFormStore();
   return (
-    <>
+    <div className="w-full">
       <Label htmlFor="firstName">First Name</Label>
       <Input
         id="firstName"
         type="text"
+        className="mt-1"
         value={firstName}
         onChange={(e) => setField("firstName", e.target.value)}
       />
-    </>
+    </div>
   );
 };
 
