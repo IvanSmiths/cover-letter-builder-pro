@@ -1,13 +1,13 @@
 import { ChangeEvent, FormEvent } from "react";
-import { PromptInput } from "@/components/PromptInput";
-import PromptButton from "@/components/PromptButton";
-import { Form } from "@/components/ui/form";
+import { PromptInput } from "@/components/Form/PromptInput";
+import PromptButton from "@/components/Form/PromptButton";
+import { Form as FormComponent } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { YearsInput } from "@/components/YearsInput";
-import { Input } from "@/components/ui/input";
-import { useUserFormStore } from "@/lib/store";
+import { YearsInput } from "@/components/Form/YearsInput";
+import FirstNameInput from "@/components/Form/FirstNameInput";
+import LastNameInput from "@/components/Form/LastNameInput";
 
 interface ChatFormProps {
   input: string;
@@ -17,15 +17,13 @@ interface ChatFormProps {
   stop: () => void;
 }
 
-export function ChatForm({
+export function Form({
   input,
   isLoading,
   handleInputChange,
   handleSubmit,
   stop,
 }: ChatFormProps) {
-  const { firstName, lastName, setField } = useUserFormStore();
-
   const FormSchema = z.object({
     yearsOfExperience: z.number().min(0).max(100),
     prompt: z.string().min(10),
@@ -40,7 +38,7 @@ export function ChatForm({
 
   return (
     <>
-      <Form {...form}>
+      <FormComponent {...form}>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -52,16 +50,8 @@ export function ChatForm({
             });
           }}
         >
-          <Input
-            type="text"
-            value={firstName}
-            onChange={(e) => setField("firstName", e.target.value)}
-          />
-          <Input
-            type="text"
-            value={lastName}
-            onChange={(e) => setField("lastName", e.target.value)}
-          />
+          <FirstNameInput />
+          <LastNameInput />
           <YearsInput form={form} />
           <PromptInput
             input={input}
@@ -71,7 +61,7 @@ export function ChatForm({
           />
           <PromptButton stop={stop} isLoading={isLoading} />
         </form>
-      </Form>
+      </FormComponent>
     </>
   );
 }

@@ -1,8 +1,9 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { ChatForm } from "@/components/ChatForm";
+import { Form } from "@/components/Form/Form";
 import dynamic from "next/dynamic";
+import PdfSkeleton from "@/components/Pdf/PdfSkeleton";
 
 const PdfWrapper = dynamic(() => import("@/components/Pdf/PdfWrapper"), {
   ssr: false,
@@ -15,15 +16,15 @@ export default function Home() {
     });
 
   return (
-    <main className="flex items-center">
-      <ChatForm
+    <main className="flex h-full w-full items-center">
+      <Form
         input={input}
         isLoading={isLoading}
         handleInputChange={handleInputChange}
         handleSubmit={handleSubmit}
         stop={stop}
       />
-      {isLoading ? null : <PdfWrapper messages={messages} />}
+      {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
     </main>
   );
 }
