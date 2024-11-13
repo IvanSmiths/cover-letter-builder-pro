@@ -8,8 +8,6 @@ import {
 import { UseFormReturn } from "react-hook-form";
 
 interface YearsInputProps {
-  years: number;
-  setYears: (years: number) => void;
   form: UseFormReturn<
     { yearsOfExperience: number; prompt: string },
     any,
@@ -17,19 +15,40 @@ interface YearsInputProps {
   >;
 }
 
-export function YearsInput({ years, setYears, form }: YearsInputProps) {
+export function YearsInput({ form }: YearsInputProps) {
   return (
     <FormField
       control={form.control}
       name="yearsOfExperience"
-      render={() => (
+      render={({ field }) => (
         <FormItem>
-          <FormLabel>YearsOfExperience</FormLabel>
+          <FormLabel>Years of Experience</FormLabel>
           <FormControl>
             <Input
+              min={0}
+              max={100}
               type="number"
-              value={years}
-              onChange={(e) => setYears(parseInt(e.target.value))}
+              {...field}
+              onChange={(e) => {
+                const value =
+                  e.target.value === "" ? "" : parseInt(e.target.value);
+
+                if (value === "" || (value >= 0 && value <= 100)) {
+                  field.onChange(value);
+                } else if (value > 100) {
+                  field.onChange(100);
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "e" || e.key === "-" || e.key === "+") {
+                  e.preventDefault();
+                }
+              }}
+              value={
+                field.value !== undefined && !isNaN(field.value)
+                  ? field.value
+                  : ""
+              }
             />
           </FormControl>
         </FormItem>

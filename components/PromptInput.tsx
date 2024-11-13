@@ -34,6 +34,7 @@ export function PromptInput({
           <FormLabel>JobDescription</FormLabel>
           <FormControl>
             <Textarea
+              minLength={10}
               placeholder={
                 isLoading
                   ? "Generating . . ."

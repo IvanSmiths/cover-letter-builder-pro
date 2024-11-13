@@ -1,6 +1,4 @@
-"use client";
-
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 import { PromptInput } from "@/components/PromptInput";
 import PromptButton from "@/components/PromptButton";
 import { Form } from "@/components/ui/form";
@@ -12,7 +10,7 @@ import { YearsInput } from "@/components/YearsInput";
 interface ChatFormProps {
   input: string;
   isLoading: boolean;
-  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   handleSubmit: (e: FormEvent<HTMLFormElement>, data?: any) => void;
   stop: () => void;
 }
@@ -24,17 +22,15 @@ export function ChatForm({
   handleSubmit,
   stop,
 }: ChatFormProps) {
-  const [years, setYears] = useState<number>(0);
-
   const FormSchema = z.object({
     yearsOfExperience: z.number().min(0).max(100),
-    prompt: z.string(),
+    prompt: z.string().min(10),
   });
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      yearsOfExperience: years,
+      yearsOfExperience: 0,
     },
   });
 
@@ -47,12 +43,12 @@ export function ChatForm({
             handleSubmit(event, {
               data: {
                 prompt: input,
-                yearsOfExperience: years,
+                yearsOfExperience: form.getValues("yearsOfExperience"),
               },
             });
           }}
         >
-          <YearsInput setYears={setYears} years={years} form={form} />
+          <YearsInput form={form} />
           <PromptInput
             input={input}
             isLoading={isLoading}
