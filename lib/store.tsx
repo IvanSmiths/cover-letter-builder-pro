@@ -10,11 +10,11 @@ interface UserFormState {
   setField: (field: keyof UserFormState, value: string) => void;
 }
 
-type PdfStyle = "style1" | "style2" | "style3"; // Define three possible styles
+type PdfStyle = "style1" | "style2" | "style3";
 
 interface PdfStyleState {
-  selectedStyle: PdfStyle; // Track the selected style
-  setSelectedStyle: (style: PdfStyle) => void; // Action to set the selected style
+  selectedStyle: PdfStyle;
+  setSelectedStyle: (style: PdfStyle) => void;
 }
 
 export const useUserFormStore = create<UserFormState>()(
@@ -34,9 +34,9 @@ export const useUserFormStore = create<UserFormState>()(
 export const usePdfStyleStore = create<PdfStyleState>()(
   persist(
     (set) => ({
-      selectedStyle: "style1", // Default style
+      selectedStyle: "style1",
       setSelectedStyle: (style) => set({ selectedStyle: style }),
     }),
-    { name: "pdf-style" }, // Persist the style choice in local storage
+    { name: "pdf-style" },
   ),
 );
