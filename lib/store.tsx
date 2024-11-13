@@ -6,6 +6,8 @@ interface UserFormState {
   lastName: string;
   city: string;
   nation: string;
+  email: string;
+  telephone: string;
   cap: string;
   setField: (field: keyof UserFormState, value: string) => void;
 }
@@ -23,6 +25,8 @@ export const useUserFormStore = create<UserFormState>()(
       firstName: "",
       lastName: "",
       city: "",
+      telephone: "",
+      email: "",
       nation: "",
       cap: "",
       setField: (field, value) => set({ [field]: value }),

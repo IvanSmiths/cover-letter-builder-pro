@@ -9,6 +9,8 @@ import { YearsInput } from "@/components/Form/YearsInput";
 import FirstNameInput from "@/components/Form/FirstNameInput";
 import LastNameInput from "@/components/Form/LastNameInput";
 import { User } from "lucide-react";
+import EmailInput from "@/components/Form/EmailInput";
+import TelephoneInput from "@/components/Form/TelephoneInput";
 
 interface ChatFormProps {
   input: string;
@@ -60,6 +62,10 @@ export function Form({
           <LastNameInput />
         </div>
         <YearsInput form={form} />
+        <div className="gap-small flex">
+          <EmailInput />
+          <TelephoneInput />
+        </div>
         <PromptInput
           input={input}
           isLoading={isLoading}
