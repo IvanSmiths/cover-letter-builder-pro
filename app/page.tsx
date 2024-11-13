@@ -1,4 +1,5 @@
 "use client";
+
 import { useChat } from "ai/react";
 import { ChatForm } from "./components/ChatForm";
 import { ChatMessages } from "./components/ChatMessages";

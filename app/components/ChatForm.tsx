@@ -1,5 +1,9 @@
+"use client";
+
 import { Loader2, Send } from "lucide-react";
 import { useState } from "react";
+import { PromptInput } from "./PromptInput";
+import { YearsInput } from "./YearsInput";
 
 interface ChatFormProps {
   input: string;
@@ -16,7 +20,7 @@ export function ChatForm({
   handleSubmit,
   stop,
 }: ChatFormProps) {
-  const [years, setYears] = useState("");
+  const [years, setYears] = useState<number>(0);
 
   return (
     <form
@@ -31,20 +35,11 @@ export function ChatForm({
       }}
       className="flex h-full w-full flex-row items-center gap-2"
     >
-      <input
-        type="text"
-        name="yearsOfExperience"
-        value={years}
-        onChange={(e) => setYears(e.target.value)}
-        placeholder="Years of experience..."
-      />
-      <input
-        type="text"
-        placeholder={isLoading ? "Generating . . ." : "ask something . . . "}
-        value={input}
-        disabled={isLoading}
-        onChange={handleInputChange}
-        className="w-full border-b border-dashed px-4 py-2 text-right text-[#0842A0] outline-none placeholder:text-[#0842A099] focus:placeholder-transparent disabled:bg-transparent"
+      <YearsInput years={years} setYears={setYears} />
+      <PromptInput
+        input={input}
+        isLoading={isLoading}
+        handleInputChange={handleInputChange}
       />
       <button
         type="submit"
