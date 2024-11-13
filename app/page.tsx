@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <main className="flex h-full w-full">
-      <div className="h-full w-4/12">
+      <div className="h-full w-2/12">
         <Form
           input={input}
           isLoading={isLoading}
@@ -26,12 +26,12 @@ export default function Home() {
           handleSubmit={handleSubmit}
           stop={stop}
         />
-        <div className="h-full w-full">
-          <SelectCoverLetterStyle />
-        </div>
       </div>
-      <div className="h-full w-8/12">
+      <div className="h-screen w-8/12">
         {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
+      </div>
+      <div className="h-full w-2/12">
+        <SelectCoverLetterStyle />
       </div>
     </main>
   );

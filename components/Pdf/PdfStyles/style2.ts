@@ -1,7 +1,7 @@
 export const style2 = {
   viewer: {
     width: "100%",
-    height: "90vh",
+    height: "100%",
   },
   page: {
     backgroundColor: "green",
