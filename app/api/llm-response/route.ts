@@ -12,8 +12,8 @@ export async function POST(req: Request, res: Response) {
   });
 
   const result = await streamText({
-    model: groq('llama-3.1-8b-instant'),
-    prompt: `Create a cover letter based on this job posting. State that i have ${yearsOfExperience} years of experience. Refere the company name and product/service if available. Give me just the body of the cover letter. Don´t add any explanation, give me just the body. Fit it in one pdf page: ${prompt}`,
+    model: groq("llama-3.1-8b-instant"),
+    prompt: `Create a cover letter based on this job posting. State that I have ${yearsOfExperience} years of experience. Refer the company name and product/service if available. Just refer to it if you are sure that the company name is stated. If is not stated, use the word "your company" for the name of the company. Give me just the body of the cover letter. Don´t add any explanation, give me just the body. Also avoid the ending salutation. Fit it in one pdf page: ${prompt}`,
   });
 
   return result.toDataStreamResponse();

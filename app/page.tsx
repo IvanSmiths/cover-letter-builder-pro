@@ -1,8 +1,8 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { ChatForm } from "../components/ChatForm";
-import { ChatMessages } from "../components/ChatMessages";
+import { ChatForm } from "@/components/ChatForm";
+import { ChatMessages } from "@/components/ChatMessages";
 
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =

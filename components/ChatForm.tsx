@@ -1,15 +1,15 @@
 "use client";
 
-import { Loader2, Send } from "lucide-react";
-import { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { YearsInput } from "@/components/YearsInput";
+import { PromptInput } from "@/components/PromptInput";
+import PromptButton from "@/components/PromptButton";
 
 interface ChatFormProps {
   input: string;
   isLoading: boolean;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>, data?: any) => void;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: FormEvent<HTMLFormElement>, data?: any) => void;
   stop: () => void;
 }
 
@@ -35,35 +35,13 @@ export function ChatForm({
       }}
       className="flex h-full w-full flex-row items-center gap-2"
     >
-      <Input
-        type="number"
-        value={years}
-        onChange={(e) => setYears(parseInt(e.target.value))}
+      <YearsInput years={years} setYears={setYears} />
+      <PromptInput
+        input={input}
+        isLoading={isLoading}
+        handleInputChange={handleInputChange}
       />
-      <Input
-        type="text"
-        placeholder={
-          isLoading
-            ? "Generating . . ."
-            : "Paste the job description here . . . "
-        }
-        value={input}
-        disabled={isLoading}
-        onChange={handleInputChange}
-      />
-      <Button type="submit">
-        {isLoading ? (
-          <>
-            Loading
-            <Loader2 onClick={stop} />
-          </>
-        ) : (
-          <>
-            Send
-            <Send />
-          </>
-        )}
-      </Button>
+      <PromptButton stop={stop} isLoading={isLoading} />
     </form>
   );
 }

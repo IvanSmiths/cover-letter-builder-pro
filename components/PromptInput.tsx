@@ -1,19 +1,24 @@
+import { Input } from "@/components/ui/input";
+import { ChangeEvent } from "react";
+
 interface PromptInputProps {
   input: string;
   isLoading: boolean;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function PromptInput({ input, isLoading, handleInputChange }: PromptInputProps) {
   return (
-    
-    <input
+    <Input
       type="text"
-      placeholder={isLoading ? "Generating . . ." : "ask something . . . "}
+      placeholder={
+        isLoading
+          ? "Generating . . ."
+          : "Paste the job description here . . . "
+      }
       value={input}
       disabled={isLoading}
       onChange={handleInputChange}
-      className="w-full border-b border-dashed px-4 py-2 text-right text-[#0842A0] outline-none placeholder:text-[#0842A099] focus:placeholder-transparent disabled:bg-transparent"
     />
   );
 } 
