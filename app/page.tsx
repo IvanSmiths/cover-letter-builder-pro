@@ -2,7 +2,11 @@
 
 import { useChat } from "ai/react";
 import { ChatForm } from "@/components/ChatForm";
-import { ChatMessages } from "@/components/ChatMessages";
+import dynamic from "next/dynamic";
+
+const Pdf = dynamic(() => import("@/components/Pdf"), {
+  ssr: false,
+});
 
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
@@ -11,7 +15,7 @@ export default function Home() {
     });
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-12 text-black">
+    <main className="flex items-center">
       <ChatForm
         input={input}
         isLoading={isLoading}
@@ -19,7 +23,7 @@ export default function Home() {
         handleSubmit={handleSubmit}
         stop={stop}
       />
-      <ChatMessages messages={messages} isLoading={isLoading} />
+      {isLoading ? null : <Pdf messages={messages} />}
     </main>
   );
 }
