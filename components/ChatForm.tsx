@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { YearsInput } from "@/components/YearsInput";
+import { Input } from "@/components/ui/input";
+import { useUserFormStore } from "@/lib/store";
 
 interface ChatFormProps {
   input: string;
@@ -22,6 +24,8 @@ export function ChatForm({
   handleSubmit,
   stop,
 }: ChatFormProps) {
+  const { firstName, lastName, setField } = useUserFormStore();
+
   const FormSchema = z.object({
     yearsOfExperience: z.number().min(0).max(100),
     prompt: z.string().min(10),
@@ -48,6 +52,16 @@ export function ChatForm({
             });
           }}
         >
+          <Input
+            type="text"
+            value={firstName}
+            onChange={(e) => setField("firstName", e.target.value)}
+          />
+          <Input
+            type="text"
+            value={lastName}
+            onChange={(e) => setField("lastName", e.target.value)}
+          />
           <YearsInput form={form} />
           <PromptInput
             input={input}
