@@ -8,13 +8,18 @@ import { z } from "zod";
 import { YearsInput } from "@/components/Form/PersonalInformation/YearsInput";
 import FirstNameInput from "@/components/Form/PersonalInformation/FirstNameInput";
 import LastNameInput from "@/components/Form/PersonalInformation/LastNameInput";
-import { Building, User } from "lucide-react";
+import { Building, Sparkles, User } from "lucide-react";
 import EmailInput from "@/components/Form/PersonalInformation/EmailInput";
 import TelephoneInput from "@/components/Form/PersonalInformation/TelephoneInput";
 import { Separator } from "@/components/ui/separator";
 import PersonalCityInput from "@/components/Form/PersonalInformation/PersonalCityInput";
 import PersonalZipInput from "@/components/Form/PersonalInformation/PersonalZipInput";
 import PersonalNationInput from "@/components/Form/PersonalInformation/PersonalNationInput";
+import CompanyNameInput from "@/components/Form/CompanyInformation/CompanyNameInput";
+import CompanyCityInput from "@/components/Form/CompanyInformation/CompanyCityInput";
+import CompanyZipInput from "@/components/Form/CompanyInformation/CompanyZipInput";
+import CompanyNationInput from "@/components/Form/CompanyInformation/CompanyNationInput";
+import CompanyAddressInput from "@/components/Form/CompanyInformation/CompanyAddressInput";
 
 interface ChatFormProps {
   input: string;
@@ -78,6 +83,20 @@ export function Form({
         <div className="flex items-center gap-small">
           <Building className="h-fit w-regular" />
           <h2 className="text-2xl font-bold">Company Information</h2>
+        </div>
+        <div className="flex gap-small">
+          <CompanyNameInput />
+          <CompanyCityInput />
+        </div>
+        <div className="flex gap-small">
+          <CompanyZipInput />
+          <CompanyAddressInput />
+        </div>
+        <CompanyNationInput />
+        <Separator className="my-small" />
+        <div className="flex items-center gap-small">
+          <Sparkles className="h-fit w-regular" />
+          <h2 className="text-2xl font-bold">Prompt</h2>
         </div>
         <PromptInput
           input={input}

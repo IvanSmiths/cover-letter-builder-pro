@@ -15,6 +15,18 @@ interface UserFormState {
   ) => void;
 }
 
+interface CompanyFormState {
+  companyName: string;
+  companyCity: string;
+  companyZip: string;
+  companyAddress: string;
+  companyNation: string;
+  setField: <K extends keyof CompanyFormState>(
+    field: K,
+    value: CompanyFormState[K],
+  ) => void;
+}
+
 type PdfStyle = "style1" | "style2" | "style3";
 
 interface PdfStyleState {
@@ -35,6 +47,20 @@ export const useUserFormStore = create<UserFormState>()(
       setField: (field, value) => set({ [field]: value }),
     }),
     { name: "user-form" },
+  ),
+);
+
+export const useCompanyFormStore = create<CompanyFormState>()(
+  persist(
+    (set) => ({
+      companyName: "",
+      companyCity: "",
+      companyZip: "",
+      companyAddress: "",
+      companyNation: "",
+      setField: (field, value) => set({ [field]: value }),
+    }),
+    { name: "company-form" },
   ),
 );
 

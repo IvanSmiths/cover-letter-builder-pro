@@ -18,8 +18,8 @@ export default function Home() {
     });
 
   return (
-    <main className="bg-light dark:bg-dark flex h-full w-full">
-      <div className="p-small h-full w-4/12">
+    <main className="flex h-full w-full bg-light dark:bg-dark">
+      <div className="h-screen w-4/12 overflow-y-scroll p-small">
         <Form
           input={input}
           isLoading={isLoading}
@@ -32,7 +32,7 @@ export default function Home() {
       <div className="h-screen w-8/12">
         {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
       </div>
-      <div className="p-small h-full w-4/12">
+      <div className="h-full w-4/12 p-small">
         <SelectCoverLetterStyle />
       </div>
     </main>
