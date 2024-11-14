@@ -16,7 +16,7 @@ const PdfSkeleton = () => {
   const { firstName, lastName } = useUserFormStore();
 
   return (
-    <PDFViewer style={styles[selectedStyle].viewer}>
+    <PDFViewer style={styles[selectedStyle].viewer} showToolbar={false}>
       <Document>
         <Page size="A4" style={styles[selectedStyle].page}>
           <View>
