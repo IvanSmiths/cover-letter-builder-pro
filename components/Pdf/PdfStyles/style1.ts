@@ -4,7 +4,7 @@ export const style1 = {
     height: "100%",
   },
   page: {
-    backgroundColor: "red",
+    backgroundColor: "white",
   },
   text: {
     fontSize: 12,

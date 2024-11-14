@@ -16,7 +16,8 @@ export async function POST(req: Request, res: Response) {
     prompt: `Create a cover letter based on this job posting. State that I have ${yearsOfExperience} years of experience. 
     Refer the company name and product/service. Refer the name or product JUST if you are absolutely sure that the company name is stated. 
     If is not stated, use the word "your company" for the name of the company. Give me just the body of the cover letter, 
-    without the initial salutation to the recruiter and final salutation, also without signatures. 
+    without the initial salutation to the recruiter and final salutation, also without signatures. It is subdivided into three paragraphs.
+    Separate the paragraphs with a line break.
     Don´t add any explanation, give me just the body of the letter. Fit it in one pdf page. Answer in the job posting language. This is the job posting: ${prompt}`,
   });
 
