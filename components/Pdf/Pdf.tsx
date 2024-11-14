@@ -1,7 +1,11 @@
 import React from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import { PdfProps } from "@/components/Pdf/PdfWrapper";
-import { usePdfStyleStore, useUserFormStore } from "@/lib/store";
+import {
+  usePdfStyleStore,
+  useRecruiterStore,
+  useUserFormStore,
+} from "@/lib/store";
 import { style1 } from "@/components/Pdf/PdfStyles/style1";
 import { style2 } from "@/components/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/Pdf/PdfStyles/style3";
@@ -15,7 +19,7 @@ const Pdf = ({ messages }: PdfProps) => {
     style2,
     style3,
   };
-
+  const { recruiterName } = useRecruiterStore();
   return (
     <PDFViewer style={styles[selectedStyle].viewer}>
       <Document>
@@ -26,6 +30,9 @@ const Pdf = ({ messages }: PdfProps) => {
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {lastName}
+            </Text>
+            <Text style={styles[selectedStyle].text} x={0} y={20}>
+              {recruiterName}
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={40}>
               {messages[messages.length - 1].content || "No content available."}

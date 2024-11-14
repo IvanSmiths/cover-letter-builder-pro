@@ -36,6 +36,11 @@ interface PdfStyleState {
   setSelectedStyle: (style: PdfStyle) => void;
 }
 
+interface RecruiterStore {
+  recruiterName: string;
+  setRecruiterName: (name: string) => void;
+}
+
 export const useUserFormStore = create<UserFormState>()(
   persist(
     (set) => ({
@@ -77,3 +82,8 @@ export const usePdfStyleStore = create<PdfStyleState>()(
     { name: "pdf-style" },
   ),
 );
+
+export const useRecruiterStore = create<RecruiterStore>((set) => ({
+  recruiterName: "",
+  setRecruiterName: (name) => set({ recruiterName: name }),
+}));
