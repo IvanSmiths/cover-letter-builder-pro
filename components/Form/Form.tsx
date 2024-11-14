@@ -5,13 +5,16 @@ import { Form as FormComponent } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { YearsInput } from "@/components/Form/YearsInput";
-import FirstNameInput from "@/components/Form/FirstNameInput";
-import LastNameInput from "@/components/Form/LastNameInput";
+import { YearsInput } from "@/components/Form/PersonalInformation/YearsInput";
+import FirstNameInput from "@/components/Form/PersonalInformation/FirstNameInput";
+import LastNameInput from "@/components/Form/PersonalInformation/LastNameInput";
 import { Building, User } from "lucide-react";
-import EmailInput from "@/components/Form/EmailInput";
-import TelephoneInput from "@/components/Form/TelephoneInput";
+import EmailInput from "@/components/Form/PersonalInformation/EmailInput";
+import TelephoneInput from "@/components/Form/PersonalInformation/TelephoneInput";
 import { Separator } from "@/components/ui/separator";
+import PersonalCityInput from "@/components/Form/PersonalInformation/PersonalCityInput";
+import PersonalZipInput from "@/components/Form/PersonalInformation/PersonalZipInput";
+import PersonalNationInput from "@/components/Form/PersonalInformation/PersonalNationInput";
 
 interface ChatFormProps {
   input: string;
@@ -59,7 +62,14 @@ export function Form({
           <FirstNameInput />
           <LastNameInput />
         </div>
-        <YearsInput form={form} />
+        <div className="flex gap-small">
+          <PersonalCityInput />
+          <PersonalZipInput />
+        </div>
+        <div className="flex items-end gap-small">
+          <PersonalNationInput />
+          <YearsInput form={form} />
+        </div>
         <div className="flex gap-small">
           <EmailInput />
           <TelephoneInput />

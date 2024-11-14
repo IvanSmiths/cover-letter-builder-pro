@@ -8,8 +8,11 @@ interface UserFormState {
   nation: string;
   email: string;
   telephone: string;
-  cap: string;
-  setField: (field: keyof UserFormState, value: string) => void;
+  zip: string;
+  setField: <K extends keyof UserFormState>(
+    field: K,
+    value: UserFormState[K],
+  ) => void;
 }
 
 type PdfStyle = "style1" | "style2" | "style3";
@@ -26,9 +29,9 @@ export const useUserFormStore = create<UserFormState>()(
       lastName: "",
       city: "",
       telephone: "",
+      zip: "",
       email: "",
       nation: "",
-      cap: "",
       setField: (field, value) => set({ [field]: value }),
     }),
     { name: "user-form" },
