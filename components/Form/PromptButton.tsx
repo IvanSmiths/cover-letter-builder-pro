@@ -17,8 +17,8 @@ const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
         </>
       ) : (
         <>
-          Send
-          <Send />
+          Generate PDF
+          <Send className="h-4 w-60" />
         </>
       )}
     </Button>
