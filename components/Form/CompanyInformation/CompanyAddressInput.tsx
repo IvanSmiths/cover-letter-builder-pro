@@ -6,7 +6,7 @@ const CompanyAddressInput = () => {
   const { companyAddress, setField } = useCompanyFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="companyAddress">Full Address</Label>
+      <Label htmlFor="companyAddress">Address</Label>
       <Input
         id="companyAddress"
         type="text"
