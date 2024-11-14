@@ -34,9 +34,6 @@ export function Form({
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: {
-      yearsOfExperience: 0,
-    },
   });
 
   return (

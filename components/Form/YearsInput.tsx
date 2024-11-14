@@ -26,6 +26,7 @@ export function YearsInput({ form }: YearsInputProps) {
           <FormControl>
             <Input
               min={0}
+              placeholder="Your years of experience"
               max={100}
               autoComplete="years-of-experience"
               type="number"
