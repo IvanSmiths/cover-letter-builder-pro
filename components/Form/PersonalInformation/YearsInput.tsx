@@ -9,7 +9,7 @@ import { UseFormReturn } from "react-hook-form";
 
 interface YearsInputProps {
   form: UseFormReturn<
-    { yearsOfExperience: number; prompt: string },
+    { yearsOfExperience: number; prompt: string; recruiter: string },
     any,
     undefined
   >;
@@ -29,7 +29,6 @@ export function YearsInput({ form }: YearsInputProps) {
                 min={0}
                 placeholder="2"
                 max={100}
-                autoComplete="years-of-experience"
                 type="number"
                 {...field}
                 onChange={(e) => {

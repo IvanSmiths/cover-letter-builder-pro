@@ -10,7 +10,7 @@ const CompanyNameInput = () => {
       <div className="flex items-center gap-smallest">
         <Label htmlFor="companyName">Name</Label>
         <TooltipWrapper
-          info=" The company name will be mentioned in the cover letter body without
+          info="The company name will be mentioned in the cover letter body without
             its company type (LLC, Inc, GmbH, S.r.l, to name a few) to give a more authentic feeling."
         />
       </div>

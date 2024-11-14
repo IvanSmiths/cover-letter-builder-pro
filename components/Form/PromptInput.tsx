@@ -13,7 +13,7 @@ interface PromptInputProps {
   isLoading: boolean;
   handleInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   form: UseFormReturn<
-    { yearsOfExperience: number; prompt: string },
+    { yearsOfExperience: number; prompt: string; recruiter: string },
     any,
     undefined
   >;

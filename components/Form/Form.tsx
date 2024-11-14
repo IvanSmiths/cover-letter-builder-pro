@@ -17,6 +17,7 @@ import PersonalZipInput from "@/components/Form/PersonalInformation/PersonalZipI
 import PersonalNationInput from "@/components/Form/PersonalInformation/PersonalNationInput";
 import CompanyNameInput from "@/components/Form/CompanyInformation/CompanyNameInput";
 import CompanyFullAddressInput from "@/components/Form/CompanyInformation/CompanyFullAddressInput";
+import { CompanyRecruiterInput } from "@/components/Form/CompanyInformation/CompanyRecruiterInput";
 
 interface ChatFormProps {
   input: string;
@@ -36,6 +37,7 @@ export function Form({
   const FormSchema = z.object({
     yearsOfExperience: z.number().min(0).max(100),
     prompt: z.string().min(10),
+    recruiter: z.string().min(2),
   });
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -52,6 +54,7 @@ export function Form({
             data: {
               prompt: input,
               yearsOfExperience: form.getValues("yearsOfExperience"),
+              recruiter: form.getValues("recruiter"),
             },
           });
         }}
@@ -83,6 +86,7 @@ export function Form({
         </div>
         <CompanyNameInput />
         <CompanyFullAddressInput />
+        <CompanyRecruiterInput form={form} />
         <Separator className="my-small" />
         <div className="flex items-center gap-small">
           <Sparkles className="h-fit w-regular" />
