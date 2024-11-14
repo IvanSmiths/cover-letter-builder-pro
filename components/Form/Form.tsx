@@ -16,10 +16,7 @@ import PersonalCityInput from "@/components/Form/PersonalInformation/PersonalCit
 import PersonalZipInput from "@/components/Form/PersonalInformation/PersonalZipInput";
 import PersonalNationInput from "@/components/Form/PersonalInformation/PersonalNationInput";
 import CompanyNameInput from "@/components/Form/CompanyInformation/CompanyNameInput";
-import CompanyCityInput from "@/components/Form/CompanyInformation/CompanyCityInput";
-import CompanyZipInput from "@/components/Form/CompanyInformation/CompanyZipInput";
-import CompanyNationInput from "@/components/Form/CompanyInformation/CompanyNationInput";
-import CompanyAddressInput from "@/components/Form/CompanyInformation/CompanyAddressInput";
+import CompanyFullAddressInput from "@/components/Form/CompanyInformation/CompanyFullAddressInput";
 
 interface ChatFormProps {
   input: string;
@@ -84,15 +81,8 @@ export function Form({
           <Building className="h-fit w-regular" />
           <h2 className="text-2xl font-bold">Company Information</h2>
         </div>
-        <div className="flex gap-small">
-          <CompanyNameInput />
-          <CompanyCityInput />
-        </div>
-        <div className="flex gap-small">
-          <CompanyZipInput />
-          <CompanyAddressInput />
-        </div>
-        <CompanyNationInput />
+        <CompanyNameInput />
+        <CompanyFullAddressInput />
         <Separator className="my-small" />
         <div className="flex items-center gap-small">
           <Sparkles className="h-fit w-regular" />
