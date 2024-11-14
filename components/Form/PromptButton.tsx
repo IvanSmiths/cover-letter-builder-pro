@@ -12,7 +12,7 @@ const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
     <Button type="submit">
       {isLoading ? (
         <>
-          Loading
+          Generating . . .
           <Loader2 onClick={stop} className="animate-spin" />
         </>
       ) : (
