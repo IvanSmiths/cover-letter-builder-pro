@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/form";
 import { UseFormReturn } from "react-hook-form";
 import { FormValues } from "../FormTypes";
+import TooltipWrapper from "@/components/ui/TooltipWrapper";
 
 interface YearsInputProps {
   form: UseFormReturn<FormValues>;
@@ -20,7 +21,10 @@ export function YearsInput({ form }: YearsInputProps) {
         name="yearsOfExperience"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Years of Experience</FormLabel>
+            <div className="flex items-center gap-smallest">
+              <FormLabel>Years of Experience</FormLabel>
+              <TooltipWrapper info="Leave at 0 if you don`t have any professional experience." />
+            </div>
             <FormControl>
               <Input
                 placeholder="2"
