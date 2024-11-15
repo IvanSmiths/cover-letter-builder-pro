@@ -4,6 +4,7 @@ import { UseFormReturn } from "react-hook-form";
 import { PromptInput } from "./PromptInput";
 import PromptButton from "./PromptButton";
 import { FormValues } from "../FormTypes";
+import FormHeader from "@/components/Form/FormHeader";
 
 interface PromptSectionProps {
   input: string;
@@ -22,10 +23,7 @@ function Prompt({
 }: PromptSectionProps) {
   return (
     <div className="flex flex-col gap-small">
-      <div className="flex items-center gap-small">
-        <Sparkles className="h-fit w-regular" />
-        <h2 className="text-2xl font-bold">Prompt</h2>
-      </div>
+      <FormHeader icon={Sparkles} title="Prompt" />
       <PromptInput
         input={input}
         isLoading={isLoading}

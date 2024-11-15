@@ -9,6 +9,7 @@ import { YearsInput } from "./YearsInput";
 import EmailInput from "./EmailInput";
 import TelephoneInput from "./TelephoneInput";
 import { FormValues } from "../FormTypes";
+import FormHeader from "@/components/Form/FormHeader";
 
 interface PersonalInformationProps {
   form: UseFormReturn<FormValues>;
@@ -17,10 +18,7 @@ interface PersonalInformationProps {
 function PersonalInformation({ form }: PersonalInformationProps) {
   return (
     <div className="flex flex-col gap-small">
-      <div className="flex items-center gap-small">
-        <User className="h-fit w-regular" />
-        <h2 className="text-2xl font-bold">Your Information</h2>
-      </div>
+      <FormHeader icon={User} title="Personal Information" />
       <div className="flex gap-small">
         <FirstNameInput />
         <LastNameInput />

@@ -1,9 +1,10 @@
-import { Building } from "lucide-react";
 import { UseFormReturn } from "react-hook-form";
 import CompanyNameInput from "./CompanyNameInput";
 import CompanyFullAddressInput from "./CompanyFullAddressInput";
 import { CompanyRecruiterInput } from "./CompanyRecruiterInput";
 import { FormValues } from "@/components/Form/FormTypes";
+import FormHeader from "@/components/Form/FormHeader";
+import { Building } from "lucide-react";
 
 interface CompanyInformationProps {
   form: UseFormReturn<FormValues>;
@@ -12,10 +13,7 @@ interface CompanyInformationProps {
 function CompanyInformation({ form }: CompanyInformationProps) {
   return (
     <div className="flex flex-col gap-small">
-      <div className="flex items-center gap-small">
-        <Building className="h-fit w-regular" />
-        <h2 className="text-2xl font-bold">Company Information</h2>
-      </div>
+      <FormHeader icon={Building} title="Company Information" />
       <CompanyNameInput form={form} />
       <CompanyFullAddressInput />
       <CompanyRecruiterInput form={form} />
