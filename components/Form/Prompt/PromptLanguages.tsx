@@ -41,56 +41,54 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
         <FormItem>
           <FormMessage />
           <FormLabel>Languages</FormLabel>
-          <FormControl>
-            <Popover open={open} onOpenChange={setOpen}>
-              <PopoverTrigger asChild>
+          <Popover>
+            <PopoverTrigger asChild>
+              <FormControl>
                 <Button
                   variant="outline"
                   role="combobox"
-                  aria-expanded={open}
-                  className="w-[200px] justify-between"
+                  className={cn(
+                    "w-[200px] justify-between",
+                    !field.value && "text-muted-foreground",
+                  )}
                 >
-                  {field.value && field.value.length > 0
-                    ? languages.find((language) => language === field.value[0])
-                    : "Select language..."}
+                  {field.value
+                    ? languages.find((language) => language === field.value)
+                    : "Select language"}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-[200px] p-0">
-                <Command>
-                  <CommandInput placeholder="Search language..." />
-                  <CommandList>
-                    <CommandEmpty>No language found.</CommandEmpty>
-                    <CommandGroup>
-                      {languages.map((language) => (
-                        <CommandItem
-                          key={language}
-                          onSelect={() => {
-                            const newValue = field.value?.includes(language)
-                              ? //@ts-ignore
-                                field.value.filter((lang) => lang !== language)
-                              : [...(field.value || []), language];
-                            field.onChange(newValue);
-                            setOpen(false);
-                          }}
-                        >
-                          <Check
-                            className={cn(
-                              "mr-2 h-4 w-4",
-                              field.value?.includes(language)
-                                ? "opacity-100"
-                                : "opacity-0",
-                            )}
-                          />
-                          {language}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
-          </FormControl>
+              </FormControl>
+            </PopoverTrigger>
+            <PopoverContent className="w-[200px] p-0">
+              <Command>
+                <CommandInput placeholder="Search language..." />
+                <CommandList>
+                  <CommandEmpty>No language found.</CommandEmpty>
+                  <CommandGroup>
+                    {languages.map((language) => (
+                      <CommandItem
+                        value={language}
+                        key={language}
+                        onSelect={() => {
+                          form.setValue("languages", language);
+                        }}
+                      >
+                        {language}
+                        <Check
+                          className={cn(
+                            "ml-auto",
+                            language === field.value
+                              ? "opacity-100"
+                              : "opacity-0",
+                          )}
+                        />
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
         </FormItem>
       )}
     />

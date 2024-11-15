@@ -95,30 +95,3 @@ export const useCompanyNameStore = create<CompanyNameStore>((set) => ({
   companyName: "",
   setCompanyName: (name) => set({ companyName: name }),
 }));
-
-export const useLanguageStore = create<LanguageStore>()(
-  persist(
-    (set) => ({
-      languages: [
-        { value: "English", label: "English" },
-        { value: "German", label: "German" },
-        { value: "French", label: "French" },
-        { value: "Italian", label: "Italian" },
-        { value: "Japanese", label: "Japanese" },
-      ],
-      languageDef: "",
-      setLanguage: (languageDef) => set({ languageDef }), // Set the language
-      resetLanguage: () => set({ languageDef: "" }), // Reset the language to default
-    }),
-    {
-      name: "language-storage",
-    },
-  ),
-);
-
-interface LanguageStore {
-  languages: { value: string; label: string }[]; // Array of available languages
-  languageDef: string; // Current selected language
-  setLanguage: (name: string) => void; // Method to set the language
-  resetLanguage: () => void; // Method to reset the language to default
-}

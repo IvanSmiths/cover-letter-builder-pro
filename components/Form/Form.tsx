@@ -21,7 +21,7 @@ export function Form({
       yearsOfExperience: 0,
       recruiter: "",
       prompt: "",
-      languages: [],
+      languages: "English",
     },
     mode: "onSubmit",
   });

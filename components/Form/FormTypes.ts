@@ -6,13 +6,15 @@ export const personalInformationSchema = z.object({
 });
 
 export const companyInformationSchema = z.object({
-  recruiter: z.string().max(50),
+  recruiter: z.any(),
   companyName: z.string().min(1, "Enter a company name").max(100),
 });
 
 export const promptSchema = z.object({
   prompt: z.string().min(10, "The prompt must be at least 10 characters!"),
-  languages: z.any(),
+  languages: z.string({
+    required_error: "Please select a language.",
+  }),
 });
 
 export const FormSchema = z.object({
