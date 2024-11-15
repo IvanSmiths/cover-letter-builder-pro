@@ -30,7 +30,7 @@ import {
 
 const languages = ["English", "German", "French", "Italian", "Japanese"];
 
-export function FormLanguages({ form }: { form: UseFormReturn<FormValues> }) {
+export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
   const [open, setOpen] = React.useState(false);
 
   return (
