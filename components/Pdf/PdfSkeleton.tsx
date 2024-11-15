@@ -1,6 +1,7 @@
 import React from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import {
+  useCompanyFormStore,
   useCompanyNameStore,
   usePdfStyleStore,
   useRecruiterStore,
@@ -19,6 +20,7 @@ const PdfSkeleton = () => {
 
   const { selectedStyle } = usePdfStyleStore();
   const { firstName, lastName } = useUserFormStore();
+  const { companyFullAddress } = useCompanyFormStore();
   const { recruiterName } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
   return (
@@ -34,6 +36,9 @@ const PdfSkeleton = () => {
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {recruiterName}
+            </Text>
+            <Text style={styles[selectedStyle].text} x={0} y={20}>
+              {companyFullAddress}
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {companyName}

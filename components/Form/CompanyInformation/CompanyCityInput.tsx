@@ -6,11 +6,11 @@ const CompanyCityInput = () => {
   const { companyCity, setField } = useCompanyFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="companyCity">City</Label>
+      <Label htmlFor="companyCity">City & Zip</Label>
       <Input
         id="companyCity"
         type="text"
-        placeholder="San Francisco"
+        placeholder="60308, Frankfurt am Main"
         className="mt-1"
         value={companyCity}
         onChange={(e) => setField("companyCity", e.target.value)}

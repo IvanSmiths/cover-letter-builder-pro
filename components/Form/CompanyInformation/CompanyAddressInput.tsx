@@ -6,11 +6,11 @@ const CompanyAddressInput = () => {
   const { companyAddress, setField } = useCompanyFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="companyAddress">Address</Label>
+      <Label htmlFor="companyAddress">Street & Number</Label>
       <Input
         id="companyAddress"
         type="text"
-        placeholder="1 Apple Park Way"
+        placeholder="Friedrich-Ebert-Anlage 29"
         className="mt-1"
         value={companyAddress}
         onChange={(e) => setField("companyAddress", e.target.value)}

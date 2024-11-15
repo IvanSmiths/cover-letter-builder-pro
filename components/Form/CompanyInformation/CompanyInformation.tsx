@@ -1,10 +1,11 @@
 import { UseFormReturn } from "react-hook-form";
 import CompanyNameInput from "./CompanyNameInput";
-import CompanyFullAddressInput from "./CompanyFullAddressInput";
 import { CompanyRecruiterInput } from "./CompanyRecruiterInput";
 import { FormValues } from "@/components/Form/FormTypes";
 import FormHeader from "@/components/Form/FormHeader";
 import { Building } from "lucide-react";
+import CompanyCityInput from "@/components/Form/CompanyInformation/CompanyCityInput";
+import CompanyAddressInput from "@/components/Form/CompanyInformation/CompanyAddressInput";
 
 interface CompanyInformationProps {
   form: UseFormReturn<FormValues>;
@@ -15,7 +16,10 @@ function CompanyInformation({ form }: CompanyInformationProps) {
     <div className="flex flex-col gap-small">
       <FormHeader icon={Building} title="Company Information" />
       <CompanyNameInput form={form} />
-      <CompanyFullAddressInput />
+      <div className="flex gap-small">
+        <CompanyCityInput />
+        <CompanyAddressInput />
+      </div>
       <CompanyRecruiterInput form={form} />
     </div>
   );
