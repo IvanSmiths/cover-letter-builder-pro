@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Wand2 } from "lucide-react";
 
 type PromptButtonProps = {
   isLoading: boolean;
@@ -9,7 +9,7 @@ type PromptButtonProps = {
 
 const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
   return (
-    <Button type="submit">
+    <Button size="lg" type="submit">
       {isLoading ? (
         <>
           Generating . . .
@@ -18,7 +18,7 @@ const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
       ) : (
         <>
           Generate PDF
-          <Send className="h-4 w-60" />
+          <Wand2 className="h-4" />
         </>
       )}
     </Button>
