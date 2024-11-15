@@ -24,7 +24,7 @@ export async function POST(req: Request, res: Response) {
     State that i have ${yearsOfExperience} years of experience. If is is 0, do not mention it. 
     Give me just the body of the cover letter, without final salutation and signatures. It is subdivided into three paragraphs.
     Separate the paragraphs with a line break.
-    Don´t add any explanation, give me just the body of the letter. Fit it in one pdf page. Answer in the job posting language. This is the job posting: ${prompt}`,
+    Don´t add any explanation, give me just the body of the letter. Fit it in one pdf page. This is the job posting: ${prompt}`,
   });
 
   return result.toDataStreamResponse();
