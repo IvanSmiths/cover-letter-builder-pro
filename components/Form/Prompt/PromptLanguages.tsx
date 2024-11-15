@@ -27,32 +27,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-const languages: string[] = [
-  "English",
-  "German",
-  "French",
-  "Italian",
-  "Croatian",
-  "Spanish",
-  "Portuguese",
-  "Dutch",
-  "Swedish",
-  "Danish",
-  "Norwegian",
-  "Finnish",
-  "Bulgarian",
-  "Hungarian",
-  "Czech",
-  "Slovenian",
-  "Slovak",
-  "Lithuanian",
-  "Estonian",
-  "Polish",
-  "Romanian",
-  "Albanian",
-  "Brazilian Portuguese",
-];
+import { languages } from "@/components/Form/Prompt/Languages";
 
 export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
   const [open, setOpen] = React.useState(false);

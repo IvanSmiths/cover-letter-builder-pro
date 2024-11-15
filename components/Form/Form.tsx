@@ -19,9 +19,7 @@ export function Form({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       yearsOfExperience: 0,
-      recruiter: "",
-      prompt: "",
-      languages: "English",
+      languages: "🇺🇸 US English",
     },
     mode: "onSubmit",
   });
