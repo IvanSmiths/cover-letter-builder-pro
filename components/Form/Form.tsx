@@ -1,20 +1,12 @@
-import { ChangeEvent, FormEvent } from "react";
+import { FormEvent } from "react";
 import { Form as FormComponent } from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { Separator } from "@/components/ui/separator";
 import PersonalInformation from "./PersonalInformation/PersonalInformation";
 import CompanyInformation from "./CompanyInformation/CompanyInformation";
 import Prompt from "./Prompt/Prompt";
-
-interface ChatFormProps {
-  input: string;
-  isLoading: boolean;
-  handleInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  handleSubmit: (e: FormEvent<HTMLFormElement>, data?: any) => void;
-  stop: () => void;
-}
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
 
 export function Form({
   input,
@@ -23,29 +15,30 @@ export function Form({
   handleSubmit,
   stop,
 }: ChatFormProps) {
-  const FormSchema = z.object({
-    yearsOfExperience: z.number().min(0).max(100),
-    prompt: z.string().min(10),
-    recruiter: z.string().min(2),
-  });
-
-  const form = useForm<z.infer<typeof FormSchema>>({
+  const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
+    defaultValues: {
+      yearsOfExperience: 0,
+      recruiter: "",
+      prompt: "",
+    },
+    mode: "onSubmit",
   });
-
   return (
     <FormComponent {...form}>
       <form
         className="flex flex-col gap-small"
-        onSubmit={(event) => {
+        onSubmit={(event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
-          handleSubmit(event, {
-            data: {
-              prompt: input,
-              yearsOfExperience: form.getValues("yearsOfExperience"),
-              recruiter: form.getValues("recruiter"),
-            },
-          });
+          form.handleSubmit((validatedData) => {
+            handleSubmit(event, {
+              data: {
+                prompt: input,
+                yearsOfExperience: validatedData.yearsOfExperience,
+                recruiter: validatedData.recruiter,
+              },
+            });
+          })(event);
         }}
       >
         <PersonalInformation form={form} />

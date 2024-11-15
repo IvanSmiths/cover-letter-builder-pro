@@ -3,13 +3,14 @@ import { ChangeEvent } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { PromptInput } from "./PromptInput";
 import PromptButton from "./PromptButton";
+import { FormValues } from "../FormTypes";
 
 interface PromptSectionProps {
   input: string;
   isLoading: boolean;
   handleInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   stop: () => void;
-  form: UseFormReturn<any>;
+  form: UseFormReturn<FormValues>;
 }
 
 function Prompt({

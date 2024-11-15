@@ -8,9 +8,10 @@ import PersonalNationInput from "./PersonalNationInput";
 import { YearsInput } from "./YearsInput";
 import EmailInput from "./EmailInput";
 import TelephoneInput from "./TelephoneInput";
+import { FormValues } from "../FormTypes";
 
 interface PersonalInformationProps {
-  form: UseFormReturn<any>;
+  form: UseFormReturn<FormValues>;
 }
 
 function PersonalInformation({ form }: PersonalInformationProps) {

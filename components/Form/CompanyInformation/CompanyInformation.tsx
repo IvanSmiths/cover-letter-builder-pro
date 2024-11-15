@@ -3,9 +3,10 @@ import { UseFormReturn } from "react-hook-form";
 import CompanyNameInput from "./CompanyNameInput";
 import CompanyFullAddressInput from "./CompanyFullAddressInput";
 import { CompanyRecruiterInput } from "./CompanyRecruiterInput";
+import { FormValues } from "@/components/Form/FormTypes";
 
 interface CompanyInformationProps {
-  form: UseFormReturn<any>;
+  form: UseFormReturn<FormValues>;
 }
 
 function CompanyInformation({ form }: CompanyInformationProps) {

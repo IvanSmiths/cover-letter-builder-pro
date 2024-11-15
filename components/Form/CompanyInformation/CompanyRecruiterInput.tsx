@@ -9,13 +9,10 @@ import {
 import { UseFormReturn } from "react-hook-form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
 import { useRecruiterStore } from "@/lib/store";
+import { FormValues } from "@/components/Form/FormTypes";
 
 interface CompanyRecruiterInputProps {
-  form: UseFormReturn<
-    { yearsOfExperience: number; prompt: string; recruiter: string },
-    any,
-    undefined
-  >;
+  form: UseFormReturn<FormValues>;
 }
 
 export function CompanyRecruiterInput({ form }: CompanyRecruiterInputProps) {

@@ -6,13 +6,10 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { UseFormReturn } from "react-hook-form";
+import { FormValues } from "../FormTypes";
 
 interface YearsInputProps {
-  form: UseFormReturn<
-    { yearsOfExperience: number; prompt: string; recruiter: string },
-    any,
-    undefined
-  >;
+  form: UseFormReturn<FormValues>;
 }
 
 export function YearsInput({ form }: YearsInputProps) {
@@ -26,7 +23,6 @@ export function YearsInput({ form }: YearsInputProps) {
             <FormLabel>Years of Experience</FormLabel>
             <FormControl>
               <Input
-                min={0}
                 placeholder="2"
                 max={100}
                 type="number"
