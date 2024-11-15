@@ -28,7 +28,31 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const languages = ["English", "German", "French", "Italian", "Japanese"];
+const languages: string[] = [
+  "English",
+  "German",
+  "French",
+  "Italian",
+  "Croatian",
+  "Spanish",
+  "Portuguese",
+  "Dutch",
+  "Swedish",
+  "Danish",
+  "Norwegian",
+  "Finnish",
+  "Bulgarian",
+  "Hungarian",
+  "Czech",
+  "Slovenian",
+  "Slovak",
+  "Lithuanian",
+  "Estonian",
+  "Polish",
+  "Romanian",
+  "Albanian",
+  "Brazilian Portuguese",
+];
 
 export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
   const [open, setOpen] = React.useState(false);
@@ -38,15 +62,16 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
       control={form.control}
       name="languages"
       render={({ field }) => (
-        <FormItem>
+        <FormItem className="flex flex-col gap-2">
           <FormMessage />
-          <FormLabel>Languages</FormLabel>
-          <Popover>
+          <FormLabel>Language</FormLabel>
+          <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <FormControl>
                 <Button
                   variant="outline"
                   role="combobox"
+                  aria-expanded={open}
                   className={cn(
                     "w-[200px] justify-between",
                     !field.value && "text-muted-foreground",
@@ -71,6 +96,7 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
                         key={language}
                         onSelect={() => {
                           form.setValue("languages", language);
+                          setOpen(false);
                         }}
                       >
                         {language}
