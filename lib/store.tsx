@@ -45,11 +45,6 @@ interface CompanyNameStore {
   setCompanyName: (name: string) => void;
 }
 
-interface LanguageStore {
-  language: string;
-  setLanguage: (name: string) => void;
-}
-
 export const useUserFormStore = create<UserFormState>()(
   persist(
     (set) => ({
@@ -104,11 +99,26 @@ export const useCompanyNameStore = create<CompanyNameStore>((set) => ({
 export const useLanguageStore = create<LanguageStore>()(
   persist(
     (set) => ({
-      language: "",
-      setLanguage: (language) => set({ language }),
+      languages: [
+        { value: "English", label: "English" },
+        { value: "German", label: "German" },
+        { value: "French", label: "French" },
+        { value: "Italian", label: "Italian" },
+        { value: "Japanese", label: "Japanese" },
+      ],
+      languageDef: "",
+      setLanguage: (languageDef) => set({ languageDef }), // Set the language
+      resetLanguage: () => set({ languageDef: "" }), // Reset the language to default
     }),
     {
       name: "language-storage",
     },
   ),
 );
+
+interface LanguageStore {
+  languages: { value: string; label: string }[]; // Array of available languages
+  languageDef: string; // Current selected language
+  setLanguage: (name: string) => void; // Method to set the language
+  resetLanguage: () => void; // Method to reset the language to default
+}

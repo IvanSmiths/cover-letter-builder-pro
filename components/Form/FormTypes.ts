@@ -12,7 +12,7 @@ export const companyInformationSchema = z.object({
 
 export const promptSchema = z.object({
   prompt: z.string().min(10, "The prompt must be at least 10 characters!"),
-  language: z.any(),
+  languages: z.any(),
 });
 
 export const FormSchema = z.object({

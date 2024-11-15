@@ -7,7 +7,9 @@ export async function POST(req: Request, res: Response) {
   const yearsOfExperience = reqBody.data.yearsOfExperience;
   const recruiter = reqBody.data.recruiter;
   const companyName = reqBody.data.companyName;
-  const language = reqBody.data.language;
+  const language = reqBody.data.languages;
+
+  console.log(language);
 
   const groq: OpenAIProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
