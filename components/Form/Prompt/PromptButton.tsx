@@ -17,7 +17,7 @@ const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
         </>
       ) : (
         <>
-          Generate PDF
+          Generate Cover Letter
           <Wand2 className="h-4" />
         </>
       )}
