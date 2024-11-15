@@ -9,6 +9,7 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
+import TooltipWrapper from "@/components/ui/TooltipWrapper";
 
 interface CompanyNameInputProps {
   form: UseFormReturn<FormValues>;
@@ -33,7 +34,13 @@ const CompanyNameInput = ({ form }: CompanyNameInputProps) => {
         name="companyName"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Name</FormLabel>
+            <div className="flex items-center gap-smallest">
+              <FormLabel>Name</FormLabel>
+              <TooltipWrapper
+                info="The company structure (LLC, SARL, GmbH, Srl and more) will be added just to the header
+               of the cover letter. It will be removed from the cover letter`s body to give a more genuine feel."
+              />
+            </div>
             <FormControl>
               <Input
                 type="text"
