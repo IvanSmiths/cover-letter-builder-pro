@@ -45,6 +45,11 @@ interface CompanyNameStore {
   setCompanyName: (name: string) => void;
 }
 
+interface LanguageStore {
+  language: string;
+  setLanguage: (name: string) => void;
+}
+
 export const useUserFormStore = create<UserFormState>()(
   persist(
     (set) => ({
@@ -95,3 +100,15 @@ export const useCompanyNameStore = create<CompanyNameStore>((set) => ({
   companyName: "",
   setCompanyName: (name) => set({ companyName: name }),
 }));
+
+export const useLanguageStore = create<LanguageStore>()(
+  persist(
+    (set) => ({
+      language: "",
+      setLanguage: (language) => set({ language }),
+    }),
+    {
+      name: "language-storage",
+    },
+  ),
+);

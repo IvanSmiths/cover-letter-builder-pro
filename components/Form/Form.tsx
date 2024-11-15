@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect } from "react";
 import { Form as FormComponent } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { Separator } from "@/components/ui/separator";
@@ -7,6 +7,7 @@ import CompanyInformation from "./CompanyInformation/CompanyInformation";
 import Prompt from "./Prompt/Prompt";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
+import { useLanguageStore } from "@/lib/store";
 
 export function Form({
   input,
@@ -15,15 +16,20 @@ export function Form({
   handleSubmit,
   stop,
 }: ChatFormProps) {
+  const { language, setLanguage } = useLanguageStore();
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       yearsOfExperience: 0,
       recruiter: "",
       prompt: "",
+      language,
     },
     mode: "onSubmit",
   });
+  useEffect(() => {
+    form.setValue("language", language);
+  }, [language, form]);
   return (
     <FormComponent {...form}>
       <form
@@ -37,6 +43,7 @@ export function Form({
                 yearsOfExperience: validatedData.yearsOfExperience,
                 recruiter: validatedData.recruiter,
                 companyName: validatedData.companyName,
+                language: validatedData.language,
               },
             });
           })(event);

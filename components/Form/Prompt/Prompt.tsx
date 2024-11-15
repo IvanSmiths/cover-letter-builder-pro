@@ -5,6 +5,7 @@ import { PromptInput } from "./PromptInput";
 import PromptButton from "./PromptButton";
 import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/Form/FormHeader";
+import PromptLanguageInput from "@/components/Form/Prompt/PromptLanguageInput";
 
 interface PromptSectionProps {
   input: string;
@@ -24,6 +25,7 @@ function Prompt({
   return (
     <div className="flex flex-col gap-small">
       <FormHeader icon={Sparkles} title="Prompt" />
+      <PromptLanguageInput form={form} />
       <PromptInput
         input={input}
         isLoading={isLoading}

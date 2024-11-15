@@ -7,6 +7,7 @@ export async function POST(req: Request, res: Response) {
   const yearsOfExperience = reqBody.data.yearsOfExperience;
   const recruiter = reqBody.data.recruiter;
   const companyName = reqBody.data.companyName;
+  const language = reqBody.data.language;
 
   const groq: OpenAIProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
@@ -15,7 +16,8 @@ export async function POST(req: Request, res: Response) {
 
   const result = await streamText({
     model: groq("llama-3.1-8b-instant"),
-    prompt: `Create a cover letter based on this job posting. Send just one cover letter, NOT more than one. Do not add any separators or lines. 
+    prompt: `Create a cover letter based on this job posting. Send just one cover letter, NOT more than one. Do not add any separators or lines.
+    Answer in ${language}.
     The name of the recruiter is ${recruiter}, add the name just in the initial salutation. If the recruiter is not stated, use the word "Recruiter".
     The name of the company is ${companyName}. If stated remove the company business structure from any country, like inc., LLC, GmbH, Srl, Ltd, SARL, SA and more. 
     Spend some words about the company product/service if available.
