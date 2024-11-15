@@ -36,6 +36,7 @@ export function Form({
                 prompt: input,
                 yearsOfExperience: validatedData.yearsOfExperience,
                 recruiter: validatedData.recruiter,
+                companyName: validatedData.companyName,
               },
             });
           })(event);

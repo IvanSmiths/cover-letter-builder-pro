@@ -6,6 +6,7 @@ export async function POST(req: Request, res: Response) {
   const prompt = reqBody.data.prompt;
   const yearsOfExperience = reqBody.data.yearsOfExperience;
   const recruiter = reqBody.data.recruiter;
+  const companyName = reqBody.data.companyName;
 
   const groq: OpenAIProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
@@ -14,12 +15,12 @@ export async function POST(req: Request, res: Response) {
 
   const result = await streamText({
     model: groq("llama-3.1-8b-instant"),
-    prompt: `Create a cover letter based on this job posting. Send just one cover letter, not more than one. Dont add any separators or lines. 
-    The name of the recruiter is ${recruiter}, add the name just in the initial salutation. If the recruiter is not stated, use the word "Recruiter". 
-    State that i have ${yearsOfExperience} years of experience in the field JUST if more than 0. If is is 0, do not mention it.
-    Refer the company name and product/service. Refer the name or product JUST if you are absolutely sure that the company name is stated. 
-    If is not stated, use the word "your company" for the name of the company. Give me just the body of the cover letter, 
-    without final salutation and signatures. It is subdivided into three paragraphs.
+    prompt: `Create a cover letter based on this job posting. Send just one cover letter, NOT more than one. Do not add any separators or lines. 
+    The name of the recruiter is ${recruiter}, add the name just in the initial salutation. If the recruiter is not stated, use the word "Recruiter".
+    The name of the company is ${companyName}. If stated remove the company business structure from any country, like inc., LLC, GmbH, Srl, Ltd, SARL, SA and more. 
+    Spend some words about the company product/service if available.
+    State that i have ${yearsOfExperience} years of experience in the field JUST if more than 0. If is is 0, do not mention it. 
+    Give me just the body of the cover letter, without final salutation and signatures. It is subdivided into three paragraphs.
     Separate the paragraphs with a line break.
     Don´t add any explanation, give me just the body of the letter. Fit it in one pdf page. Answer in the job posting language. This is the job posting: ${prompt}`,
   });

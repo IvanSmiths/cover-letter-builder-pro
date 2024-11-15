@@ -16,7 +16,7 @@ function CompanyInformation({ form }: CompanyInformationProps) {
         <Building className="h-fit w-regular" />
         <h2 className="text-2xl font-bold">Company Information</h2>
       </div>
-      <CompanyNameInput />
+      <CompanyNameInput form={form} />
       <CompanyFullAddressInput />
       <CompanyRecruiterInput form={form} />
     </div>

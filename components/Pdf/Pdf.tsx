@@ -2,6 +2,7 @@ import React from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import { PdfProps } from "@/components/Pdf/PdfWrapper";
 import {
+  useCompanyNameStore,
   usePdfStyleStore,
   useRecruiterStore,
   useUserFormStore,
@@ -20,6 +21,7 @@ const Pdf = ({ messages }: PdfProps) => {
     style3,
   };
   const { recruiterName } = useRecruiterStore();
+  const { companyName } = useCompanyNameStore();
   return (
     <PDFViewer style={styles[selectedStyle].viewer}>
       <Document>
@@ -33,6 +35,9 @@ const Pdf = ({ messages }: PdfProps) => {
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {recruiterName}
+            </Text>
+            <Text style={styles[selectedStyle].text} x={0} y={20}>
+              {companyName}
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={40}>
               {messages[messages.length - 1].content || "No content available."}

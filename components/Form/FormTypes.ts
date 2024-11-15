@@ -7,6 +7,7 @@ export const personalInformationSchema = z.object({
 
 export const companyInformationSchema = z.object({
   recruiter: z.string().max(50),
+  companyName: z.string().min(1, "Enter a company name").max(100),
 });
 
 export const promptSchema = z.object({

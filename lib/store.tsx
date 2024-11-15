@@ -16,7 +16,6 @@ interface UserFormState {
 }
 
 interface CompanyFormState {
-  companyName: string;
   companyCity: string;
   companyZip: string;
   companyAddress: string;
@@ -41,6 +40,11 @@ interface RecruiterStore {
   setRecruiterName: (name: string) => void;
 }
 
+interface CompanyNameStore {
+  companyName: string;
+  setCompanyName: (name: string) => void;
+}
+
 export const useUserFormStore = create<UserFormState>()(
   persist(
     (set) => ({
@@ -60,7 +64,6 @@ export const useUserFormStore = create<UserFormState>()(
 export const useCompanyFormStore = create<CompanyFormState>()(
   persist(
     (set) => ({
-      companyName: "",
       companyCity: "",
       companyZip: "",
       companyAddress: "",
@@ -86,4 +89,9 @@ export const usePdfStyleStore = create<PdfStyleState>()(
 export const useRecruiterStore = create<RecruiterStore>((set) => ({
   recruiterName: "",
   setRecruiterName: (name) => set({ recruiterName: name }),
+}));
+
+export const useCompanyNameStore = create<CompanyNameStore>((set) => ({
+  companyName: "",
+  setCompanyName: (name) => set({ companyName: name }),
 }));
