@@ -18,7 +18,7 @@ export async function POST(req: Request, res: Response) {
     model: groq("llama-3.1-8b-instant"),
     prompt: `Write a cover letter based on this job posting. Send just one cover letter, NOT more than one. Do not add any separators or lines. Must be finished without drafts.
     Give me the response in ${language} language. Ignore the job posting language.
-    The name of the recruiter is ${recruiter}. If the name is undefined, translate the word "Recruiter" to the job posting language.
+    The name of the recruiter is ${recruiter}. If the name is undefined, translate the word "Recruiter" to the job posting language. Do not add any genders to the salutation.
     The name of the company is ${companyName}. If stated remove the company business structure from any country, like inc., LLC, GmbH, Srl, Ltd, SARL, SA and more. 
     Spend some words about the company product/service if available.
     State that i have ${yearsOfExperience} years of experience. If is is 0, do not mention it. 
