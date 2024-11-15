@@ -3,7 +3,7 @@ import { useUserFormStore } from "@/lib/store";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-const LastNameInput = () => {
+const PersonalLastNameInput = () => {
   const { lastName, setField } = useUserFormStore();
   return (
     <div className="w-full">
@@ -20,4 +20,4 @@ const LastNameInput = () => {
   );
 };
 
-export default LastNameInput;
+export default PersonalLastNameInput;

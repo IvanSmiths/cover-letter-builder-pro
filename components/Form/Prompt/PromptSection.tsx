@@ -15,7 +15,7 @@ interface PromptSectionProps {
   form: UseFormReturn<FormValues>;
 }
 
-function Prompt({
+function PromptSection({
   input,
   isLoading,
   handleInputChange,
@@ -24,7 +24,7 @@ function Prompt({
 }: PromptSectionProps) {
   return (
     <div className="flex flex-col gap-small">
-      <FormHeader icon={Sparkles} title="Prompt" />
+      <FormHeader icon={Sparkles} title="PromptSection" />
       <PromptLanguages form={form} />
       <PromptInput
         input={input}
@@ -37,4 +37,4 @@ function Prompt({
   );
 }
 
-export default Prompt;
+export default PromptSection;

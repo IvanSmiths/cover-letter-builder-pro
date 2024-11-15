@@ -3,7 +3,7 @@ import { useUserFormStore } from "@/lib/store";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-const EmailInput = () => {
+const PersonalEmailInput = () => {
   const { email, setField } = useUserFormStore();
   return (
     <div className="w-full">
@@ -21,4 +21,4 @@ const EmailInput = () => {
   );
 };
 
-export default EmailInput;
+export default PersonalEmailInput;

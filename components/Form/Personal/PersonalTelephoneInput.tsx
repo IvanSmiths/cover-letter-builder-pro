@@ -3,7 +3,7 @@ import { useUserFormStore } from "@/lib/store";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
-const TelephoneInput = () => {
+const PersonalTelephoneInput = () => {
   const { telephone, setField } = useUserFormStore();
   return (
     <div className="w-full">
@@ -21,4 +21,4 @@ const TelephoneInput = () => {
   );
 };
 
-export default TelephoneInput;
+export default PersonalTelephoneInput;

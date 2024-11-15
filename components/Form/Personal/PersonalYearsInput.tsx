@@ -13,7 +13,7 @@ interface YearsInputProps {
   form: UseFormReturn<FormValues>;
 }
 
-export function YearsInput({ form }: YearsInputProps) {
+export function PersonalYearsInput({ form }: YearsInputProps) {
   return (
     <div className="w-full">
       <FormField

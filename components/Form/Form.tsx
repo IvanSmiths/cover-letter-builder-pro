@@ -2,9 +2,9 @@ import { FormEvent } from "react";
 import { Form as FormComponent } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { Separator } from "@/components/ui/separator";
-import PersonalInformation from "./PersonalInformation/PersonalInformation";
-import CompanyInformation from "./CompanyInformation/CompanyInformation";
-import Prompt from "./Prompt/Prompt";
+import PersonalSection from "@/components/Form/Personal/PersonalSection";
+import CompanySection from "@/components/Form/Company/CompanySection";
+import PromptSection from "./Prompt/PromptSection";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
 
@@ -43,11 +43,11 @@ export function Form({
           })(event);
         }}
       >
-        <PersonalInformation form={form} />
+        <PersonalSection form={form} />
         <Separator className="my-small" />
-        <CompanyInformation form={form} />
+        <CompanySection form={form} />
         <Separator className="my-small" />
-        <Prompt
+        <PromptSection
           input={input}
           isLoading={isLoading}
           handleInputChange={handleInputChange}
