@@ -23,7 +23,7 @@ export function PersonalYearsInput({ form }: YearsInputProps) {
           <FormItem>
             <div className="flex items-center gap-smallest">
               <FormLabel>Years of Experience</FormLabel>
-              <TooltipWrapper info="Leave at 0 if you don`t have any professional experience." />
+              <TooltipWrapper info="If 0 it will be omitted by the prompt response." />
             </div>
             <FormControl>
               <Input
