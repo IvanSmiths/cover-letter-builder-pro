@@ -151,8 +151,6 @@ const Pdf = ({ messages }: PdfProps) => {
               styles[selectedStyle].text,
               styles[selectedStyle].promptSection,
             ]}
-            x={0}
-            y={40}
           >
             {messages[messages.length - 1].content || "No content available."}
           </Text>
