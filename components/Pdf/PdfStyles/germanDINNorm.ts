@@ -21,6 +21,10 @@ export const germanDINNorm = {
   companyHeader: {
     marginTop: 30,
   },
+  dateHeader: {
+    marginTop: 20,
+    textAlign: "right",
+  },
   subjectHeader: {
     marginTop: 20,
   },

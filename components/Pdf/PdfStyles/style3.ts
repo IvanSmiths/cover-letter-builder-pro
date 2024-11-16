@@ -18,6 +18,9 @@ export const style3 = {
   companyHeader: {
     marginTop: 30,
   },
+  dateHeader: {
+    marginTop: 20,
+  },
   subjectHeader: {
     textAlign: "left",
   },

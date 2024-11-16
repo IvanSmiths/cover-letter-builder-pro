@@ -129,6 +129,9 @@ const PdfSkeleton = () => {
               {city}
             </Text>
           </View>
+          <View style={styles[selectedStyle].dateHeader}>
+            <Text style={styles[selectedStyle].text}>{PersonalCity}, </Text>
+          </View>
           <View style={styles[selectedStyle].subjectHeader}>
             <Text style={styles[selectedStyle].text}>{companySubject}</Text>
           </View>
