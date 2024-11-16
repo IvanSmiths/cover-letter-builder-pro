@@ -9,6 +9,7 @@ interface PersonalFormState {
   email: string;
   telephone: string;
   zip: string;
+  address: string;
   setField: <K extends keyof PersonalFormState>(
     field: K,
     value: PersonalFormState[K],
@@ -53,6 +54,7 @@ export const usePersonalFormStore = create<PersonalFormState>()(
       city: "",
       telephone: "",
       zip: "",
+      address: "",
       email: "",
       nation: "",
       setField: (field, value) => set({ [field]: value }),

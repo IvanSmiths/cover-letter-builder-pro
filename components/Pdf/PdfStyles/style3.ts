@@ -6,6 +6,9 @@ export const style3 = {
   page: {
     backgroundColor: "black",
   },
+  personalHeader: {
+    flexDirection: "row",
+  },
   text: {
     fontSize: 32,
     color: "blue",

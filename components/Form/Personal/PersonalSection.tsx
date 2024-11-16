@@ -10,6 +10,7 @@ import PersonalEmailInput from "./PersonalEmailInput";
 import PersonalTelephoneInput from "./PersonalTelephoneInput";
 import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/Form/FormHeader";
+import PersonalAddressInput from "@/components/Form/Personal/PersonalAddress";
 
 interface PersonalInformationProps {
   form: UseFormReturn<FormValues>;
@@ -26,6 +27,9 @@ function PersonalSection({ form }: PersonalInformationProps) {
       <div className="flex gap-small">
         <PersonalCityInput />
         <PersonalZipInput />
+      </div>
+      <div>
+        <PersonalAddressInput />
       </div>
       <div className="flex items-end gap-small">
         <PersonalNationInput />

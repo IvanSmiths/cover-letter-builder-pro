@@ -8,6 +8,9 @@ export const germanDINNorm = {
     padding: 75.59,
     paddingLeft: 94.48,
   },
+  personalHeader: {
+    textAlign: "right",
+  },
   text: {
     fontSize: 12,
     color: "black",
