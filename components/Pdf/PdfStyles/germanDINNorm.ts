@@ -28,6 +28,9 @@ export const germanDINNorm = {
   subjectHeader: {
     marginTop: 20,
   },
+  promptSection: {
+    marginTop: 20,
+  },
   text: {
     fontSize: 12,
     color: "black",

@@ -24,6 +24,9 @@ export const style3 = {
   subjectHeader: {
     textAlign: "left",
   },
+  promptSection: {
+    marginTop: 20,
+  },
   text: {
     fontSize: 32,
     color: "blue",

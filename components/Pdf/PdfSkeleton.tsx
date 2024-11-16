@@ -108,18 +108,18 @@ const PdfSkeleton = () => {
             <Text
               style={[
                 styles[selectedStyle].text,
-                styles[selectedStyle].headerName,
-              ]}
-            >
-              {companyName}
-            </Text>
-            <Text
-              style={[
-                styles[selectedStyle].text,
                 styles[selectedStyle].headerText,
               ]}
             >
               {recruiterName}
+            </Text>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerName,
+              ]}
+            >
+              {companyName}
             </Text>
             <Text
               style={[
