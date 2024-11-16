@@ -7,7 +7,6 @@ import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/Form/FormHeader";
 import { PromptLanguages } from "@/components/Form/Prompt/PromptLanguages";
 import { PersonalYearsInput } from "@/components/Form/Personal/PersonalYearsInput";
-import CompanySubject from "@/components/Form/Company/CompanySubject";
 
 interface PromptSectionProps {
   input: string;
@@ -26,12 +25,11 @@ function PromptSection({
 }: PromptSectionProps) {
   return (
     <div className="flex flex-col gap-small">
-      <FormHeader icon={Sparkles} title="PromptSection" />
+      <FormHeader icon={Sparkles} title="Prompt Info" />
       <div className="flex gap-small">
         <PromptLanguages form={form} />
         <PersonalYearsInput form={form} />
       </div>
-      <CompanySubject />
       <PromptInput
         input={input}
         isLoading={isLoading}

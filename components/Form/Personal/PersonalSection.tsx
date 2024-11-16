@@ -18,7 +18,7 @@ interface PersonalInformationProps {
 function PersonalSection({ form }: PersonalInformationProps) {
   return (
     <div className="flex flex-col gap-small">
-      <FormHeader icon={User} title="Personal Information" />
+      <FormHeader icon={User} title="Personal Info" />
       <div className="flex gap-small">
         <PersonalFirstNameInput />
         <PersonalLastNameInput />
