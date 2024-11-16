@@ -19,7 +19,8 @@ const PdfSkeleton = () => {
   };
 
   const { selectedStyle } = usePdfStyleStore();
-  const { firstName, lastName, address, zip } = usePersonalFormStore();
+  const { PersonalFirstName, PersonalLastName, PersonalAddress, PersonalZip } =
+    usePersonalFormStore();
   const { companyFullAddress } = useCompanyFormStore();
   const { recruiterName } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
@@ -47,10 +48,10 @@ const PdfSkeleton = () => {
           <View>
             <View style={styles[selectedStyle].personalHeader}>
               <Text style={styles[selectedStyle].text}>
-                {firstName} {lastName}
+                {PersonalFirstName} {PersonalLastName}
               </Text>
-              <Text style={styles[selectedStyle].text}>{address}</Text>
-              <Text style={styles[selectedStyle].text}>{zip}</Text>
+              <Text style={styles[selectedStyle].text}>{PersonalAddress}</Text>
+              <Text style={styles[selectedStyle].text}>{PersonalZip}</Text>
             </View>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {recruiterName}

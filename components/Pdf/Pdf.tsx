@@ -12,7 +12,7 @@ import { style2 } from "@/components/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/Pdf/PdfStyles/style3";
 
 const Pdf = ({ messages }: PdfProps) => {
-  const { firstName, lastName } = usePersonalFormStore();
+  const { PersonalFirstName, PersonalLastName } = usePersonalFormStore();
   const { selectedStyle } = usePdfStyleStore();
 
   const styles = {
@@ -29,10 +29,10 @@ const Pdf = ({ messages }: PdfProps) => {
         <Page size="A4" style={styles[selectedStyle].page}>
           <View>
             <Text style={styles[selectedStyle].text} x={0} y={0}>
-              {firstName}
+              {PersonalFirstName}
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
-              {lastName}
+              {PersonalLastName}
             </Text>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {recruiterName}

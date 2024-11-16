@@ -4,18 +4,18 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 const PersonalEmailInput = () => {
-  const { email, setField } = usePersonalFormStore();
+  const { PersonalEmail, setField } = usePersonalFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="email">Email</Label>
+      <Label htmlFor="PersonalEmail">Email</Label>
       <Input
-        id="email"
+        id="PersonalEmail"
         type="text"
         className="mt-1"
-        value={email}
+        value={PersonalEmail}
         placeholder="jogn.doe@gmail.com"
         autoComplete="email"
-        onChange={(e) => setField("email", e.target.value)}
+        onChange={(e) => setField("PersonalEmail", e.target.value)}
       />
     </div>
   );

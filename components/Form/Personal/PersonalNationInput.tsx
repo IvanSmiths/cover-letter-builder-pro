@@ -4,18 +4,18 @@ import { Label } from "@/components/ui/label";
 import React from "react";
 
 const PersonalNationInput = () => {
-  const { nation, setField } = usePersonalFormStore();
+  const { PersonalEmail, setField } = usePersonalFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="nation">Nation</Label>
+      <Label htmlFor="PersonalEmail">Nation</Label>
       <Input
-        id="nation"
+        id="PersonalEmail"
         type="text"
         className="mt-1"
-        value={nation}
+        value={PersonalEmail}
         placeholder="Germany"
         autoComplete="country-name"
-        onChange={(e) => setField("nation", e.target.value)}
+        onChange={(e) => setField("PersonalEmail", e.target.value)}
       />
     </div>
   );

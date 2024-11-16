@@ -2,14 +2,14 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface PersonalFormState {
-  firstName: string;
-  lastName: string;
-  city: string;
-  nation: string;
-  email: string;
-  telephone: string;
-  zip: string;
-  address: string;
+  PersonalFirstName: string;
+  PersonalLastName: string;
+  PersonalCity: string;
+  PersonalNation: string;
+  PersonalEmail: string;
+  PersonalTelephone: string;
+  PersonalZip: string;
+  PersonalAddress: string;
   setField: <K extends keyof PersonalFormState>(
     field: K,
     value: PersonalFormState[K],
@@ -49,14 +49,14 @@ interface CompanyNameStore {
 export const usePersonalFormStore = create<PersonalFormState>()(
   persist(
     (set) => ({
-      firstName: "",
-      lastName: "",
-      city: "",
-      telephone: "",
-      zip: "",
-      address: "",
-      email: "",
-      nation: "",
+      PersonalFirstName: "",
+      PersonalLastName: "",
+      PersonalCity: "",
+      PersonalTelephone: "",
+      PersonalZip: "",
+      PersonalAddress: "",
+      PersonalEmail: "",
+      PersonalNation: "",
       setField: (field, value) => set({ [field]: value }),
     }),
     { name: "user-form" },

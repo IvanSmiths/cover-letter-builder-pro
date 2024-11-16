@@ -4,17 +4,17 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 const PersonalLastNameInput = () => {
-  const { lastName, setField } = usePersonalFormStore();
+  const { PersonalLastName, setField } = usePersonalFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="lastName">Last Name</Label>
+      <Label htmlFor="PersonalLastName">Last Name</Label>
       <Input
-        id="lastName"
+        id="PersonalLastName"
         type="text"
         className="mt-1"
-        value={lastName}
+        value={PersonalLastName}
         autoComplete="family-name"
-        onChange={(e) => setField("lastName", e.target.value)}
+        onChange={(e) => setField("PersonalLastName", e.target.value)}
       />
     </div>
   );

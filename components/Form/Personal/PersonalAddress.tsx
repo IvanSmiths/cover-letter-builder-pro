@@ -3,18 +3,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 const PersonalAddressInput = () => {
-  const { address, setField } = usePersonalFormStore();
+  const { PersonalAddress, setField } = usePersonalFormStore();
   return (
     <div className="w-full">
-      <Label htmlFor="address">Address</Label>
+      <Label htmlFor="PersonalAddress">Address</Label>
       <Input
-        id="address"
+        id="PersonalAddress"
         type="text"
         className="mt-1"
-        value={address}
+        value={PersonalAddress}
         placeholder="Holiday st. 24"
         autoComplete="address-line1"
-        onChange={(e) => setField("address", e.target.value)}
+        onChange={(e) => setField("PersonalAddress", e.target.value)}
       />
     </div>
   );
