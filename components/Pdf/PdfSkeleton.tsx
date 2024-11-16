@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import {
   useCompanyFormStore,
   useCompanyNameStore,
+  useDateFormatStore,
   usePdfStyleStore,
   usePersonalFormStore,
   useRecruiterStore,
@@ -10,6 +11,7 @@ import {
 import { germanDINNorm } from "@/components/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/Pdf/PdfStyles/style3";
+import { getTodayDate } from "@/components/Pdf/getTodayDate";
 
 const PdfSkeleton = () => {
   const styles = {
@@ -47,6 +49,13 @@ const PdfSkeleton = () => {
   };
 
   const { street, city } = parseAddress(companyFullAddress);
+
+  const { format } = useDateFormatStore();
+  const [currentDate, setCurrentDate] = useState<string>("");
+
+  useEffect(() => {
+    setCurrentDate(getTodayDate(format));
+  }, [format]);
 
   return (
     <PDFViewer style={styles[selectedStyle].viewer} showToolbar={false}>
@@ -130,7 +139,9 @@ const PdfSkeleton = () => {
             </Text>
           </View>
           <View style={styles[selectedStyle].dateHeader}>
-            <Text style={styles[selectedStyle].text}>{PersonalCity}, </Text>
+            <Text style={styles[selectedStyle].text}>
+              {PersonalCity}, {currentDate}
+            </Text>
           </View>
           <View style={styles[selectedStyle].subjectHeader}>
             <Text style={styles[selectedStyle].text}>{companySubject}</Text>

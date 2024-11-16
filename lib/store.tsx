@@ -47,6 +47,19 @@ interface CompanyNameStore {
   setCompanyName: (name: string) => void;
 }
 
+interface DateFormatState {
+  format: string;
+  setFormat: (format: string) => void;
+}
+
+export const useDateFormatStore = create<DateFormatState>((set) => ({
+  format: localStorage.getItem("dateFormat") || "European",
+  setFormat: (format: string) => {
+    localStorage.setItem("dateFormat", format);
+    set({ format });
+  },
+}));
+
 export const usePersonalFormStore = create<PersonalFormState>()(
   persist(
     (set) => ({
