@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface UserFormState {
+interface PersonalFormState {
   firstName: string;
   lastName: string;
   city: string;
@@ -9,9 +9,9 @@ interface UserFormState {
   email: string;
   telephone: string;
   zip: string;
-  setField: <K extends keyof UserFormState>(
+  setField: <K extends keyof PersonalFormState>(
     field: K,
-    value: UserFormState[K],
+    value: PersonalFormState[K],
   ) => void;
 }
 
@@ -45,7 +45,7 @@ interface CompanyNameStore {
   setCompanyName: (name: string) => void;
 }
 
-export const useUserFormStore = create<UserFormState>()(
+export const usePersonalFormStore = create<PersonalFormState>()(
   persist(
     (set) => ({
       firstName: "",

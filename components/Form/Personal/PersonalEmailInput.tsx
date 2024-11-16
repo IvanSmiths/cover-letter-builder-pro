@@ -1,10 +1,10 @@
 import React from "react";
-import { useUserFormStore } from "@/lib/store";
+import { usePersonalFormStore } from "@/lib/store";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 const PersonalEmailInput = () => {
-  const { email, setField } = useUserFormStore();
+  const { email, setField } = usePersonalFormStore();
   return (
     <div className="w-full">
       <Label htmlFor="email">Email</Label>

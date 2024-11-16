@@ -1,10 +1,10 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
-import { useUserFormStore } from "@/lib/store";
+import { usePersonalFormStore } from "@/lib/store";
 import { Label } from "@/components/ui/label";
 
 const PersonalFirstNameInput = () => {
-  const { firstName, setField } = useUserFormStore();
+  const { firstName, setField } = usePersonalFormStore();
   return (
     <div className="w-full">
       <Label htmlFor="firstName">First Name</Label>

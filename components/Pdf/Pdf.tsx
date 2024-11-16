@@ -4,15 +4,15 @@ import { PdfProps } from "@/components/Pdf/PdfWrapper";
 import {
   useCompanyNameStore,
   usePdfStyleStore,
+  usePersonalFormStore,
   useRecruiterStore,
-  useUserFormStore,
 } from "@/lib/store";
 import { germanDINNorm } from "@/components/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/Pdf/PdfStyles/style3";
 
 const Pdf = ({ messages }: PdfProps) => {
-  const { firstName, lastName } = useUserFormStore();
+  const { firstName, lastName } = usePersonalFormStore();
   const { selectedStyle } = usePdfStyleStore();
 
   const styles = {

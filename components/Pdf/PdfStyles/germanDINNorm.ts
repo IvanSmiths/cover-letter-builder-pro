@@ -5,6 +5,8 @@ export const germanDINNorm = {
   },
   page: {
     backgroundColor: "white",
+    padding: 75.59,
+    paddingLeft: 94.48,
   },
   text: {
     fontSize: 12,

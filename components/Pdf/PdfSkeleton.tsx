@@ -4,8 +4,8 @@ import {
   useCompanyFormStore,
   useCompanyNameStore,
   usePdfStyleStore,
+  usePersonalFormStore,
   useRecruiterStore,
-  useUserFormStore,
 } from "@/lib/store";
 import { germanDINNorm } from "@/components/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/Pdf/PdfStyles/style2";
@@ -19,7 +19,7 @@ const PdfSkeleton = () => {
   };
 
   const { selectedStyle } = usePdfStyleStore();
-  const { firstName, lastName } = useUserFormStore();
+  const { firstName, lastName } = usePersonalFormStore();
   const { companyFullAddress } = useCompanyFormStore();
   const { recruiterName } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
@@ -45,12 +45,14 @@ const PdfSkeleton = () => {
       <Document>
         <Page size="A4" style={styles[selectedStyle].page}>
           <View>
-            <Text style={styles[selectedStyle].text} x={0} y={0}>
-              {firstName}
-            </Text>
-            <Text style={styles[selectedStyle].text} x={0} y={20}>
-              {lastName}
-            </Text>
+            <View>
+              <Text style={styles[selectedStyle].text} x={0} y={0}>
+                {firstName}
+              </Text>
+              <Text style={styles[selectedStyle].text} x={0} y={20}>
+                {lastName}
+              </Text>
+            </View>
             <Text style={styles[selectedStyle].text} x={0} y={20}>
               {recruiterName}
             </Text>
