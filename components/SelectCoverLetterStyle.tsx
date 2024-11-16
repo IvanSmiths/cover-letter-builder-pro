@@ -4,8 +4,8 @@ const SelectCoverLetterStyle = () => {
   const { setSelectedStyle } = usePdfStyleStore();
   return (
     <div>
-      <div onClick={() => setSelectedStyle("style1")}>
-        Style 1 (Black Helvetica)
+      <div onClick={() => setSelectedStyle("germanDINNorm")}>
+        German DIN-Norm 5008
       </div>
       <div onClick={() => setSelectedStyle("style2")}>
         Style 2 (Blue Times New Roman)

@@ -1,4 +1,4 @@
-export const style1 = {
+export const germanDINNorm = {
   viewer: {
     width: "100%",
     height: "100%",

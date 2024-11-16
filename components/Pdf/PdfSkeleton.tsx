@@ -7,13 +7,13 @@ import {
   useRecruiterStore,
   useUserFormStore,
 } from "@/lib/store";
-import { style1 } from "@/components/Pdf/PdfStyles/style1";
+import { germanDINNorm } from "@/components/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/Pdf/PdfStyles/style3";
 
 const PdfSkeleton = () => {
   const styles = {
-    style1,
+    germanDINNorm,
     style2,
     style3,
   };

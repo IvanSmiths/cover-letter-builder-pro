@@ -7,7 +7,7 @@ import {
   useRecruiterStore,
   useUserFormStore,
 } from "@/lib/store";
-import { style1 } from "@/components/Pdf/PdfStyles/style1";
+import { germanDINNorm } from "@/components/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/Pdf/PdfStyles/style3";
 
@@ -16,10 +16,11 @@ const Pdf = ({ messages }: PdfProps) => {
   const { selectedStyle } = usePdfStyleStore();
 
   const styles = {
-    style1,
+    germanDINNorm,
     style2,
     style3,
   };
+
   const { recruiterName } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
   return (

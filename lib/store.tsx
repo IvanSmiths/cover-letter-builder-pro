@@ -28,7 +28,7 @@ interface CompanyFormState {
   ) => void;
 }
 
-type PdfStyle = "style1" | "style2" | "style3";
+type PdfStyle = "germanDINNorm" | "style2" | "style3";
 
 interface PdfStyleState {
   selectedStyle: PdfStyle;
@@ -79,7 +79,7 @@ export const useCompanyFormStore = create<CompanyFormState>()(
 export const usePdfStyleStore = create<PdfStyleState>()(
   persist(
     (set) => ({
-      selectedStyle: "style1",
+      selectedStyle: "germanDINNorm",
       setSelectedStyle: (style) => set({ selectedStyle: style }),
     }),
     { name: "pdf-style" },
