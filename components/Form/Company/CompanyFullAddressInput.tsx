@@ -10,8 +10,7 @@ const CompanyFullAddressInput = () => {
       <Input
         id="companyFullAddress"
         type="text"
-        placeholder="Friedrich-Ebert-Anlage 29, 60308, Frankfurt am Main
-"
+        placeholder="Friedrich-Ebert-Anlage 29, 60308, Frankfurt am Main"
         className="mt-1"
         value={companyFullAddress}
         onChange={(e) => setField("companyFullAddress", e.target.value)}

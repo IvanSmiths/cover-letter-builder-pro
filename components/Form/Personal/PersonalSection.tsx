@@ -5,7 +5,6 @@ import PersonalLastNameInput from "./PersonalLastNameInput";
 import PersonalCityInput from "./PersonalCityInput";
 import PersonalZipInput from "./PersonalZipInput";
 import PersonalNationInput from "./PersonalNationInput";
-import { PersonalYearsInput } from "./PersonalYearsInput";
 import PersonalEmailInput from "./PersonalEmailInput";
 import PersonalTelephoneInput from "./PersonalTelephoneInput";
 import { FormValues } from "../FormTypes";
@@ -28,12 +27,9 @@ function PersonalSection({ form }: PersonalInformationProps) {
         <PersonalCityInput />
         <PersonalZipInput />
       </div>
-      <div>
-        <PersonalAddressInput />
-      </div>
       <div className="flex items-end gap-small">
         <PersonalNationInput />
-        <PersonalYearsInput form={form} />
+        <PersonalAddressInput />
       </div>
       <div className="flex gap-small">
         <PersonalEmailInput />

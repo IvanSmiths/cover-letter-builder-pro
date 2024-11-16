@@ -18,6 +18,9 @@ export const style2 = {
   companyHeader: {
     marginTop: 30,
   },
+  subjectHeader: {
+    textAlign: "left",
+  },
   text: {
     fontSize: 22,
     color: "red",

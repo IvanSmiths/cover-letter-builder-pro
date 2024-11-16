@@ -28,7 +28,7 @@ const PdfSkeleton = () => {
     PersonalTelephone,
     PersonalEmail,
   } = usePersonalFormStore();
-  const { companyFullAddress } = useCompanyFormStore();
+  const { companyFullAddress, companySubject } = useCompanyFormStore();
   const { recruiterName } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
 
@@ -128,6 +128,9 @@ const PdfSkeleton = () => {
             >
               {city}
             </Text>
+          </View>
+          <View style={styles[selectedStyle].subjectHeader}>
+            <Text style={styles[selectedStyle].text}>{companySubject}</Text>
           </View>
         </Page>
       </Document>

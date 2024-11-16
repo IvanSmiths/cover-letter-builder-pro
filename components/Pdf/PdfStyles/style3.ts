@@ -18,6 +18,9 @@ export const style3 = {
   companyHeader: {
     marginTop: 30,
   },
+  subjectHeader: {
+    textAlign: "left",
+  },
   text: {
     fontSize: 32,
     color: "blue",

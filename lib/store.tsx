@@ -23,6 +23,7 @@ interface CompanyFormState {
   companyNation: string;
   companyFullAddress: string;
   companyRecruiter: any;
+  companySubject: string;
   setField: <K extends keyof CompanyFormState>(
     field: K,
     value: CompanyFormState[K],
@@ -72,6 +73,7 @@ export const useCompanyFormStore = create<CompanyFormState>()(
       companyNation: "",
       companyFullAddress: "",
       companyRecruiter: "",
+      companySubject: "",
       setField: (field, value) => set({ [field]: value }),
     }),
     { name: "company-form" },

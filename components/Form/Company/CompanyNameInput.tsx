@@ -44,6 +44,7 @@ const CompanyNameInput = ({ form }: CompanyNameInputProps) => {
             <FormControl>
               <Input
                 type="text"
+                autoComplete="organization"
                 {...field}
                 value={field.value ?? ""}
                 placeholder="Apple Inc."

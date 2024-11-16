@@ -21,6 +21,9 @@ export const germanDINNorm = {
   companyHeader: {
     marginTop: 30,
   },
+  subjectHeader: {
+    marginTop: 20,
+  },
   text: {
     fontSize: 12,
     color: "black",
