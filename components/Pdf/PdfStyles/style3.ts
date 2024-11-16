@@ -6,8 +6,17 @@ export const style3 = {
   page: {
     backgroundColor: "black",
   },
+  headerText: {
+    fontSize: 22,
+  },
+  headerName: {
+    fontWeight: 600,
+  },
   personalHeader: {
     flexDirection: "row",
+  },
+  companyHeader: {
+    marginTop: 30,
   },
   text: {
     fontSize: 32,

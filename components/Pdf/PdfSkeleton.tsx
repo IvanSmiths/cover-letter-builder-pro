@@ -19,8 +19,15 @@ const PdfSkeleton = () => {
   };
 
   const { selectedStyle } = usePdfStyleStore();
-  const { PersonalFirstName, PersonalLastName, PersonalAddress, PersonalZip } =
-    usePersonalFormStore();
+  const {
+    PersonalFirstName,
+    PersonalLastName,
+    PersonalAddress,
+    PersonalZip,
+    PersonalCity,
+    PersonalTelephone,
+    PersonalEmail,
+  } = usePersonalFormStore();
   const { companyFullAddress } = useCompanyFormStore();
   const { recruiterName } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
@@ -45,25 +52,81 @@ const PdfSkeleton = () => {
     <PDFViewer style={styles[selectedStyle].viewer} showToolbar={false}>
       <Document>
         <Page size="A4" style={styles[selectedStyle].page}>
-          <View>
-            <View style={styles[selectedStyle].personalHeader}>
-              <Text style={styles[selectedStyle].text}>
-                {PersonalFirstName} {PersonalLastName}
-              </Text>
-              <Text style={styles[selectedStyle].text}>{PersonalAddress}</Text>
-              <Text style={styles[selectedStyle].text}>{PersonalZip}</Text>
-            </View>
-            <Text style={styles[selectedStyle].text} x={0} y={20}>
+          <View style={styles[selectedStyle].personalHeader}>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+                styles[selectedStyle].headerName,
+              ]}
+            >
+              {PersonalFirstName} {PersonalLastName}
+            </Text>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
+              {PersonalAddress}
+            </Text>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
+              {PersonalZip} {PersonalCity}
+            </Text>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
+              {PersonalTelephone}
+            </Text>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
+              {PersonalEmail}
+            </Text>
+          </View>
+          <View style={styles[selectedStyle].companyHeader}>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerName,
+              ]}
+            >
+              {companyName}
+            </Text>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
               {recruiterName}
             </Text>
-            <Text style={styles[selectedStyle].text} x={0} y={20}>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
               {street}
             </Text>
-            <Text style={styles[selectedStyle].text} x={0} y={20}>
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].headerText,
+              ]}
+            >
               {city}
-            </Text>
-            <Text style={styles[selectedStyle].text} x={0} y={20}>
-              {companyName}
             </Text>
           </View>
         </Page>
