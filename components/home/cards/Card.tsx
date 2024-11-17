@@ -16,7 +16,7 @@ function Card({ title, description, icon, color, size, link }: CardProps) {
 
   return (
     <div
-      className={`${bgColor} ${textColor} ${size === "small" ? "flex min-h-[20rem] flex-col items-center justify-center gap-smallest p-large" : "p-regular"} flex flex-col rounded-3xl`}
+      className={`${bgColor} ${textColor} ${size === "small" ? "items-center justify-center gap-smallest p-large" : "p-regular"} flex min-h-[20rem] flex-col rounded-3xl`}
     >
       {icon && icon}
       <h2 className={`${size === "small" ? "text-7xl" : "text-4xl"} font-bold`}>
