@@ -13,10 +13,21 @@ const BigCard = () => {
   ];
 
   const benefits = [
-    "Stand Out in the Crowd.",
-    "Stand Out in the Crowd.",
-    "Stand Out in the Crowd.",
-    "Stand Out in the Crowd.",
+    {
+      headline: "Stand Out in the Crowd.",
+      paragraph:
+        "In a competitive markets, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+    },
+    {
+      headline: "Stand Out in the Crowd.",
+      paragraph:
+        "In a markets, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+    },
+    {
+      headline: "Stand Out in the Crowd.",
+      paragraph:
+        "In a competitive, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+    },
   ];
 
   return (
@@ -24,7 +35,7 @@ const BigCard = () => {
       <div className="rounded-3xl bg-[#1F2937] p-8 md:p-12">
         <div className="flex">
           {/* Left Column */}
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-between pr-8">
             <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
               Make the difference between landing your dream job or being
               overlooked.
@@ -49,12 +60,10 @@ const BigCard = () => {
           <div className="hidden space-y-8 border-l border-gray-700 pl-8 md:block">
             {benefits.map((benefit, index) => (
               <div key={index} className="space-y-2">
-                <h3 className="text-xl font-semibold text-white">{benefit}</h3>
-                <p className="text-gray-400">
-                  In a competitive markets, hiring managers receive hundreds of
-                  applications. A personalized, well-written, tailored cover
-                  letter immediately sets you apart.
-                </p>
+                <h3 className="text-xl font-semibold text-white">
+                  {benefit.headline}
+                </h3>
+                <p className="text-gray-400">{benefit.paragraph}</p>
               </div>
             ))}
           </div>
@@ -63,12 +72,10 @@ const BigCard = () => {
           <div className="space-y-6 md:hidden">
             {benefits.slice(0, 2).map((benefit, index) => (
               <div key={index} className="space-y-2">
-                <h3 className="text-xl font-semibold text-white">{benefit}</h3>
-                <p className="text-gray-400">
-                  In a competitive markets, hiring managers receive hundreds of
-                  applications. A personalized, well-written, tailored cover
-                  letter immediately sets you apart.
-                </p>
+                <h3 className="text-xl font-semibold text-white">
+                  {benefit.headline}
+                </h3>
+                <p className="text-gray-400">{benefit.paragraph}</p>
               </div>
             ))}
           </div>

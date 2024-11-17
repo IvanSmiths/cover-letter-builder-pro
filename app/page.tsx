@@ -4,7 +4,7 @@ import Main from "@/components/home/main/Main";
 
 const Home: NextPage = () => {
   return (
-    <div className="px-small md:px-xlarge lg:px-xxlarge xl:px-xxxlarge">
+    <div className="px-small md:px-large lg:px-xlarge xl:px-xxlarge">
       <Header />
       <Main />
     </div>
