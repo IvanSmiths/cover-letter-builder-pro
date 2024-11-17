@@ -8,9 +8,11 @@ type HeaderProps = {
 
 const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
   return (
-    <div className="align-center flex flex-col items-center gap-regular pt-large md:pt-xxlarge">
+    <div
+      className={`${isHero ? "pt-large md:pt-xxlarge" : "mt-large"} align-center flex flex-col items-center gap-regular`}
+    >
       <h1
-        className={` ${isHero ? "h-full bg-gradient-to-r from-dark to-gray-800 bg-clip-text text-4xl text-transparent dark:from-light dark:to-gray-400 md:text-7xl lg:text-8xl" : "text-3xl"} text-center font-bold`}
+        className={`${isHero ? "h-full bg-gradient-to-r from-dark to-gray-800 bg-clip-text text-4xl text-transparent dark:from-light dark:to-gray-400 md:text-7xl lg:text-8xl" : "text-6xl"} text-center font-bold`}
       >
         {title}
       </h1>

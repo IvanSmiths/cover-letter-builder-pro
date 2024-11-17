@@ -20,17 +20,17 @@ const BigCard = () => {
   ];
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full">
       <div className="rounded-3xl bg-[#1F2937] p-8 md:p-12">
-        <div className="grid items-start gap-8 md:grid-cols-2">
+        <div className="flex">
           {/* Left Column */}
-          <div className="space-y-8">
+          <div className="flex flex-col justify-between">
             <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
               Make the difference between landing your dream job or being
               overlooked.
             </h2>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="flex gap-small">
               {stats.map((stat, index) => (
                 <div
                   key={index}
