@@ -16,10 +16,12 @@ function Card({ title, description, icon, color, size, link }: CardProps) {
 
   return (
     <div
-      className={`${bgColor} ${textColor} ${size === "small" ? "items-center justify-center gap-smallest p-large" : "p-regular"} flex min-h-[20rem] flex-col rounded-3xl`}
+      className={`${bgColor} ${textColor} ${size === "small" ? "items-center justify-center gap-smallest p-regular sm:p-large" : "p-regular"} flex min-h-[15rem] flex-col rounded-3xl sm:min-h-[20rem]`}
     >
       {icon && icon}
-      <h2 className={`${size === "small" ? "text-7xl" : "text-4xl"} font-bold`}>
+      <h2
+        className={`${size === "small" ? "text-5xl md:text-7xl" : "text-2xl md:text-4xl"} font-bold`}
+      >
         {title}
       </h2>
       <p
