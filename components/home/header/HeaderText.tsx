@@ -6,9 +6,9 @@ type HeaderProps = {
   paragraph: string;
 };
 
-const Header = ({ title, paragraph, isHero }: HeaderProps) => {
+const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
   return (
-    <header className="align-center flex flex-col items-center gap-regular pt-xlarge">
+    <div className="align-center flex flex-col items-center gap-regular pt-large md:pt-xxlarge">
       <h1
         className={` ${isHero ? "h-full bg-gradient-to-r from-dark to-gray-800 bg-clip-text text-4xl text-transparent dark:from-light dark:to-gray-400 md:text-6xl" : "text-3xl"} text-center font-bold`}
       >
@@ -22,8 +22,8 @@ const Header = ({ title, paragraph, isHero }: HeaderProps) => {
           Create Cover Letter
         </Button>
       ) : null}
-    </header>
+    </div>
   );
 };
 
-export default Header;
+export default HeaderText;
