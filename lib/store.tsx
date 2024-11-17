@@ -48,17 +48,31 @@ interface CompanyNameStore {
 }
 
 interface DateFormatState {
-  format: string;
+  format: string | null;
   setFormat: (format: string) => void;
 }
 
-export const useDateFormatStore = create<DateFormatState>((set) => ({
-  format: localStorage.getItem("dateFormat") || "European",
-  setFormat: (format: string) => {
-    localStorage.setItem("dateFormat", format);
-    set({ format });
-  },
-}));
+const getInitialState = () => {
+  if (typeof window !== "undefined") {
+    return localStorage.getItem("dateFormat");
+  }
+  return null;
+};
+
+export const useDateFormatStore = create<DateFormatState>()(
+  persist(
+    (set) => ({
+      format: getInitialState(),
+      setFormat: (format: string) => {
+        if (typeof window !== "undefined") {
+          localStorage.setItem("dateFormat", format);
+        }
+        set({ format });
+      },
+    }),
+    { name: "date-format" },
+  ),
+);
 
 export const usePersonalFormStore = create<PersonalFormState>()(
   persist(
