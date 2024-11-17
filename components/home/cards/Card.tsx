@@ -18,23 +18,17 @@ function Card({ title, description, icon, color, size, link }: CardProps) {
 
   return (
     <div
-      className={`${bgColor} ${textColor} ${sizeClass} flex flex-col justify-between rounded-3xl p-8`}
+      className={`${bgColor} ${textColor} ${sizeClass} flex flex-col rounded-3xl ${size === "small" ? "flex min-h-[20rem] flex-col items-center justify-center gap-smallest p-large" : "p-regular"}`}
     >
-      <div
-        className={`${size === "small" ? "flex flex-col items-center justify-center gap-smallest" : ""}`}
+      {icon && icon}
+      <h2 className={`font-bold ${size === "small" ? "text-7xl" : "text-4xl"}`}>
+        {title}
+      </h2>
+      <p
+        className={`${size === "small" ? "text-center text-sm text-darkSecondary dark:text-lightSecondary" : "text-xl"}`}
       >
-        {icon && icon}
-        <h2
-          className={`font-bold ${size === "small" ? "text-7xl" : "text-3xl"}`}
-        >
-          {title}
-        </h2>
-        <p
-          className={`${size === "small" ? "text-center text-sm text-darkSecondary dark:text-lightSecondary" : "text-xl"}`}
-        >
-          {description}
-        </p>
-      </div>
+        {description}
+      </p>
       {link && (
         <div className="mt-auto">
           <a href="#" className="inline-flex items-center text-sm font-medium">
