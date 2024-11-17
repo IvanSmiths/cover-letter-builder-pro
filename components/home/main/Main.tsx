@@ -20,7 +20,7 @@ const Main = () => {
           <Card
             title="Copy the job description, enter a few details of the company, and you get the perfect cover letter."
             description=""
-            color="purple"
+            color="brand"
             size="large"
             link="Go to dashboard"
           />
@@ -29,7 +29,7 @@ const Main = () => {
             description="Of possibilities to find your dream job with a well written cover letter."
             color="dark"
             size="small"
-            icon={<ActivitySquare className="h-8 w-8 text-[#7C3AED]" />}
+            icon={<ActivitySquare className="h-12 w-12 text-brand" />}
           />
         </div>
         <div className="flex gap-small">
@@ -42,7 +42,7 @@ const Main = () => {
           <Card
             title="Copy. Paste. Generate. Let AI create the best possible cover letter for your dream role."
             description=""
-            color="purple"
+            color="brand"
             size="large"
             link="Go to dashboard"
           />

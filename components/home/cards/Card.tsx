@@ -5,13 +5,13 @@ interface CardProps {
   title: string;
   description: string;
   icon?: React.ReactNode;
-  color: "purple" | "dark";
+  color: "brand" | "dark";
   size: "small" | "large";
   link?: string;
 }
 
 function Card({ title, description, icon, color, size, link }: CardProps) {
-  const bgColor = color === "purple" ? "bg-[#7C3AED]" : "bg-[#1F2937]";
+  const bgColor = color === "brand" ? "bg-brand" : "bg-[#1F2937]";
   const textColor = "text-white";
   const sizeClass =
     size === "large" ? "col-span-2 row-span-1" : "col-span-1 row-span-1";
@@ -20,14 +20,18 @@ function Card({ title, description, icon, color, size, link }: CardProps) {
     <div
       className={`${bgColor} ${textColor} ${sizeClass} flex flex-col justify-between rounded-3xl p-8`}
     >
-      {icon && <div className="mb-4">{icon}</div>}
-      <div>
+      <div
+        className={`${size === "small" ? "flex flex-col items-center justify-center gap-smallest" : ""}`}
+      >
+        {icon && icon}
         <h2
-          className={`mb-2 font-bold ${size === "small" ? "text-5xl" : "text-3xl"}`}
+          className={`font-bold ${size === "small" ? "text-7xl" : "text-3xl"}`}
         >
           {title}
         </h2>
-        <p className={`${size === "small" ? "text-sm" : "text-xl"} mb-4`}>
+        <p
+          className={`${size === "small" ? "text-center text-sm text-darkSecondary dark:text-lightSecondary" : "text-xl"}`}
+        >
           {description}
         </p>
       </div>
