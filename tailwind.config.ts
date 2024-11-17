@@ -17,6 +17,7 @@ const config: Config = {
         large: "var(--large)",
         xlarge: "var(--xlarge)",
         xxlarge: "var(--xxlarge)",
+        xxxlarge: "var(--xxxlarge)",
       },
       dimensions: {
         small: "var(--small)",
@@ -36,6 +37,7 @@ const config: Config = {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: "#5627E1",
         light: "#efefef",
         lightSecondary: "#d3d3d3",
         dark: "#0c0c0c",

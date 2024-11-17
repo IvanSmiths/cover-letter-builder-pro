@@ -4,7 +4,6 @@ import { useChat } from "ai/react";
 import { Form } from "@/components/dashboard/Form/Form";
 import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import PdfSkeleton from "@/components/dashboard/Pdf/PdfSkeleton";
 
 const PdfWrapper = dynamic(
@@ -30,7 +29,6 @@ export default function Home() {
           handleSubmit={handleSubmit}
           stop={stop}
         />
-        <ThemeToggle />
       </div>
       <div className="h-screen w-8/12">
         {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}

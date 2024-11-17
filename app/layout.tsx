@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "../lib/globals.css";
 import React from "react";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { red_hat_display } from "@/lib/fonts";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html
+      suppressHydrationWarning
+      lang="en"
+      className={`${red_hat_display.className}`}
+    >
       <body>
         <ThemeProvider
           attribute="class"
@@ -23,6 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ThemeToggle />
         </ThemeProvider>
       </body>
     </html>

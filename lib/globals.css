@@ -57,7 +57,8 @@
         --medium: 60px;
         --large: 80px;
         --xlarge: 100px;
-        --xxlarge: 120px;
+        --xxlarge: 180px;
+        --xxxlarge: 300px;
     }
 
     .dark {
