@@ -54,7 +54,7 @@ const Pdf = ({ messages }: PdfProps) => {
   const [currentDate, setCurrentDate] = useState<string>("");
 
   useEffect(() => {
-    setCurrentDate(getTodayDate(format));
+    setCurrentDate(getTodayDate(format || DEFAULT_FORMAT));
   }, [format]);
 
   return (

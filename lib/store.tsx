@@ -52,11 +52,13 @@ interface DateFormatState {
   setFormat: (format: string) => void;
 }
 
+const DEFAULT_FORMAT = "yyyy-MM-dd";
+
 const getInitialState = () => {
   if (typeof window !== "undefined") {
-    return localStorage.getItem("dateFormat");
+    return localStorage.getItem("dateFormat") || DEFAULT_FORMAT;
   }
-  return null;
+  return DEFAULT_FORMAT;
 };
 
 export const useDateFormatStore = create<DateFormatState>()(
