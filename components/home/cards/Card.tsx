@@ -11,16 +11,16 @@ interface CardProps {
 }
 
 function Card({ title, description, icon, color, size, link }: CardProps) {
-  const bgColor = color === "brand" ? "bg-brand" : "bg-[#1F2937]";
+  const bgColor = color === "brand" ? "bg-brand" : "dark:bg-[#111316] bg-white";
   const textColor = "text-white";
 
   return (
     <div
-      className={`${bgColor} ${textColor} ${size === "small" ? "min-w-[16rem] items-center justify-center gap-smallest p-regular md:min-w-[20rem]" : "p-regular"} flex min-h-[15rem] flex-col rounded-3xl sm:min-h-[20rem]`}
+      className={`${bgColor} ${textColor} ${size === "small" ? "min-w-[16rem] items-center justify-center gap-smallest border border-lightSecondary p-regular dark:border-darkSecondary md:min-w-[25rem]" : "p-regular"} flex min-h-[15rem] flex-col rounded-3xl sm:min-h-[25rem]`}
     >
       {icon && icon}
       <h2
-        className={`${size === "small" ? "text-6xl md:text-7xl" : "text-2xl md:text-4xl"} font-bold`}
+        className={`${size === "small" ? "text-6xl text-dark dark:text-light md:text-7xl" : "text-2xl md:text-4xl"} font-bold`}
       >
         {title}
       </h2>
