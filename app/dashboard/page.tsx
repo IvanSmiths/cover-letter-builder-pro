@@ -1,15 +1,18 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { Form } from "@/components/Form/Form";
+import { Form } from "@/components/dashboard/Form/Form";
 import dynamic from "next/dynamic";
-import PdfSkeleton from "@/components/Pdf/PdfSkeleton";
-import SelectCoverLetterStyle from "@/components/SelectCoverLetterStyle";
+import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import PdfSkeleton from "@/components/dashboard/Pdf/PdfSkeleton";
 
-const PdfWrapper = dynamic(() => import("@/components/Pdf/PdfWrapper"), {
-  ssr: false,
-});
+const PdfWrapper = dynamic(
+  () => import("@/components/dashboard/Pdf/PdfWrapper"),
+  {
+    ssr: false,
+  },
+);
 
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
