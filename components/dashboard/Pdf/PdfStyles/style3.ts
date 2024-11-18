@@ -13,7 +13,7 @@ export const style3 = {
     fontWeight: 600,
   },
   personalHeader: {
-    flexDirection: "row",
+    flexDirection: "row" as const,
   },
   companyHeader: {
     marginTop: 30,
@@ -22,7 +22,7 @@ export const style3 = {
     marginTop: 20,
   },
   subjectHeader: {
-    textAlign: "left",
+    textAlign: "left" as const,
   },
   promptSection: {
     marginTop: 20,

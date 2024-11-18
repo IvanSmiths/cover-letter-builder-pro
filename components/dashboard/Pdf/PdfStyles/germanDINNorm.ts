@@ -16,17 +16,17 @@ export const germanDINNorm = {
     fontWeight: 200,
   },
   personalHeader: {
-    textAlign: "right",
+    textAlign: "right" as const,
   },
   companyHeader: {
     marginTop: 30,
   },
   dateHeader: {
     marginTop: 20,
-    textAlign: "right",
+    textAlign: "right" as const,
   },
   subjectHeader: {
-    marginTop: 20,
+    marginTop: 20 as const,
   },
   promptSection: {
     marginTop: 20,
