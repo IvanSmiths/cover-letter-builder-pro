@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../cards/Card";
-import { ActivitySquare } from "lucide-react";
+import { ActivitySquare, Sparkles } from "lucide-react";
 import BigCard from "@/components/home/cards/BigCard";
 import HeaderText from "@/components/home/header/HeaderText";
 
@@ -23,6 +23,15 @@ const Main = () => {
             color="brand"
             size="large"
             link="Go to dashboard"
+            iconAbsolute={
+              <Sparkles
+                stroke="#EFEFEF3E"
+                fill="#5627E1"
+                strokeWidth="0.6"
+                size="450"
+                className="absolute -bottom-xlarge -right-xlarge z-10 hidden xl:block"
+              />
+            }
           />
           <Card
             title="77%"
