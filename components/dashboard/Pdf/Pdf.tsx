@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import { PdfProps } from "@/components/dashboard/Pdf/PdfWrapper";
 import {
+  DEFAULT_FORMAT,
   useCompanyFormStore,
   useCompanyNameStore,
   useDateFormatStore,
@@ -58,7 +59,7 @@ const Pdf = ({ messages }: PdfProps) => {
   }, [format]);
 
   return (
-    <PDFViewer style={styles[selectedStyle].viewer}>
+    <PDFViewer style={styles[selectedStyle].viewer} showToolbar={false}>
       <Document>
         <Page size="A4" style={styles[selectedStyle].page}>
           <View style={styles[selectedStyle].personalHeader}>
@@ -146,14 +147,16 @@ const Pdf = ({ messages }: PdfProps) => {
           <View style={styles[selectedStyle].subjectHeader}>
             <Text style={styles[selectedStyle].text}>{companySubject}</Text>
           </View>
-          <Text
-            style={[
-              styles[selectedStyle].text,
-              styles[selectedStyle].promptSection,
-            ]}
-          >
-            {messages[messages.length - 1].content || "No content available."}
-          </Text>
+          {messages && messages.length > 0 ? (
+            <Text
+              style={[
+                styles[selectedStyle].text,
+                styles[selectedStyle].promptSection,
+              ]}
+            >
+              {messages[messages.length - 1].content || "No content available."}
+            </Text>
+          ) : null}
           <View style={styles[selectedStyle].subjectHeader}>
             <Text style={styles[selectedStyle].text}>
               Sincerely, {PersonalFirstName} {PersonalLastName}

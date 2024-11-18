@@ -4,7 +4,6 @@ import { useChat } from "ai/react";
 import { Form } from "@/components/dashboard/Form/Form";
 import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
-import PdfSkeleton from "@/components/dashboard/Pdf/PdfSkeleton";
 
 const PdfWrapper = dynamic(
   () => import("@/components/dashboard/Pdf/PdfWrapper"),
@@ -13,7 +12,7 @@ const PdfWrapper = dynamic(
   },
 );
 
-export default function Home() {
+export default function Dashboard() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
     useChat({
       api: "api/llm-response",
@@ -31,7 +30,7 @@ export default function Home() {
         />
       </div>
       <div className="h-screen w-8/12">
-        {isLoading ? <PdfSkeleton /> : <PdfWrapper messages={messages} />}
+        <PdfWrapper messages={messages} />
       </div>
       <div className="h-full w-4/12 p-small">
         <SelectCoverLetterStyle />

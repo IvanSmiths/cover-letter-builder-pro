@@ -52,7 +52,7 @@ interface DateFormatState {
   setFormat: (format: string) => void;
 }
 
-const DEFAULT_FORMAT = "yyyy-MM-dd";
+export const DEFAULT_FORMAT = "yyyy-MM-dd";
 
 const getInitialState = () => {
   if (typeof window !== "undefined") {
