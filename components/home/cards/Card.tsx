@@ -20,7 +20,7 @@ function Card({ title, description, icon, color, size, link }: CardProps) {
     >
       {icon && icon}
       <h2
-        className={`${size === "small" ? "text-6xl text-dark dark:text-light md:text-7xl" : "text-2xl md:text-4xl"} font-bold`}
+        className={`${size === "small" ? "text-6xl text-dark dark:text-light md:text-8xl" : "text-2xl md:text-4xl"} font-bold`}
       >
         {title}
       </h2>

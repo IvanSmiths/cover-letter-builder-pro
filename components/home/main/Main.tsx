@@ -29,7 +29,7 @@ const Main = () => {
             description="Of possibilities to find your dream job with a well written cover letter."
             color="dark"
             size="small"
-            icon={<ActivitySquare className="h-12 w-12 text-brand" />}
+            icon={<ActivitySquare className="h-14 w-14 text-brand" />}
           />
         </div>
         <div className="flex gap-small max-sm:flex-col">
