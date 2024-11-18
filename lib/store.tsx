@@ -119,10 +119,17 @@ export const usePdfStyleStore = create<PdfStyleState>()(
   ),
 );
 
-export const useRecruiterStore = create<RecruiterStore>((set) => ({
-  recruiterName: "",
-  setRecruiterName: (name) => set({ recruiterName: name }),
-}));
+export const useRecruiterStore = create<RecruiterStore>()(
+  persist(
+    (set) => ({
+      recruiterName: "",
+      setRecruiterName: (name) => set({ recruiterName: name }),
+    }),
+    {
+      name: "recruiter-storage",
+    },
+  ),
+);
 
 export const useCompanyNameStore = create<CompanyNameStore>((set) => ({
   companyName: "",

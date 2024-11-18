@@ -9,6 +9,8 @@ export async function POST(req: Request, res: Response) {
   const companyName = reqBody.data.companyName;
   const language = reqBody.data.languages;
 
+  console.log(reqBody);
+
   const groq: OpenAIProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
     apiKey: process.env.API_KEY,

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import {
   FormControl,
@@ -8,8 +7,9 @@ import {
 } from "@/components/ui/form";
 import { UseFormReturn } from "react-hook-form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
+import { FormValues } from "../FormTypes";
 import { useRecruiterStore } from "@/lib/store";
-import { FormValues } from "@/components/Form/FormTypes";
+import { useEffect } from "react";
 
 interface CompanyRecruiterInputProps {
   form: UseFormReturn<FormValues>;
@@ -17,6 +17,7 @@ interface CompanyRecruiterInputProps {
 
 export function CompanyRecruiterInput({ form }: CompanyRecruiterInputProps) {
   const setRecruiterName = useRecruiterStore((state) => state.setRecruiterName);
+  const { recruiterName } = useRecruiterStore();
 
   useEffect(() => {
     const subscription = form.watch((value) => {
@@ -42,7 +43,8 @@ export function CompanyRecruiterInput({ form }: CompanyRecruiterInputProps) {
               <Input
                 type="text"
                 {...field}
-                value={field.value ?? ""}
+                value={field.value}
+                defaultValue={recruiterName || ""}
                 placeholder="John Doe"
               />
             </FormControl>
