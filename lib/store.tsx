@@ -42,6 +42,11 @@ interface RecruiterStore {
   setRecruiterName: (name: string) => void;
 }
 
+interface ResumeStore {
+  resume: string;
+  setResume: (name: string) => void;
+}
+
 interface CompanyNameStore {
   companyName: string;
   setCompanyName: (name: string) => void;
@@ -127,6 +132,18 @@ export const useRecruiterStore = create<RecruiterStore>()(
     }),
     {
       name: "recruiter-storage",
+    },
+  ),
+);
+
+export const useResumeStore = create<ResumeStore>()(
+  persist(
+    (set) => ({
+      resume: "",
+      setResume: (name) => set({ resume: name }),
+    }),
+    {
+      name: "resume-storage",
     },
   ),
 );

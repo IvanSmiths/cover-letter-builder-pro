@@ -38,6 +38,7 @@ export function Form({
                 recruiter: validatedData.recruiter,
                 companyName: validatedData.companyName,
                 languages: validatedData.languages,
+                resume: validatedData.resume,
               },
             });
           })(event);

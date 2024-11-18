@@ -7,6 +7,7 @@ import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/dashboard/Form/FormHeader";
 import { PromptLanguages } from "@/components/dashboard/Form/Prompt/PromptLanguages";
 import { PersonalYearsInput } from "@/components/dashboard/Form/Personal/PersonalYearsInput";
+import { PromptResumeInput } from "@/components/dashboard/Form/Prompt/PromptResumeInput";
 
 interface PromptSectionProps {
   input: string;
@@ -30,6 +31,7 @@ function PromptSection({
         <PromptLanguages form={form} />
         <PersonalYearsInput form={form} />
       </div>
+      <PromptResumeInput form={form} />
       <PromptInput
         input={input}
         isLoading={isLoading}

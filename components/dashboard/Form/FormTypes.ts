@@ -15,6 +15,7 @@ export const promptSchema = z.object({
   languages: z.string({
     required_error: "Please select a language.",
   }),
+  resume: z.any(),
 });
 
 export const FormSchema = z.object({

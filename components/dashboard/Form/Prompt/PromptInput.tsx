@@ -43,8 +43,8 @@ export function PromptInput({
               value={input}
               disabled={isLoading}
               onChange={(e) => {
-                field.onChange(e); // Inform React Hook Form of the change
-                handleInputChange(e); // Call your custom handler
+                field.onChange(e);
+                handleInputChange(e);
               }}
             />
           </FormControl>
