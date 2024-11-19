@@ -53,7 +53,7 @@ function Card({
           href="/dashboard"
           className="mt-auto inline-flex w-fit items-center text-lg text-light"
         >
-          {link} <ArrowRight className="ml-2 h-8 w-8" />
+          {link} <ArrowRight className="ml-2 h-7 w-7" />
         </Link>
       )}
     </div>
