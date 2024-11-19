@@ -8,7 +8,7 @@ const Header = () => {
     "Build cover letters that fits national standards (German DIN-Norm 5008) for free, blazingly fast, with an extreme cure in design details.";
 
   return (
-    <header className="relative">
+    <header>
       <HeaderText title={title} paragraph={paragraph} isHero={true} />
       <HeaderImage />
     </header>
