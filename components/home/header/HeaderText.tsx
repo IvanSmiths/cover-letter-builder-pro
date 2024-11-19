@@ -20,10 +20,7 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
         {paragraph}
       </p>
       {isHero ? (
-        <Button
-          size="lg"
-          className="w-fit bg-brand font-bold text-light hover:bg-brand/90"
-        >
+        <Button size="lg" className="w-fit font-bold">
           Create Cover Letter
         </Button>
       ) : null}

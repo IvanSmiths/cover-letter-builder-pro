@@ -13,7 +13,7 @@ const Main = () => {
     "save you time, and impress hiring managers.";
 
   return (
-    <main>
+    <main className="relative z-10 mt-xxlarge">
       <HeaderText title={title} paragraph={paragraph} isHero={false} />
       <div className="mt-large flex flex-col gap-small">
         <div className="flex gap-small max-sm:flex-col">
