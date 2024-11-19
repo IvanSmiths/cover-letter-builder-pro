@@ -28,6 +28,11 @@ const BigCard = () => {
       paragraph:
         "In a competitive, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
     },
+    {
+      headline: "Stand Out in the Crowd.",
+      paragraph:
+        "In a competitive, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+    },
   ];
 
   return (
@@ -45,12 +50,12 @@ const BigCard = () => {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="rounded-xl border border-[#7C3AED]/20 bg-[#1a232c] p-6"
+                  className="flex w-52 flex-col items-center justify-center rounded-xl border border-lightSecondary bg-white p-6 text-center dark:border-darkSecondary dark:bg-[#111316]"
                 >
-                  <div className="mb-2 text-4xl font-bold text-white">
-                    {stat.percentage}
-                  </div>
-                  <p className="text-sm text-gray-400">{stat.description}</p>
+                  <span className="text-4xl font-bold">{stat.percentage}</span>
+                  <p className="text-sm text-darkSecondary dark:text-lightSecondary">
+                    {stat.description}
+                  </p>
                 </div>
               ))}
             </div>

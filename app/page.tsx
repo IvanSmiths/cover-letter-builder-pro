@@ -12,7 +12,6 @@ const Home: NextPage = () => {
       />
       <div className="bg-light px-small dark:bg-dark md:px-large lg:px-xlarge xl:px-xxlarge">
         <Header />
-
         <Main />
       </div>
     </div>
