@@ -59,7 +59,7 @@ const Pdf = ({ messages }: PdfProps) => {
   }, [format]);
 
   return (
-    <PDFViewer style={styles[selectedStyle].viewer} showToolbar={false}>
+    <PDFViewer style={styles[selectedStyle].viewer}>
       <Document>
         <Page size="A4" style={styles[selectedStyle].page}>
           <View style={styles[selectedStyle].personalHeader}>
