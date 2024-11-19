@@ -38,17 +38,17 @@ const BigCard = () => {
   return (
     <div className="flex w-full flex-col gap-large rounded-3xl border border-lightSecondary bg-white p-small dark:border-darkSecondary dark:bg-[#111316] md:flex-row md:gap-0 md:p-12">
       <div className="flex flex-col justify-between gap-regular md:gap-0 md:pr-8">
-        <h2 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+        <h3 className="text-3xl font-bold md:text-4xl lg:text-5xl">
           Make the difference between landing your dream job or being
           overlooked.
-        </h2>
+        </h3>
         <div className="flex flex-wrap gap-small">
           {stats.map((stat, index) => (
             <div
               key={index}
               className="flex w-full flex-col items-center justify-center rounded-xl border border-lightSecondary bg-white p-6 text-center dark:border-darkSecondary dark:bg-[#111316] md:w-52"
             >
-              <span className="text-4xl font-bold">{stat.percentage}</span>
+              <span className="text-5xl font-bold">{stat.percentage}</span>
               <p className="text-sm text-darkSecondary dark:text-lightSecondary">
                 {stat.description}
               </p>
