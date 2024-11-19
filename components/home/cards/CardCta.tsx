@@ -8,7 +8,7 @@ const CardCta = () => {
         Stand Out in the <br />
         Crowd of Applicants.
       </h4>
-      <Link href="/dashboard">
+      <Link prefetch={false} href="/dashboard">
         <Button size="lg" className="3xl:text-2xl">
           Create cover letter
         </Button>

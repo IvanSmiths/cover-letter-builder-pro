@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import React from "react";
+import Link from "next/link";
 
 type HeaderProps = {
   isHero?: boolean;
@@ -22,9 +24,11 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
         {paragraph}
       </p>
       {isHero ? (
-        <Button size="lg" className="3xl:text-2xl w-fit font-bold">
-          Create Cover Letter
-        </Button>
+        <Link prefetch={false} href="/dashboard">
+          <Button size="lg" className="3xl:text-2xl w-fit font-bold">
+            Create Cover Letter
+          </Button>
+        </Link>
       ) : null}
     </div>
   );

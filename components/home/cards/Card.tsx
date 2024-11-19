@@ -1,5 +1,6 @@
 import { ArrowRight, LucideIcon } from "lucide-react";
 import React from "react";
+import Link from "next/link";
 
 interface CardProps {
   title: string;
@@ -47,12 +48,12 @@ function Card({
         />
       )}
       {link && (
-        <a
+        <Link
           href="#"
           className="mt-auto inline-flex w-fit items-center text-lg text-light"
         >
           {link} <ArrowRight className="ml-2 h-8 w-8" />
-        </a>
+        </Link>
       )}
     </div>
   );
