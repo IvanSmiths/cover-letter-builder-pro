@@ -16,7 +16,7 @@ const Main = () => {
     <main className="relative z-10 mt-xxlarge">
       <HeaderText title={title} paragraph={paragraph} isHero={false} />
       <div className="mt-large flex flex-col gap-small">
-        <div className="flex gap-small max-sm:flex-col">
+        <div className="flex flex-col gap-small lg:flex-row">
           <Card
             title="Copy the job description, enter a few details of the company, and you get the perfect cover letter."
             description=""
@@ -33,7 +33,7 @@ const Main = () => {
             icon={ActivitySquare}
           />
         </div>
-        <div className="flex gap-small max-sm:flex-col">
+        <div className="flex flex-col gap-small lg:flex-row">
           <Card
             title="10x"
             description="Generate up to 10 perfectly tailored cover letters per minute, saving hours of manual work."

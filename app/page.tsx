@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         src="/background.svg"
         alt="background"
       />
-      <div className="bg-light px-small dark:bg-dark md:px-large lg:px-xlarge xl:px-xxlarge">
+      <div className="bg-light px-small dark:bg-dark md:px-medium lg:px-xlarge xl:px-xxlarge">
         <Header />
         <Main />
       </div>

@@ -24,7 +24,7 @@ function Card({
 
   return (
     <div
-      className={`${bgColor} ${size === "small" ? "min-w-[16rem] items-center justify-center gap-smallest border border-lightSecondary p-xlarge dark:border-darkSecondary md:min-w-[30rem]" : "relative overflow-hidden p-regular"} flex min-h-[15rem] flex-col rounded-3xl sm:min-h-[30rem]`}
+      className={`${bgColor} ${size === "small" ? "min-w-[16rem] items-center justify-center gap-smallest border border-lightSecondary p-small dark:border-darkSecondary md:min-w-[30rem] md:p-xlarge" : "relative overflow-hidden p-regular"} flex min-h-[15rem] flex-col rounded-3xl sm:min-h-[30rem]`}
     >
       {Icon && <Icon className="h-14 w-14 text-brand" />}
       <h2
