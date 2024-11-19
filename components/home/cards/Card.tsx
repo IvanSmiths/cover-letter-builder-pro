@@ -28,15 +28,15 @@ function Card({
     >
       {Icon && <Icon className="h-14 w-14 text-brand" />}
       <h2
-        className={`${size === "small" ? "text-6xl text-dark dark:text-light md:text-8xl" : "z-20 text-2xl text-light md:text-4xl"} font-bold`}
+        className={`${size === "small" ? "3xl:text-9xl text-6xl text-dark dark:text-light md:text-8xl" : "3xl:text-5xl z-20 text-2xl text-light md:text-4xl"} font-bold`}
       >
         {title}
       </h2>
-      <p
-        className={`${size === "small" ? "text-center text-lg font-semibold text-darkSecondary dark:text-lightSecondary" : "text-xl"}`}
-      >
-        {description}
-      </p>
+      {description && (
+        <p className="3xl:text-2xl text-center text-lg font-semibold text-darkSecondary dark:text-lightSecondary">
+          {description}
+        </p>
+      )}
       {IconAbsolute && (
         <IconAbsolute
           stroke="#EFEFEF3E"
