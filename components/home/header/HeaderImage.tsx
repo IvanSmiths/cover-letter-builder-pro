@@ -2,8 +2,8 @@ const HeaderImage = () => {
   return (
     <div className="relative w-full">
       <img
-        className="absolute left-1/2 top-[36%] z-0 w-full -translate-x-1/2 -translate-y-1/2 transform"
-        src="/background.svg"
+        className="absolute left-1/2 top-[30%] z-0 w-full -translate-x-1/2 -translate-y-1/2 transform"
+        src="/background-2.svg"
         alt="background"
       />
       <img
