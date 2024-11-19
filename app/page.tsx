@@ -4,9 +4,17 @@ import Main from "@/components/home/main/Main";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-light px-small dark:bg-dark md:px-large lg:px-xlarge xl:px-xxlarge">
-      <Header />
-      <Main />
+    <div className="relative">
+      <img
+        className="absolute left-0 top-0 z-0 w-full"
+        src="/temp-background.png"
+        alt="background"
+      />
+      <div className="bg-light px-small dark:bg-dark md:px-large lg:px-xlarge xl:px-xxlarge">
+        <Header />
+
+        <Main />
+      </div>
     </div>
   );
 };
