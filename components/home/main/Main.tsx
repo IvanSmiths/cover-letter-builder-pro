@@ -3,6 +3,7 @@ import Card from "../cards/Card";
 import { ActivitySquare, Sparkles } from "lucide-react";
 import BigCard from "@/components/home/cards/BigCard";
 import HeaderText from "@/components/home/header/HeaderText";
+import CardCta from "@/components/home/cards/CardCta";
 
 const Main = () => {
   const title = "Impress hiring managers.";
@@ -13,9 +14,9 @@ const Main = () => {
     "save you time, and impress hiring managers.";
 
   return (
-    <main className="relative z-10 mt-xxlarge">
+    <section className="relative z-10 mt-xxlarge">
       <HeaderText title={title} paragraph={paragraph} isHero={false} />
-      <div className="mt-large flex flex-col gap-small">
+      <main className="mt-large flex flex-col gap-small">
         <div className="flex flex-col gap-small lg:flex-row">
           <Card
             title="Copy the job description, enter a few details of the company, and you get the perfect cover letter."
@@ -48,9 +49,13 @@ const Main = () => {
             link="Go to dashboard"
           />
         </div>
-        <BigCard />
-      </div>
-    </main>
+        <section className="mt-xlarge">
+          <HeaderText title={title} paragraph={paragraph} isHero={false} />
+          <BigCard />
+        </section>
+        <CardCta />
+      </main>
+    </section>
   );
 };
 
