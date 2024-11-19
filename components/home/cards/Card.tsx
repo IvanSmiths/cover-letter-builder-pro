@@ -28,22 +28,23 @@ function Card({
     >
       {icon && icon}
       <h2
-        className={`${size === "small" ? "text-6xl text-dark dark:text-light md:text-8xl" : "z-20 text-2xl md:text-4xl"} font-bold`}
+        className={`${size === "small" ? "text-6xl text-dark dark:text-light md:text-8xl" : "z-20 text-2xl text-light md:text-4xl"} font-bold`}
       >
         {title}
       </h2>
       <p
-        className={`${size === "small" ? "text-center text-sm text-darkSecondary dark:text-lightSecondary" : "text-xl"}`}
+        className={`${size === "small" ? "text-center text-lg font-semibold text-darkSecondary dark:text-lightSecondary" : "text-xl"}`}
       >
         {description}
       </p>
       {iconAbsolute && iconAbsolute}
       {link && (
-        <div className="mt-auto">
-          <a href="#" className="inline-flex items-center text-sm font-medium">
-            {link} <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
-        </div>
+        <a
+          href="#"
+          className="mt-auto inline-flex w-fit items-center text-lg text-light"
+        >
+          {link} <ArrowRight className="ml-2 h-8 w-8" />
+        </a>
       )}
     </div>
   );

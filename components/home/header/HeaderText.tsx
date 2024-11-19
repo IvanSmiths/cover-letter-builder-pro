@@ -12,7 +12,7 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
       className={`${isHero ? "px-0 pt-large md:px-xlarge md:pt-xxlarge" : "mt-large"} align-center flex flex-col items-center gap-regular`}
     >
       <h1
-        className={`${isHero ? "h-full bg-gradient-to-r from-dark to-gray-800 bg-clip-text text-4xl text-transparent dark:from-light dark:to-gray-300 md:text-7xl lg:text-8xl" : "text-6xl"} text-center font-bold`}
+        className={`${isHero ? "h-full bg-gradient-to-r from-dark via-dark to-gray-500 bg-clip-text text-4xl text-transparent dark:from-light dark:via-light dark:to-gray-400 md:text-7xl lg:text-8xl" : "text-6xl"} text-center font-bold`}
       >
         {title}
       </h1>
