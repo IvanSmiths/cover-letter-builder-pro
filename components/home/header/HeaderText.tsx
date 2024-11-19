@@ -19,7 +19,7 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
         {title}
       </h1>
       <p
-        className={` ${isHero ? "font-semibold text-dark dark:text-light" : ""} 3xl:text-2xl text-center text-darkSecondary dark:text-lightSecondary md:text-lg 2xl:w-4/6`}
+        className={` ${isHero ? "font-semibold text-dark dark:text-light" : ""} 3xl:text-2xl text-center text-darkSecondary dark:text-lightSecondary md:text-lg 2xl:px-large`}
       >
         {paragraph}
       </p>
