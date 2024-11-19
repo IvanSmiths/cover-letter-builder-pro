@@ -1,6 +1,6 @@
 {
-  "name": "gemini-stream",
-  "version": "0.1.0",
+  "name": "cover-letter-builder",
+  "version": "0.16.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
