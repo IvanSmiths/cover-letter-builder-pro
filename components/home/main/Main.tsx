@@ -23,22 +23,14 @@ const Main = () => {
             color="brand"
             size="large"
             link="Go to dashboard"
-            iconAbsolute={
-              <Sparkles
-                stroke="#EFEFEF3E"
-                fill="#5627E1"
-                strokeWidth="0.6"
-                size="450"
-                className="absolute -bottom-xlarge -right-xlarge z-10 hidden xl:block"
-              />
-            }
+            iconAbsolute={Sparkles}
           />
           <Card
             title="77%"
             description="Of possibilities to find your dream job with a well written cover letter."
             color="dark"
             size="small"
-            icon={<ActivitySquare className="h-14 w-14 text-brand" />}
+            icon={ActivitySquare}
           />
         </div>
         <div className="flex gap-small max-sm:flex-col">
