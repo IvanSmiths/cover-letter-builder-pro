@@ -24,6 +24,9 @@ const config: Config = {
         regular: "var(--regular)",
         medium: "var(--medium)",
       },
+      screens: {
+        "3xl": "2560px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
