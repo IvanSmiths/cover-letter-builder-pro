@@ -64,32 +64,36 @@ const Pdf = ({ messages }: PdfProps) => {
           messages={messages}
         />
       </PDFViewer>
-      <PDFDownloadLink
-        className="absolute bottom-0 right-0"
-        document={
-          <PdfDocument
-            styles={styles}
-            selectedStyle={selectedStyle}
-            personalFirstName={personalFirstName}
-            personalLastName={personalLastName}
-            personalAddress={personalAddress}
-            personalZip={personalZip}
-            personalCity={personalCity}
-            personalTelephone={personalTelephone}
-            personalEmail={personalEmail}
-            recruiter={recruiter}
-            companyName={companyName}
-            street={street}
-            city={city}
-            currentDate={currentDate}
-            letterSubject={letterSubject}
-            messages={messages}
-          />
-        }
-        fileName="generated-document.pdf"
-      >
-        {({ loading }) => (loading ? "Preparing document..." : "Download PDF")}
-      </PDFDownloadLink>
+      {messages && messages.length > 0 ? (
+        <PDFDownloadLink
+          className="absolute bottom-0 right-0"
+          document={
+            <PdfDocument
+              styles={styles}
+              selectedStyle={selectedStyle}
+              personalFirstName={personalFirstName}
+              personalLastName={personalLastName}
+              personalAddress={personalAddress}
+              personalZip={personalZip}
+              personalCity={personalCity}
+              personalTelephone={personalTelephone}
+              personalEmail={personalEmail}
+              recruiter={recruiter}
+              companyName={companyName}
+              street={street}
+              city={city}
+              currentDate={currentDate}
+              letterSubject={letterSubject}
+              messages={messages}
+            />
+          }
+          fileName="generated-document.pdf"
+        >
+          {({ loading }) =>
+            loading ? "Preparing document..." : "Download PDF"
+          }
+        </PDFDownloadLink>
+      ) : null}
     </>
   );
 };
