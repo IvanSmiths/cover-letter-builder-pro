@@ -28,7 +28,7 @@ function CompanySection({ form }: CompanyInformationProps) {
         setStateValue={setCompanyName}
       />
       <LocalInput
-        field="CompanyFullAddress"
+        field="companyFullAddress"
         label="Full Address"
         placeholder="Friedrich-Ebert-Anlage 29, 60308, Frankfurt am Main"
       />
@@ -41,7 +41,7 @@ function CompanySection({ form }: CompanyInformationProps) {
         setStateValue={setRecruiter}
       />
       <LocalInput
-        field="LetterSubject"
+        field="letterSubject"
         label="Cover Letter Subject"
         placeholder="Application as a Software Engineer"
       />

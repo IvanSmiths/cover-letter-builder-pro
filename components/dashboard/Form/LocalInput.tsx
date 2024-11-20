@@ -1,9 +1,9 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { PersonalFormState, usePersonalFormStore } from "@/lib/store";
+import { UserFormState, useUserFormState } from "@/lib/store";
 
 interface PersonalInputProps {
-  field: keyof PersonalFormState;
+  field: keyof UserFormState;
   label: string;
   placeholder?: string;
   autoComplete?: string;
@@ -15,8 +15,8 @@ const LocalInput = ({
   placeholder,
   autoComplete,
 }: PersonalInputProps) => {
-  const value = usePersonalFormStore((state) => state[field]);
-  const setField = usePersonalFormStore((state) => state.setField);
+  const value = useUserFormState((state) => state[field]);
+  const setField = useUserFormState((state) => state.setField);
 
   return (
     <div className="w-full">

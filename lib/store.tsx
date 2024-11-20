@@ -1,20 +1,20 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export interface PersonalFormState {
-  PersonalFirstName: string;
-  PersonalLastName: string;
-  PersonalCity: string;
-  PersonalNation: string;
-  PersonalEmail: string;
-  PersonalTelephone: string;
-  PersonalZip: string;
-  PersonalAddress: string;
-  LetterSubject: string;
-  CompanyFullAddress: string;
-  setField: <K extends keyof PersonalFormState>(
+export interface UserFormState {
+  personalFirstName: string;
+  personalLastName: string;
+  personalCity: string;
+  personalNation: string;
+  personalEmail: string;
+  personalTelephone: string;
+  personalZip: string;
+  personalAddress: string;
+  letterSubject: string;
+  companyFullAddress: string;
+  setField: <K extends keyof UserFormState>(
     field: K,
-    value: PersonalFormState[K],
+    value: UserFormState[K],
   ) => void;
 }
 
@@ -39,13 +39,13 @@ interface FormState {
   setCompanyName: (value: string) => void;
 }
 
-export const DEFAULT_FORMAT = "yyyy-MM-dd";
+export const defaultFormat = "yyyy-MM-dd";
 
 const getInitialState = () => {
   if (typeof window !== "undefined") {
-    return localStorage.getItem("dateFormat") || DEFAULT_FORMAT;
+    return localStorage.getItem("dateFormat") || defaultFormat;
   }
-  return DEFAULT_FORMAT;
+  return defaultFormat;
 };
 
 export const useDateFormatStore = create<DateFormatState>()(
@@ -63,19 +63,19 @@ export const useDateFormatStore = create<DateFormatState>()(
   ),
 );
 
-export const usePersonalFormStore = create<PersonalFormState>()(
+export const useUserFormState = create<UserFormState>()(
   persist(
     (set) => ({
-      PersonalFirstName: "",
-      PersonalLastName: "",
-      PersonalCity: "",
-      PersonalTelephone: "",
-      PersonalZip: "",
-      PersonalAddress: "",
-      PersonalEmail: "",
-      PersonalNation: "",
-      CompanyFullAddress: "",
-      LetterSubject: "",
+      personalFirstName: "",
+      personalLastName: "",
+      personalCity: "",
+      personalTelephone: "",
+      personalZip: "",
+      personalAddress: "",
+      personalEmail: "",
+      personalNation: "",
+      companyFullAddress: "",
+      letterSubject: "",
       setField: (field, value) => set({ [field]: value }),
     }),
     { name: "user-form" },

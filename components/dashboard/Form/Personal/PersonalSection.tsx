@@ -8,13 +8,13 @@ function PersonalSection() {
       <FormHeader icon={User} title="Personal Info" />
       <div className="flex gap-small">
         <LocalInput
-          field="PersonalFirstName"
+          field="personalFirstName"
           label="First Name"
           autoComplete="given-name"
           placeholder="John"
         />
         <LocalInput
-          field="PersonalLastName"
+          field="personalLastName"
           label="Last Name"
           autoComplete="family-name"
           placeholder="Doe"
@@ -22,13 +22,13 @@ function PersonalSection() {
       </div>
       <div className="flex gap-small">
         <LocalInput
-          field="PersonalCity"
+          field="personalCity"
           label="City"
           autoComplete="address-level2"
           placeholder="Berlin"
         />
         <LocalInput
-          field="PersonalZip"
+          field="personalZip"
           label="Zip"
           autoComplete="postal-code"
           placeholder="10117"
@@ -36,13 +36,13 @@ function PersonalSection() {
       </div>
       <div className="flex items-end gap-small">
         <LocalInput
-          field="PersonalNation"
+          field="personalNation"
           label="Nation"
           autoComplete="country-name"
           placeholder="Germany"
         />
         <LocalInput
-          field="PersonalAddress"
+          field="personalAddress"
           label="Address"
           autoComplete="address-line1"
           placeholder="Holiday st. 24"
@@ -50,13 +50,13 @@ function PersonalSection() {
       </div>
       <div className="flex gap-small">
         <LocalInput
-          field="PersonalEmail"
+          field="personalEmail"
           label="Email"
           autoComplete="email"
           placeholder="john.doe@example.com"
         />
         <LocalInput
-          field="PersonalTelephone"
+          field="personalTelephone"
           label="Telephone"
           autoComplete="tel"
           placeholder="123456789"

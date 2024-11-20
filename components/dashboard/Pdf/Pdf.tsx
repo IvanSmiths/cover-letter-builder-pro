@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import { PdfProps } from "@/components/dashboard/Pdf/PdfWrapper";
 import {
-  DEFAULT_FORMAT,
+  defaultFormat,
   useDateFormatStore,
   useFormStore,
   usePdfStyleStore,
-  usePersonalFormStore,
+  useUserFormState,
 } from "@/lib/store";
 import { germanDINNorm } from "@/components/dashboard/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/dashboard/Pdf/PdfStyles/style2";
@@ -22,16 +22,16 @@ const Pdf = ({ messages }: PdfProps) => {
 
   const { selectedStyle } = usePdfStyleStore();
   const {
-    PersonalFirstName,
-    PersonalLastName,
-    PersonalAddress,
-    PersonalZip,
-    PersonalCity,
-    PersonalTelephone,
-    PersonalEmail,
-    LetterSubject,
-    CompanyFullAddress,
-  } = usePersonalFormStore();
+    personalFirstName,
+    personalLastName,
+    personalAddress,
+    personalZip,
+    personalCity,
+    personalTelephone,
+    personalEmail,
+    letterSubject,
+    companyFullAddress,
+  } = useUserFormState();
   const { companyName, recruiter } = useFormStore((state) => state);
 
   const parseAddress = (address: string): { street: string; city: string } => {
@@ -48,13 +48,13 @@ const Pdf = ({ messages }: PdfProps) => {
     return { street, city };
   };
 
-  const { street, city } = parseAddress(CompanyFullAddress);
+  const { street, city } = parseAddress(companyFullAddress);
 
   const { format } = useDateFormatStore();
   const [currentDate, setCurrentDate] = useState<string>("");
 
   useEffect(() => {
-    setCurrentDate(getTodayDate(format || DEFAULT_FORMAT));
+    setCurrentDate(getTodayDate(format || defaultFormat));
   }, [format]);
 
   return (
@@ -69,7 +69,7 @@ const Pdf = ({ messages }: PdfProps) => {
                 styles[selectedStyle].headerName,
               ]}
             >
-              {PersonalFirstName} {PersonalLastName}
+              {personalFirstName} {personalLastName}
             </Text>
             <Text
               style={[
@@ -77,7 +77,7 @@ const Pdf = ({ messages }: PdfProps) => {
                 styles[selectedStyle].headerText,
               ]}
             >
-              {PersonalAddress}
+              {personalAddress}
             </Text>
             <Text
               style={[
@@ -85,7 +85,7 @@ const Pdf = ({ messages }: PdfProps) => {
                 styles[selectedStyle].headerText,
               ]}
             >
-              {PersonalZip} {PersonalCity}
+              {personalZip} {personalCity}
             </Text>
             <Text
               style={[
@@ -93,7 +93,7 @@ const Pdf = ({ messages }: PdfProps) => {
                 styles[selectedStyle].headerText,
               ]}
             >
-              {PersonalTelephone}
+              {personalTelephone}
             </Text>
             <Text
               style={[
@@ -101,7 +101,7 @@ const Pdf = ({ messages }: PdfProps) => {
                 styles[selectedStyle].headerText,
               ]}
             >
-              {PersonalEmail}
+              {personalEmail}
             </Text>
           </View>
           <View style={styles[selectedStyle].companyHeader}>
@@ -140,11 +140,11 @@ const Pdf = ({ messages }: PdfProps) => {
           </View>
           <View style={styles[selectedStyle].dateHeader}>
             <Text style={styles[selectedStyle].text}>
-              {PersonalCity}, {currentDate}
+              {personalCity}, {currentDate}
             </Text>
           </View>
           <View style={styles[selectedStyle].subjectHeader}>
-            <Text style={styles[selectedStyle].text}>{LetterSubject}</Text>
+            <Text style={styles[selectedStyle].text}>{letterSubject}</Text>
           </View>
           {messages && messages.length > 0 ? (
             <Text
@@ -158,7 +158,7 @@ const Pdf = ({ messages }: PdfProps) => {
           ) : null}
           <View style={styles[selectedStyle].subjectHeader}>
             <Text style={styles[selectedStyle].text}>
-              Sincerely, {PersonalFirstName} {PersonalLastName}
+              Sincerely, {personalFirstName} {personalLastName}
             </Text>
           </View>
         </Page>
