@@ -11,8 +11,8 @@ import {
 import { germanDINNorm } from "@/components/dashboard/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/dashboard/Pdf/PdfStyles/style2";
 import { style3 } from "@/components/dashboard/Pdf/PdfStyles/style3";
-import { getTodayDate } from "@/components/dashboard/Pdf/getTodayDate";
-import { parseAddress } from "@/lib/parseAddress";
+import { getTodayDate } from "@/lib/Pdf/getTodayDate";
+import { parseAddress } from "@/lib/Pdf/parseAddress";
 
 const Pdf = ({ messages }: PdfProps) => {
   const styles = {
