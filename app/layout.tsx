@@ -3,7 +3,7 @@ import "../lib/globals.css";
 import React from "react";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { red_hat_display } from "@/lib/fonts";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Create Next App",
