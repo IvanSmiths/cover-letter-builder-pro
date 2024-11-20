@@ -38,8 +38,8 @@ interface PdfStyleState {
 }
 
 interface RecruiterStore {
-  recruiterName: string;
-  setRecruiterName: (name: string) => void;
+  recruiter: string;
+  setRecruiter: (name: string) => void;
 }
 
 interface ResumeStore {
@@ -127,8 +127,8 @@ export const usePdfStyleStore = create<PdfStyleState>()(
 export const useRecruiterStore = create<RecruiterStore>()(
   persist(
     (set) => ({
-      recruiterName: "",
-      setRecruiterName: (name) => set({ recruiterName: name }),
+      recruiter: "",
+      setRecruiter: (name) => set({ recruiter: name }),
     }),
     {
       name: "recruiter-storage",

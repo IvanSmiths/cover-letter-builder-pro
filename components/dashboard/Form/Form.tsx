@@ -7,6 +7,7 @@ import CompanySection from "@/components/dashboard/Form/Company/CompanySection";
 import PromptSection from "./Prompt/PromptSection";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
+import { useResumeStore } from "@/lib/store";
 
 export function Form({
   input,
@@ -20,6 +21,7 @@ export function Form({
     defaultValues: {
       yearsOfExperience: 0,
       languages: "🇺🇸 US English",
+      resume: useResumeStore.getState().resume,
     },
     mode: "onSubmit",
   });

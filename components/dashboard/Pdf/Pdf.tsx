@@ -33,7 +33,7 @@ const Pdf = ({ messages }: PdfProps) => {
     PersonalEmail,
   } = usePersonalFormStore();
   const { companyFullAddress, companySubject } = useCompanyFormStore();
-  const { recruiterName } = useRecruiterStore();
+  const { recruiter } = useRecruiterStore();
   const { companyName } = useCompanyNameStore();
   const parseAddress = (address: string): { street: string; city: string } => {
     const zipCodeRegex = /\d{4,}[^,\s]*/;
@@ -112,7 +112,7 @@ const Pdf = ({ messages }: PdfProps) => {
                 styles[selectedStyle].headerText,
               ]}
             >
-              {recruiterName}
+              {recruiter}
             </Text>
             <Text
               style={[

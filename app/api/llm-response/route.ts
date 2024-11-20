@@ -10,6 +10,8 @@ export async function POST(req: Request, res: Response) {
   const language = reqBody.data.languages;
   const resume = reqBody.data.resume;
 
+  console.log(recruiter);
+
   const groq: OpenAIProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
     apiKey: process.env.API_KEY,
@@ -22,7 +24,7 @@ export async function POST(req: Request, res: Response) {
     Do not write skills that are not mentioned in this prompt. If the skills are undefined send the best possible match with the job posting skills required.
     Send just one cover letter, NOT more than one. Do not add any separators or lines. Must be finished without drafts.
     Give me the response in ${language} language. Ignore the job posting language.
-    The name of the recruiter is ${recruiter}. If the name is undefined, translate the word "Recruiter" to the job posting language. Do not add any genders before or after the word Recruiter.
+    The name of the recruiter is ${recruiter}. JUST if the name is undefined, use the word "Recruiter" in the job posting language. Do not add any genders.
     The name of the company is ${companyName}. If stated remove the company business structure from any country, like inc., LLC, GmbH, Srl, Ltd, SARL, SA and more. 
     Spend some words about the company product/service if available.
     State that i have ${yearsOfExperience} years of experience. If is is 0, do not mention it. 

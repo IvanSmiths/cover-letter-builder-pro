@@ -16,18 +16,11 @@ interface CompanyRecruiterInputProps {
 }
 
 export function CompanyRecruiterInput({ form }: CompanyRecruiterInputProps) {
-  const setRecruiterName = useRecruiterStore((state) => state.setRecruiterName);
-  const { recruiterName } = useRecruiterStore();
+  const { recruiter, setRecruiter } = useRecruiterStore();
 
   useEffect(() => {
-    const subscription = form.watch((value) => {
-      if (value.recruiter !== undefined) {
-        setRecruiterName(value.recruiter);
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [form, setRecruiterName]);
-
+    form.setValue("recruiter", recruiter); // Set default value for React Hook Form
+  }, [recruiter, form]);
   return (
     <div className="w-full">
       <FormField
@@ -43,8 +36,12 @@ export function CompanyRecruiterInput({ form }: CompanyRecruiterInputProps) {
               <Input
                 type="text"
                 {...field}
-                value={field.value}
-                defaultValue={recruiterName || ""}
+                value={recruiter} // Use Zustand state
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setRecruiter(value); // Update Zustand and localStorage
+                  field.onChange(value); // Sync with React Hook Form
+                }}
                 placeholder="John Doe"
               />
             </FormControl>
