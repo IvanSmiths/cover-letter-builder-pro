@@ -7,7 +7,8 @@ import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/dashboard/Form/FormHeader";
 import { PromptLanguages } from "@/components/dashboard/Form/Prompt/PromptLanguages";
 import { PersonalYearsInput } from "@/components/dashboard/Form/Personal/PersonalYearsInput";
-import { PromptResumeInput } from "@/components/dashboard/Form/Prompt/PromptResumeInput";
+import { SyncedInput } from "@/components/dashboard/Form/SyncedInput";
+import { useFormStore } from "@/lib/store";
 
 interface PromptSectionProps {
   input: string;
@@ -24,6 +25,7 @@ function PromptSection({
   stop,
   form,
 }: PromptSectionProps) {
+  const { resume, setResume } = useFormStore((state) => state);
   return (
     <div className="flex flex-col gap-small">
       <FormHeader icon={Sparkles} title="Prompt Info" />
@@ -31,7 +33,15 @@ function PromptSection({
         <PromptLanguages form={form} />
         <PersonalYearsInput form={form} />
       </div>
-      <PromptResumeInput form={form} />
+      <SyncedInput
+        name="resume"
+        label="Things that you want to highlight"
+        tooltipInfo="Leave empty if you want to get an absolute match based on the job posting required skills."
+        placeholder="I have worked with TypeScript for 3 years. I have studied machine learning at..."
+        form={form}
+        stateValue={resume}
+        setStateValue={setResume}
+      />
       <PromptInput
         input={input}
         isLoading={isLoading}

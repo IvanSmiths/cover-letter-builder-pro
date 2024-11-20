@@ -4,11 +4,10 @@ import { PdfProps } from "@/components/dashboard/Pdf/PdfWrapper";
 import {
   DEFAULT_FORMAT,
   useCompanyFormStore,
-  useCompanyNameStore,
   useDateFormatStore,
+  useFormStore,
   usePdfStyleStore,
   usePersonalFormStore,
-  useRecruiterStore,
 } from "@/lib/store";
 import { germanDINNorm } from "@/components/dashboard/Pdf/PdfStyles/germanDINNorm";
 import { style2 } from "@/components/dashboard/Pdf/PdfStyles/style2";
@@ -33,8 +32,8 @@ const Pdf = ({ messages }: PdfProps) => {
     PersonalEmail,
   } = usePersonalFormStore();
   const { companyFullAddress, companySubject } = useCompanyFormStore();
-  const { recruiter } = useRecruiterStore();
-  const { companyName } = useCompanyNameStore();
+  const { companyName, recruiter } = useFormStore((state) => state);
+
   const parseAddress = (address: string): { street: string; city: string } => {
     const zipCodeRegex = /\d{4,}[^,\s]*/;
     const zipCodeIndex = address.search(zipCodeRegex);

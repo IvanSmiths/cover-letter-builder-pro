@@ -37,21 +37,6 @@ interface PdfStyleState {
   setSelectedStyle: (style: PdfStyle) => void;
 }
 
-interface RecruiterStore {
-  recruiter: string;
-  setRecruiter: (name: string) => void;
-}
-
-interface ResumeStore {
-  resume: string;
-  setResume: (name: string) => void;
-}
-
-interface CompanyNameStore {
-  companyName: string;
-  setCompanyName: (name: string) => void;
-}
-
 interface DateFormatState {
   format: string | null;
   setFormat: (format: string) => void;
@@ -124,31 +109,27 @@ export const usePdfStyleStore = create<PdfStyleState>()(
   ),
 );
 
-export const useRecruiterStore = create<RecruiterStore>()(
-  persist(
-    (set) => ({
-      recruiter: "",
-      setRecruiter: (name) => set({ recruiter: name }),
-    }),
-    {
-      name: "recruiter-storage",
-    },
-  ),
-);
+interface FormState {
+  resume: string;
+  recruiter: string;
+  companyName: string;
+  setResume: (value: string) => void;
+  setRecruiter: (value: string) => void;
+  setCompanyName: (value: string) => void;
+}
 
-export const useResumeStore = create<ResumeStore>()(
+export const useFormStore = create<FormState>()(
   persist(
     (set) => ({
       resume: "",
-      setResume: (name) => set({ resume: name }),
+      recruiter: "",
+      companyName: "",
+      setResume: (value) => set({ resume: value }),
+      setRecruiter: (value) => set({ recruiter: value }),
+      setCompanyName: (value) => set({ companyName: value }),
     }),
     {
-      name: "resume-storage",
+      name: "form-storage",
     },
   ),
 );
-
-export const useCompanyNameStore = create<CompanyNameStore>((set) => ({
-  companyName: "",
-  setCompanyName: (name) => set({ companyName: name }),
-}));
