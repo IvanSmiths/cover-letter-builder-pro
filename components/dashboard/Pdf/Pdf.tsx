@@ -14,6 +14,8 @@ import { getTodayDate } from "@/lib/Pdf/getTodayDate";
 import { parseAddress } from "@/lib/Pdf/parseAddress";
 import PdfDocument from "./PdfDocument";
 import { PdfProps } from "@/components/dashboard/Pdf/PdfWrapper";
+import { Download, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Pdf = ({ messages }: PdfProps) => {
   const styles = {
@@ -66,7 +68,7 @@ const Pdf = ({ messages }: PdfProps) => {
       </PDFViewer>
       {messages && messages.length > 0 ? (
         <PDFDownloadLink
-          className="absolute bottom-0 right-0"
+          className="absolute bottom-small left-1/2 -translate-x-1/2 transform"
           document={
             <PdfDocument
               styles={styles}
@@ -87,10 +89,24 @@ const Pdf = ({ messages }: PdfProps) => {
               messages={messages}
             />
           }
-          fileName="generated-document.pdf"
+          fileName={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter.pdf`}
         >
           {({ loading }) =>
-            loading ? "Preparing document..." : "Download PDF"
+            loading ? (
+              <span className="text-dark">
+                Preparing document...
+                <Loader2 className="ml-2 h-4 w-4 animate-spin text-dark" />
+              </span>
+            ) : (
+              <Button
+                variant="outline"
+                size="sm"
+                className="group bg-white text-dark"
+              >
+                Download PDF
+                <Download className="ml-2 h-4 w-4 text-dark group-hover:text-white" />
+              </Button>
+            )
           }
         </PDFDownloadLink>
       ) : null}
