@@ -2,7 +2,6 @@ import { useCompanyNameStore } from "@/lib/store";
 import { Input } from "@/components/ui/input";
 import { useEffect } from "react";
 import { UseFormReturn } from "react-hook-form";
-import { FormValues } from "@/components/Form/FormTypes";
 import {
   FormControl,
   FormField,
@@ -10,6 +9,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
+import { FormValues } from "../FormTypes";
 
 interface CompanyNameInputProps {
   form: UseFormReturn<FormValues>;
