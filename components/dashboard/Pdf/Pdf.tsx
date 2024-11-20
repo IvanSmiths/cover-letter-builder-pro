@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { BlobProvider, PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import {
   defaultFormat,
   useDateFormatStore,
@@ -44,53 +44,32 @@ const Pdf = ({ messages }: PdfProps) => {
     setCurrentDate(getTodayDate(format || defaultFormat));
   }, [format]);
 
+  const pdfDocument = (
+    <PdfDocument
+      styles={styles}
+      selectedStyle={selectedStyle}
+      personalFirstName={personalFirstName}
+      personalLastName={personalLastName}
+      personalAddress={personalAddress}
+      personalZip={personalZip}
+      personalCity={personalCity}
+      personalTelephone={personalTelephone}
+      personalEmail={personalEmail}
+      recruiter={recruiter}
+      companyName={companyName}
+      street={street}
+      city={city}
+      currentDate={currentDate}
+      letterSubject={letterSubject}
+      messages={messages}
+    />
+  );
+
   return (
     <>
-      <PDFViewer style={styles[selectedStyle].viewer}>
-        <PdfDocument
-          styles={styles}
-          selectedStyle={selectedStyle}
-          personalFirstName={personalFirstName}
-          personalLastName={personalLastName}
-          personalAddress={personalAddress}
-          personalZip={personalZip}
-          personalCity={personalCity}
-          personalTelephone={personalTelephone}
-          personalEmail={personalEmail}
-          recruiter={recruiter}
-          companyName={companyName}
-          street={street}
-          city={city}
-          currentDate={currentDate}
-          letterSubject={letterSubject}
-          messages={messages}
-        />
-      </PDFViewer>
+      <PDFViewer style={styles[selectedStyle].viewer}>{pdfDocument}</PDFViewer>
       {messages && messages.length > 0 ? (
-        <PDFDownloadLink
-          className="absolute bottom-small left-1/2 -translate-x-1/2 transform"
-          document={
-            <PdfDocument
-              styles={styles}
-              selectedStyle={selectedStyle}
-              personalFirstName={personalFirstName}
-              personalLastName={personalLastName}
-              personalAddress={personalAddress}
-              personalZip={personalZip}
-              personalCity={personalCity}
-              personalTelephone={personalTelephone}
-              personalEmail={personalEmail}
-              recruiter={recruiter}
-              companyName={companyName}
-              street={street}
-              city={city}
-              currentDate={currentDate}
-              letterSubject={letterSubject}
-              messages={messages}
-            />
-          }
-          fileName={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter.pdf`}
-        >
+        <BlobProvider document={pdfDocument}>
           {({ loading }) =>
             loading ? (
               <span className="text-dark">
@@ -98,17 +77,22 @@ const Pdf = ({ messages }: PdfProps) => {
                 <Loader2 className="ml-2 h-4 w-4 animate-spin text-dark" />
               </span>
             ) : (
-              <Button
-                variant="outline"
-                size="sm"
-                className="group bg-white text-dark"
+              <PDFDownloadLink
+                document={pdfDocument}
+                fileName={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter.pdf`}
               >
-                Download PDF
-                <Download className="ml-2 h-4 w-4 text-dark group-hover:text-white" />
-              </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="group absolute bottom-small left-1/2 -translate-x-1/2 transform bg-white text-dark"
+                >
+                  Download PDF
+                  <Download className="ml-2 h-4 w-4 text-dark group-hover:text-white" />
+                </Button>
+              </PDFDownloadLink>
             )
           }
-        </PDFDownloadLink>
+        </BlobProvider>
       ) : null}
     </>
   );
