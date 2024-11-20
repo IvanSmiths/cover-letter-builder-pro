@@ -35,7 +35,7 @@ export function PromptResumeInput({ form }: PromptResumeInputProps) {
                 onChange={(e) => {
                   const value = e.target.value;
                   setStoredResume(value);
-                  field.onChange(value); // Update the react-hook-form state
+                  field.onChange(value);
                 }}
                 placeholder="jj"
               />
