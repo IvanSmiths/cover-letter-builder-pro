@@ -37,7 +37,7 @@ export function PromptResumeInput({ form }: PromptResumeInputProps) {
                   setStoredResume(value);
                   field.onChange(value);
                 }}
-                placeholder="I have worked with TypeScript for 3 years. I have studied machine lerning at..."
+                placeholder="I have worked with TypeScript for 3 years. I have studied machine learning at..."
               />
             </FormControl>
           </FormItem>
