@@ -67,7 +67,9 @@ const Pdf = ({ messages }: PdfProps) => {
 
   return (
     <>
-      <PDFViewer style={styles[selectedStyle].viewer}>{pdfDocument}</PDFViewer>
+      <PDFViewer showToolbar={false} style={styles[selectedStyle].viewer}>
+        {pdfDocument}
+      </PDFViewer>
       {messages && messages.length > 0 ? (
         <BlobProvider document={pdfDocument}>
           {({ loading }) =>
