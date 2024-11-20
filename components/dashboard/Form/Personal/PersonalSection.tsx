@@ -1,39 +1,66 @@
 import { User } from "lucide-react";
-import { UseFormReturn } from "react-hook-form";
-import PersonalFirstNameInput from "./PersonalFirstNameInput";
-import PersonalLastNameInput from "./PersonalLastNameInput";
-import PersonalCityInput from "./PersonalCityInput";
-import PersonalZipInput from "./PersonalZipInput";
-import PersonalNationInput from "./PersonalNationInput";
-import PersonalEmailInput from "./PersonalEmailInput";
-import PersonalTelephoneInput from "./PersonalTelephoneInput";
-import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/dashboard/Form/FormHeader";
-import PersonalAddressInput from "@/components/dashboard/Form/Personal/PersonalAddress";
+import LocalInput from "@/components/dashboard/Form/LocalInput";
 
-interface PersonalInformationProps {
-  form: UseFormReturn<FormValues>;
-}
-
-function PersonalSection({ form }: PersonalInformationProps) {
+function PersonalSection() {
   return (
     <div className="flex flex-col gap-small">
       <FormHeader icon={User} title="Personal Info" />
       <div className="flex gap-small">
-        <PersonalFirstNameInput />
-        <PersonalLastNameInput />
+        <LocalInput
+          field="PersonalFirstName"
+          label="First Name"
+          autoComplete="given-name"
+          placeholder="John"
+        />
+        <LocalInput
+          field="PersonalLastName"
+          label="Last Name"
+          autoComplete="family-name"
+          placeholder="Doe"
+        />
       </div>
       <div className="flex gap-small">
-        <PersonalCityInput />
-        <PersonalZipInput />
+        <LocalInput
+          field="PersonalCity"
+          label="City"
+          autoComplete="address-level2"
+          placeholder="Berlin"
+        />
+        <LocalInput
+          field="PersonalZip"
+          label="Zip"
+          autoComplete="postal-code"
+          placeholder="10117"
+        />
       </div>
       <div className="flex items-end gap-small">
-        <PersonalNationInput />
-        <PersonalAddressInput />
+        <LocalInput
+          field="PersonalNation"
+          label="Nation"
+          autoComplete="country-name"
+          placeholder="Germany"
+        />
+        <LocalInput
+          field="PersonalAddress"
+          label="Address"
+          autoComplete="address-line1"
+          placeholder="Holiday st. 24"
+        />
       </div>
       <div className="flex gap-small">
-        <PersonalEmailInput />
-        <PersonalTelephoneInput />
+        <LocalInput
+          field="PersonalEmail"
+          label="Email"
+          autoComplete="email"
+          placeholder="john.doe@example.com"
+        />
+        <LocalInput
+          field="PersonalTelephone"
+          label="Telephone"
+          autoComplete="tel"
+          placeholder="123456789"
+        />
       </div>
     </div>
   );

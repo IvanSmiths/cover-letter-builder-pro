@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -28,9 +27,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { languages } from "./Languages";
+import { useState } from "react";
 
 export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <FormField

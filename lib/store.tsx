@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-interface PersonalFormState {
+export interface PersonalFormState {
   PersonalFirstName: string;
   PersonalLastName: string;
   PersonalCity: string;
@@ -10,23 +10,11 @@ interface PersonalFormState {
   PersonalTelephone: string;
   PersonalZip: string;
   PersonalAddress: string;
+  LetterSubject: string;
+  CompanyFullAddress: string;
   setField: <K extends keyof PersonalFormState>(
     field: K,
     value: PersonalFormState[K],
-  ) => void;
-}
-
-interface CompanyFormState {
-  companyCity: string;
-  companyZip: string;
-  companyAddress: string;
-  companyNation: string;
-  companyFullAddress: string;
-  companyRecruiter: any;
-  companySubject: string;
-  setField: <K extends keyof CompanyFormState>(
-    field: K,
-    value: CompanyFormState[K],
   ) => void;
 }
 
@@ -40,6 +28,15 @@ interface PdfStyleState {
 interface DateFormatState {
   format: string | null;
   setFormat: (format: string) => void;
+}
+
+interface FormState {
+  resume: string;
+  recruiter: string;
+  companyName: string;
+  setResume: (value: string) => void;
+  setRecruiter: (value: string) => void;
+  setCompanyName: (value: string) => void;
 }
 
 export const DEFAULT_FORMAT = "yyyy-MM-dd";
@@ -77,25 +74,11 @@ export const usePersonalFormStore = create<PersonalFormState>()(
       PersonalAddress: "",
       PersonalEmail: "",
       PersonalNation: "",
+      CompanyFullAddress: "",
+      LetterSubject: "",
       setField: (field, value) => set({ [field]: value }),
     }),
     { name: "user-form" },
-  ),
-);
-
-export const useCompanyFormStore = create<CompanyFormState>()(
-  persist(
-    (set) => ({
-      companyCity: "",
-      companyZip: "",
-      companyAddress: "",
-      companyNation: "",
-      companyFullAddress: "",
-      companyRecruiter: "",
-      companySubject: "",
-      setField: (field, value) => set({ [field]: value }),
-    }),
-    { name: "company-form" },
   ),
 );
 
@@ -108,15 +91,6 @@ export const usePdfStyleStore = create<PdfStyleState>()(
     { name: "pdf-style" },
   ),
 );
-
-interface FormState {
-  resume: string;
-  recruiter: string;
-  companyName: string;
-  setResume: (value: string) => void;
-  setRecruiter: (value: string) => void;
-  setCompanyName: (value: string) => void;
-}
 
 export const useFormStore = create<FormState>()(
   persist(

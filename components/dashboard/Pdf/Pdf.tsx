@@ -3,7 +3,6 @@ import { Document, Page, PDFViewer, Text, View } from "@react-pdf/renderer";
 import { PdfProps } from "@/components/dashboard/Pdf/PdfWrapper";
 import {
   DEFAULT_FORMAT,
-  useCompanyFormStore,
   useDateFormatStore,
   useFormStore,
   usePdfStyleStore,
@@ -30,8 +29,9 @@ const Pdf = ({ messages }: PdfProps) => {
     PersonalCity,
     PersonalTelephone,
     PersonalEmail,
+    LetterSubject,
+    CompanyFullAddress,
   } = usePersonalFormStore();
-  const { companyFullAddress, companySubject } = useCompanyFormStore();
   const { companyName, recruiter } = useFormStore((state) => state);
 
   const parseAddress = (address: string): { street: string; city: string } => {
@@ -48,7 +48,7 @@ const Pdf = ({ messages }: PdfProps) => {
     return { street, city };
   };
 
-  const { street, city } = parseAddress(companyFullAddress);
+  const { street, city } = parseAddress(CompanyFullAddress);
 
   const { format } = useDateFormatStore();
   const [currentDate, setCurrentDate] = useState<string>("");
@@ -144,7 +144,7 @@ const Pdf = ({ messages }: PdfProps) => {
             </Text>
           </View>
           <View style={styles[selectedStyle].subjectHeader}>
-            <Text style={styles[selectedStyle].text}>{companySubject}</Text>
+            <Text style={styles[selectedStyle].text}>{LetterSubject}</Text>
           </View>
           {messages && messages.length > 0 ? (
             <Text

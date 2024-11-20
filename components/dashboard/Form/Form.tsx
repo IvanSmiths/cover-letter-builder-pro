@@ -47,7 +47,7 @@ export function Form({
           })(event);
         }}
       >
-        <PersonalSection form={form} />
+        <PersonalSection />
         <Separator className="my-small" />
         <CompanySection form={form} />
         <Separator className="my-small" />
