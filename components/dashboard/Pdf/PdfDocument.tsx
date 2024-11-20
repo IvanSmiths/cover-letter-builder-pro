@@ -19,7 +19,13 @@ const PdfDocument = ({
   letterSubject,
   messages,
 }: any) => (
-  <Document>
+  <Document
+    title={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter`}
+    author={`{{${personalFirstName} ${personalLastName}}}`}
+    subject={`${letterSubject}`}
+    creator="Cover Letter Pro"
+    producer="Cover Letter Pro"
+  >
     <Page size="A4" style={styles[selectedStyle].page}>
       <View style={styles[selectedStyle].personalHeader}>
         <Text
@@ -52,7 +58,6 @@ const PdfDocument = ({
           {personalEmail}
         </Text>
       </View>
-
       <View style={styles[selectedStyle].companyHeader}>
         <Text
           style={[styles[selectedStyle].text, styles[selectedStyle].headerText]}
