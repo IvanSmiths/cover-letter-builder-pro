@@ -21,7 +21,6 @@ const PdfDocument = ({
 }: any) => (
   <Document>
     <Page size="A4" style={styles[selectedStyle].page}>
-      {/* Header */}
       <View style={styles[selectedStyle].personalHeader}>
         <Text
           style={[
@@ -76,15 +75,11 @@ const PdfDocument = ({
           {city}
         </Text>
       </View>
-
-      {/* Date */}
       <View style={styles[selectedStyle].dateHeader}>
         <Text style={styles[selectedStyle].text}>
           {personalCity}, {currentDate}
         </Text>
       </View>
-
-      {/* Subject and Message */}
       <View style={styles[selectedStyle].subjectHeader}>
         <Text style={styles[selectedStyle].text}>{letterSubject}</Text>
       </View>
@@ -98,8 +93,6 @@ const PdfDocument = ({
           {messages[messages.length - 1].content || "No content available."}
         </Text>
       ) : null}
-
-      {/* Signature */}
       <View style={styles[selectedStyle].subjectHeader}>
         <Text style={styles[selectedStyle].text}>
           Sincerely, {personalFirstName} {personalLastName}
