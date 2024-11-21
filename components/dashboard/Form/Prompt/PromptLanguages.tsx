@@ -26,10 +26,16 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { languages } from "./Languages";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLanguageStore } from "@/lib/store";
 
 export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
   const [open, setOpen] = useState(false);
+  const { selectedLanguage, setLanguage } = useLanguageStore();
+
+  useEffect(() => {
+    form.setValue("languages", selectedLanguage);
+  }, [form, selectedLanguage]);
 
   return (
     <FormField
@@ -73,6 +79,7 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
                         key={language}
                         onSelect={() => {
                           form.setValue("languages", language);
+                          setLanguage(language);
                           setOpen(false);
                         }}
                       >

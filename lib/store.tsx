@@ -34,23 +34,58 @@ export interface FormState {
   setCompanyName: (value: string) => void;
 }
 
-interface DatePreferencesState {
-  locale: string;
-  setLocale: (locale: string) => void;
-}
+type LanguageStore = {
+  selectedLanguage: string;
+  setLanguage: (language: string) => void;
+  getLocaleFromLanguage: () => string;
+};
 
-const defaultLocale = "en-US";
-
-export const useDatePreferencesStore = create<DatePreferencesState>()(
+export const useLanguageStore = create<LanguageStore>()(
   persist(
-    (set) => ({
-      locale: defaultLocale,
-      setLocale: (locale: string) => {
-        set({ locale });
+    (set, get) => ({
+      selectedLanguage: "🇺🇸 US English",
+      setLanguage: (language: string) => set({ selectedLanguage: language }),
+      getLocaleFromLanguage: () => {
+        const language = get().selectedLanguage;
+        const localeMap: { [key: string]: string } = {
+          "🇺🇸 US English": "en-US",
+          "🇬🇧 British English": "en-GB",
+          "🇩🇪 German": "de",
+          "🇮🇹 Italian": "it",
+          "🇫🇷 French": "fr",
+          "🇪🇸 Spanish": "es",
+          "🇵🇹 Portuguese": "pt",
+          "🇳🇱 Dutch": "nl",
+          "🇸🇪 Swedish": "sv",
+          "🇵🇱 Polish": "pl",
+          "🇭🇷 Croatian": "hr",
+          "🇩🇰 Danish": "da",
+          "🇳🇴 Norwegian": "no",
+          "🇫🇮 Finnish": "fi",
+          "🇧🇬 Bulgarian": "bg",
+          "🇭🇺 Hungarian": "hu",
+          "🇨🇿 Czech": "cs",
+          "🇸🇮 Slovenian": "sl",
+          "🇸🇰 Slovak": "sk",
+          "🇱🇹 Lithuanian": "lt",
+          "🇪🇪 Estonian": "et",
+          "🇷🇴 Romanian": "ro",
+          "🇦🇱 Albanian": "sq",
+          "🇦🇩 Catalan": "ca",
+          "🇧🇷 Brazilian Portuguese": "pt-BR",
+          "🇨🇦 Canadian French": "fr-CA",
+          "🇦🇷 Argentine Spanish": "es-AR",
+          "🇲🇽 Mexican Spanish": "es-MX",
+          "🇻🇪 Venezuelan Spanish": "es-VE",
+          "🇨🇬 Colombian Spanish": "es-CO",
+          "🇨🇺 Cuban Spanish": "es-CU",
+          "🇨🇱 Chilean Spanish": "es-CL",
+        };
+        return localeMap[language] || "en-US";
       },
     }),
     {
-      name: "date-preferences",
+      name: "language-storage",
     },
   ),
 );
