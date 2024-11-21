@@ -30,7 +30,7 @@ interface DateFormatState {
   setFormat: (format: string) => void;
 }
 
-interface FormState {
+export interface FormState {
   resume: string;
   recruiter: string;
   companyName: string;

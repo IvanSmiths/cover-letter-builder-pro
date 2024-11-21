@@ -1,5 +1,26 @@
 import React from "react";
 import { Document, Page, Text, View } from "@react-pdf/renderer";
+import { Message } from "ai";
+import { FormState, UserFormState } from "@/lib/store";
+
+type PdfDocumentProps = {
+  messages: Message[];
+  styles: any;
+  selectedStyle: "germanDINNorm" | "style2" | "style3";
+  personalFirstName: UserFormState["personalFirstName"];
+  personalLastName: UserFormState["personalLastName"];
+  personalAddress: UserFormState["personalAddress"];
+  personalZip: UserFormState["personalZip"];
+  personalCity: UserFormState["personalCity"];
+  personalTelephone: UserFormState["personalTelephone"];
+  personalEmail: UserFormState["personalEmail"];
+  recruiter: FormState["recruiter"];
+  companyName: FormState["companyName"];
+  street: string;
+  city: string;
+  currentDate: string;
+  letterSubject: UserFormState["letterSubject"];
+};
 
 const PdfDocument = ({
   styles,
@@ -18,7 +39,7 @@ const PdfDocument = ({
   currentDate,
   letterSubject,
   messages,
-}: any) => (
+}: PdfDocumentProps) => (
   <Document
     title={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter`}
     author={`{{${personalFirstName} ${personalLastName}}}`}
