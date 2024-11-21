@@ -28,6 +28,7 @@ import {
 import { useEffect, useState } from "react";
 import { useLanguageStore } from "@/lib/store";
 import { LANGUAGES } from "@/lib/languages";
+import Flag from "react-flagkit";
 
 export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
   const [open, setOpen] = useState(false);
@@ -60,11 +61,20 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
                     !field.value && "text-muted-foreground",
                   )}
                 >
-                  {field.value
-                    ? LANGUAGES.find(
-                        (language) => language.name === field.value,
-                      )?.name
-                    : "Select language"}
+                  {field.value ? (
+                    <div className="flex items-center">
+                      <Flag
+                        country={
+                          LANGUAGES.find(
+                            (language) => language.name === field.value,
+                          )?.code || ""
+                        }
+                      />
+                      <span className="ml-2">{field.value}</span>
+                    </div>
+                  ) : (
+                    "Select language"
+                  )}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </FormControl>
@@ -85,7 +95,7 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
                           setOpen(false);
                         }}
                       >
-                        {language.name}
+                        <Flag country={language.code} /> {language.name}
                         <Check
                           className={cn(
                             "ml-auto",

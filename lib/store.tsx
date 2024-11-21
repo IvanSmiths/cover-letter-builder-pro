@@ -38,7 +38,6 @@ export interface FormState {
 export type Language = {
   code: string;
   name: string;
-  display: string;
   locale: string;
 };
 
