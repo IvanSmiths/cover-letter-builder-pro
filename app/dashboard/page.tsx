@@ -4,6 +4,7 @@ import { useChat } from "ai/react";
 import { Form } from "@/components/dashboard/Form/Form";
 import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
+import Header from "@/components/dashboard/Header";
 
 const PdfWrapper = dynamic(
   () => import("@/components/dashboard/Pdf/PdfWrapper"),
@@ -21,6 +22,7 @@ export default function Dashboard() {
   return (
     <main className="bg-backgroundPrimary flex h-full w-full">
       <div className="h-screen w-4/12 overflow-y-scroll">
+        <Header />
         <Form
           input={input}
           isLoading={isLoading}
