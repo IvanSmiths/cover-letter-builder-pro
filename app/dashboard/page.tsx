@@ -17,8 +17,8 @@ export default function Dashboard() {
     });
 
   return (
-    <main className="bg-backgroundPrimary flex h-full w-full">
-      <div className="h-screen w-4/12 overflow-y-scroll">
+    <div className="bg-backgroundPrimary flex h-full w-full">
+      <section className="h-screen w-4/12 overflow-y-scroll">
         <Header />
         <Form
           input={input}
@@ -27,13 +27,13 @@ export default function Dashboard() {
           handleSubmit={handleSubmit}
           stop={stop}
         />
-      </div>
-      <div className="w-8/12">
+      </section>
+      <main className="w-8/12">
         <Pdf messages={messages} />
-      </div>
-      <div className="h-full w-4/12 p-small">
+      </main>
+      <section className="h-full w-4/12 p-small">
         <SelectCoverLetterStyle />
-      </div>
-    </main>
+      </section>
+    </div>
   );
 }
