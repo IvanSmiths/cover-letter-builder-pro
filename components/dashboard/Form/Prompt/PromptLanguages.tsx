@@ -25,17 +25,17 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { languages } from "./Languages";
 import { useEffect, useState } from "react";
 import { useLanguageStore } from "@/lib/store";
+import { LANGUAGES } from "@/lib/languages";
 
 export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
   const [open, setOpen] = useState(false);
   const { selectedLanguage, setLanguage } = useLanguageStore();
 
   useEffect(() => {
-    form.setValue("languages", selectedLanguage);
-  }, [form, selectedLanguage]);
+    form.setValue("languages", selectedLanguage.name);
+  }, [form, selectedLanguage.name]);
 
   return (
     <FormField
@@ -61,7 +61,9 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
                   )}
                 >
                   {field.value
-                    ? languages.find((language) => language === field.value)
+                    ? LANGUAGES.find(
+                        (language) => language.name === field.value,
+                      )?.name
                     : "Select language"}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
@@ -73,21 +75,21 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
                 <CommandList>
                   <CommandEmpty>No language found.</CommandEmpty>
                   <CommandGroup>
-                    {languages.map((language) => (
+                    {LANGUAGES.map((language) => (
                       <CommandItem
-                        value={language}
-                        key={language}
+                        value={language.name}
+                        key={language.name}
                         onSelect={() => {
-                          form.setValue("languages", language);
-                          setLanguage(language);
+                          form.setValue("languages", language.name);
+                          setLanguage(language.name);
                           setOpen(false);
                         }}
                       >
-                        {language}
+                        {language.name}
                         <Check
                           className={cn(
                             "ml-auto",
-                            language === field.value
+                            language.name === field.value
                               ? "opacity-100"
                               : "opacity-0",
                           )}

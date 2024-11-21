@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { LANGUAGES } from "@/lib/languages";
 
 export interface UserFormState {
   personalFirstName: string;
@@ -34,54 +35,26 @@ export interface FormState {
   setCompanyName: (value: string) => void;
 }
 
+export type Language = {
+  code: string;
+  name: string;
+  display: string;
+  locale: string;
+};
+
 type LanguageStore = {
-  selectedLanguage: string;
-  setLanguage: (language: string) => void;
-  getLocaleFromLanguage: () => string;
+  selectedLanguage: Language;
+  setLanguage: (languageName: string) => void;
 };
 
 export const useLanguageStore = create<LanguageStore>()(
   persist(
-    (set, get) => ({
-      selectedLanguage: "🇺🇸 US English",
-      setLanguage: (language: string) => set({ selectedLanguage: language }),
-      getLocaleFromLanguage: () => {
-        const language = get().selectedLanguage;
-        const localeMap: { [key: string]: string } = {
-          "🇺🇸 US English": "en-US",
-          "🇬🇧 British English": "en-GB",
-          "🇩🇪 German": "de",
-          "🇮🇹 Italian": "it",
-          "🇫🇷 French": "fr",
-          "🇪🇸 Spanish": "es",
-          "🇵🇹 Portuguese": "pt",
-          "🇳🇱 Dutch": "nl",
-          "🇸🇪 Swedish": "sv",
-          "🇵🇱 Polish": "pl",
-          "🇭🇷 Croatian": "hr",
-          "🇩🇰 Danish": "da",
-          "🇳🇴 Norwegian": "no",
-          "🇫🇮 Finnish": "fi",
-          "🇧🇬 Bulgarian": "bg",
-          "🇭🇺 Hungarian": "hu",
-          "🇨🇿 Czech": "cs",
-          "🇸🇮 Slovenian": "sl",
-          "🇸🇰 Slovak": "sk",
-          "🇱🇹 Lithuanian": "lt",
-          "🇪🇪 Estonian": "et",
-          "🇷🇴 Romanian": "ro",
-          "🇦🇱 Albanian": "sq",
-          "🇦🇩 Catalan": "ca",
-          "🇧🇷 Brazilian Portuguese": "pt-BR",
-          "🇨🇦 Canadian French": "fr-CA",
-          "🇦🇷 Argentine Spanish": "es-AR",
-          "🇲🇽 Mexican Spanish": "es-MX",
-          "🇻🇪 Venezuelan Spanish": "es-VE",
-          "🇨🇬 Colombian Spanish": "es-CO",
-          "🇨🇺 Cuban Spanish": "es-CU",
-          "🇨🇱 Chilean Spanish": "es-CL",
-        };
-        return localeMap[language] || "en-US";
+    (set) => ({
+      selectedLanguage: LANGUAGES[0],
+      setLanguage: (languageName: string) => {
+        const language =
+          LANGUAGES.find((lang) => lang.name === languageName) || LANGUAGES[0];
+        set({ selectedLanguage: language });
       },
     }),
     {

@@ -12,7 +12,7 @@ export async function POST(req: Request, res: Response) {
 
   console.log(resume);
   console.log(companyName);
-  console.log(recruiter);
+  console.log(language);
 
   const groq: OpenAIProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
