@@ -1,13 +1,13 @@
 import { FormEvent } from "react";
 import { Form as FormComponent } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
-import { Separator } from "@/components/ui/separator";
 import PersonalSection from "@/components/dashboard/Form/Personal/PersonalSection";
 import CompanySection from "@/components/dashboard/Form/Company/CompanySection";
 import PromptSection from "./Prompt/PromptSection";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
 import { useFormStore } from "@/lib/store";
+import { Accordion } from "@/components/ui/accordion";
 
 export function Form({
   input,
@@ -47,17 +47,20 @@ export function Form({
           })(event);
         }}
       >
-        <PersonalSection />
-        <Separator className="my-small" />
-        <CompanySection form={form} />
-        <Separator className="my-small" />
-        <PromptSection
-          input={input}
-          isLoading={isLoading}
-          handleInputChange={handleInputChange}
-          stop={stop}
-          form={form}
-        />
+        <Accordion
+          type="multiple"
+          defaultValue={["item-1", "item-2", "item-3"]}
+        >
+          <PersonalSection />
+          <CompanySection form={form} />
+          <PromptSection
+            input={input}
+            isLoading={isLoading}
+            handleInputChange={handleInputChange}
+            stop={stop}
+            form={form}
+          />
+        </Accordion>
       </form>
     </FormComponent>
   );

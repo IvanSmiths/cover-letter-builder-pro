@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <main className="flex h-full w-full bg-light dark:bg-dark">
-      <div className="h-screen w-4/12 overflow-y-scroll p-small">
+      <div className="h-screen w-4/12 overflow-y-scroll">
         <Form
           input={input}
           isLoading={isLoading}
