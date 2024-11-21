@@ -37,11 +37,11 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
       control={form.control}
       name="languages"
       render={({ field }) => (
-        <FormItem className="flex flex-col gap-2">
+        <FormItem className="flex flex-col justify-end gap-2">
           <FormMessage />
           <FormLabel>Language</FormLabel>
           <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger className="py-5" asChild>
               <FormControl>
                 <Button
                   variant="outline"
