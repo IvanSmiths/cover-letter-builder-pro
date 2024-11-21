@@ -40,6 +40,7 @@ const config: Config = {
       colors: {
         background: "hsl(var(--background))",
         backgroundPrimary: "hsl(var(--background-primary))",
+        backgroundSecondary: "var(--background-secondary)",
         foreground: "hsl(var(--foreground))",
         brand: "#5627E1",
         brandSecondary: "#7a54ed",
