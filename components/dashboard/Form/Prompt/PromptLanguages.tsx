@@ -40,7 +40,10 @@ export function PromptLanguages({ form }: { form: UseFormReturn<FormValues> }) {
           <FormMessage />
           <FormLabel>Language</FormLabel>
           <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger className="py-5" asChild>
+            <PopoverTrigger
+              className="border border-lightSecondary py-5 dark:border-darkSecondary"
+              asChild
+            >
               <FormControl>
                 <Button
                   variant="outline"

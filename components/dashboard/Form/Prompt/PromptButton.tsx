@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Loader2, Wand2 } from "lucide-react";
 
@@ -9,7 +8,11 @@ type PromptButtonProps = {
 
 const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
   return (
-    <Button size="lg" type="submit">
+    <Button
+      size="lg"
+      type="submit"
+      className="bg-brand text-base text-light hover:bg-brand/70"
+    >
       {isLoading ? (
         <>
           Generating . . .
