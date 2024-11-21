@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { UseFormReturn } from "react-hook-form";
 import { PromptInput } from "./PromptInput";
 import PromptButton from "./PromptButton";
@@ -8,12 +8,13 @@ import FormHeader from "@/components/dashboard/Form/FormHeader";
 import { PromptLanguages } from "@/components/dashboard/Form/Prompt/PromptLanguages";
 import { PersonalYearsInput } from "@/components/dashboard/Form/Personal/PersonalYearsInput";
 import { SyncedInput } from "@/components/dashboard/Form/SyncedInput";
-import { useFormStore } from "@/lib/store";
+import { useDatePreferencesStore, useFormStore } from "@/lib/store";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { getTodayDate } from "@/lib/Pdf/getTodayDate";
 
 interface PromptSectionProps {
   input: string;
@@ -31,6 +32,17 @@ function PromptSection({
   form,
 }: PromptSectionProps) {
   const { resume, setResume } = useFormStore((state) => state);
+  const { locale, setLocale } = useDatePreferencesStore();
+  const [currentDate, setCurrentDate] = useState<string>("");
+
+  useEffect(() => {
+    setCurrentDate(getTodayDate(locale));
+  }, [locale]);
+
+  const handleLocaleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLocale(e.target.value);
+  };
+
   return (
     <AccordionItem value="item-3">
       <AccordionTrigger>
@@ -42,6 +54,16 @@ function PromptSection({
             <PromptLanguages form={form} />
             <PersonalYearsInput form={form} />
           </div>
+          Select Locale:
+          <select value={locale} onChange={handleLocaleChange}>
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+            <option value="de-DE">German</option>
+            <option value="fr-FR">French</option>
+            <option value="it-IT">Italian</option>
+            <option value="es-ES">Spanish</option>
+            <option value="pt-PT">Portuguese</option>
+          </select>
           <SyncedInput
             name="resume"
             label="Things that you want to highlight"

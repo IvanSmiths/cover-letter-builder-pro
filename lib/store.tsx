@@ -25,11 +25,6 @@ interface PdfStyleState {
   setSelectedStyle: (style: PdfStyle) => void;
 }
 
-interface DateFormatState {
-  format: string | null;
-  setFormat: (format: string) => void;
-}
-
 export interface FormState {
   resume: string;
   recruiter: string;
@@ -39,27 +34,24 @@ export interface FormState {
   setCompanyName: (value: string) => void;
 }
 
-export const defaultFormat = "yyyy-MM-dd";
+interface DatePreferencesState {
+  locale: string;
+  setLocale: (locale: string) => void;
+}
 
-const getInitialState = () => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("dateFormat") || defaultFormat;
-  }
-  return defaultFormat;
-};
+const defaultLocale = "en-US";
 
-export const useDateFormatStore = create<DateFormatState>()(
+export const useDatePreferencesStore = create<DatePreferencesState>()(
   persist(
     (set) => ({
-      format: getInitialState(),
-      setFormat: (format: string) => {
-        if (typeof window !== "undefined") {
-          localStorage.setItem("dateFormat", format);
-        }
-        set({ format });
+      locale: defaultLocale,
+      setLocale: (locale: string) => {
+        set({ locale });
       },
     }),
-    { name: "date-format" },
+    {
+      name: "date-preferences",
+    },
   ),
 );
 

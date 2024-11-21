@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BlobProvider, PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import {
-  defaultFormat,
-  useDateFormatStore,
+  useDatePreferencesStore,
   useFormStore,
   usePdfStyleStore,
   useUserFormState,
@@ -39,14 +38,14 @@ const Pdf = ({ messages }: PdfProps) => {
     companyFullAddress,
   } = useUserFormState();
   const { companyName, recruiter } = useFormStore((state) => state);
-  const { format } = useDateFormatStore();
   const { selectedStyle } = usePdfStyleStore();
   const { street, city } = parseAddress(companyFullAddress);
+  const { locale } = useDatePreferencesStore();
   const [currentDate, setCurrentDate] = useState<string>("");
 
   useEffect(() => {
-    setCurrentDate(getTodayDate(format || defaultFormat));
-  }, [format]);
+    setCurrentDate(getTodayDate(locale));
+  }, [locale]);
 
   const pdfDocument = (
     <PdfDocument
