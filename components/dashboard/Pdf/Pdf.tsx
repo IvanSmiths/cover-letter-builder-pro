@@ -13,9 +13,13 @@ import { style3 } from "@/components/dashboard/Pdf/PdfStyles/style3";
 import { getTodayDate } from "@/lib/Pdf/getTodayDate";
 import { parseAddress } from "@/lib/Pdf/parseAddress";
 import PdfDocument from "./PdfDocument";
-import { PdfProps } from "@/components/dashboard/Pdf/PdfWrapper";
 import { Download, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Message } from "ai";
+
+type PdfProps = {
+  messages: Message[];
+};
 
 const Pdf = ({ messages }: PdfProps) => {
   const styles = {

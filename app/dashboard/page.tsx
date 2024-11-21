@@ -6,12 +6,9 @@ import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
 import Header from "@/components/dashboard/Header";
 
-const PdfWrapper = dynamic(
-  () => import("@/components/dashboard/Pdf/PdfWrapper"),
-  {
-    ssr: false,
-  },
-);
+const Pdf = dynamic(() => import("@/components/dashboard/Pdf/Pdf"), {
+  ssr: false,
+});
 
 export default function Dashboard() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
@@ -31,8 +28,8 @@ export default function Dashboard() {
           stop={stop}
         />
       </div>
-      <div className="h-screen w-8/12">
-        <PdfWrapper messages={messages} />
+      <div className="w-8/12">
+        <Pdf messages={messages} />
       </div>
       <div className="h-full w-4/12 p-small">
         <SelectCoverLetterStyle />
