@@ -5,7 +5,7 @@ import Navbar from "@/components/home/header/Navbar";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-light px-small dark:bg-dark md:px-medium lg:px-xlarge xl:px-xxlarge">
+    <div className="bg-backgroundPrimary px-small md:px-medium lg:px-xlarge xl:px-xxlarge">
       <Navbar />
       <Header />
       <Main />

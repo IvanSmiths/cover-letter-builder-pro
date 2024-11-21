@@ -36,9 +36,9 @@ const BigCard = () => {
   ];
 
   return (
-    <div className="mt-large flex w-full flex-col gap-large rounded-3xl border border-lightSecondary bg-white p-small dark:border-darkSecondary dark:bg-[#111316] md:flex-row md:gap-0 md:p-12">
+    <div className="mt-large flex w-full flex-col gap-large rounded-3xl border border-background bg-background p-small dark:bg-[#111316] md:flex-row md:gap-0 md:p-12">
       <div className="flex flex-col justify-between gap-regular md:gap-0 md:pr-8">
-        <h3 className="3xl:text-6xl text-3xl font-bold md:text-4xl lg:text-5xl">
+        <h3 className="text-3xl font-bold md:text-4xl lg:text-5xl 3xl:text-6xl">
           Make the difference between landing your dream job or being
           overlooked.
         </h3>
@@ -46,12 +46,12 @@ const BigCard = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="3xl:w-72 flex w-full flex-col items-center justify-center rounded-xl border border-lightSecondary bg-white p-6 text-center dark:border-darkSecondary dark:bg-[#111316] md:w-52"
+              className="flex w-full flex-col items-center justify-center rounded-xl border border-lightSecondary bg-white p-6 text-center dark:border-darkSecondary dark:bg-[#111316] md:w-52 3xl:w-72"
             >
-              <span className="3xl:text-7xl text-5xl font-bold">
+              <span className="text-5xl font-bold 3xl:text-7xl">
                 {stat.percentage}
               </span>
-              <p className="3xl:text-xl text-sm text-darkSecondary dark:text-lightSecondary">
+              <p className="text-sm text-darkSecondary dark:text-lightSecondary 3xl:text-xl">
                 {stat.description}
               </p>
             </div>
@@ -62,10 +62,10 @@ const BigCard = () => {
       <div className="space-y-8 md:border-l md:border-gray-700 md:pl-8">
         {benefits.map((benefit, index) => (
           <div key={index} className="space-y-2">
-            <h3 className="3xl:text-4xl text-xl font-semibold">
+            <h3 className="text-xl font-semibold 3xl:text-4xl">
               {benefit.headline}
             </h3>
-            <p className="3xl:text-2xl text-darkSecondary dark:text-lightSecondary">
+            <p className="text-darkSecondary dark:text-lightSecondary 3xl:text-2xl">
               {benefit.paragraph}
             </p>
           </div>

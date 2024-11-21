@@ -19,7 +19,7 @@ export default function Dashboard() {
     });
 
   return (
-    <main className="flex h-full w-full bg-light dark:bg-dark">
+    <main className="bg-backgroundPrimary flex h-full w-full">
       <div className="h-screen w-4/12 overflow-y-scroll">
         <Form
           input={input}
