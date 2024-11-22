@@ -32,18 +32,18 @@ const Faq: React.FC = () => {
   ];
 
   return (
-    <div className="mx-auto max-w-2xl space-y-2 p-4">
-      {faqData.map((faq, index) => (
-        <details
-          key={index}
-          className="rounded-lg border p-2 transition-colors duration-200"
-        >
-          <summary className="cursor-pointer select-none text-lg font-semibold">
-            {faq.question}
-          </summary>
-          <p className="mt-2 pl-2">{faq.answer}</p>
-        </details>
-      ))}
+    <div className="mx-auto mt-xlarge flex max-w-2xl flex-col items-center gap-medium">
+      <h3 className="text-4xl font-semibold">Frequently Asked Questions</h3>
+      <div className="w-full space-y-2">
+        {faqData.map((faq, index) => (
+          <details key={index} className="w-full rounded-lg">
+            <summary className="cursor-pointer p-3 text-lg">
+              {faq.question}
+            </summary>
+            <p className="mt-2 pl-3">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
     </div>
   );
 };
