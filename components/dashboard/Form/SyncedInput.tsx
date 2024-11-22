@@ -13,6 +13,7 @@ interface SyncedInputProps {
   label: string;
   tooltipInfo?: string;
   placeholder?: string;
+  autoComplete?: string;
   form: any;
   stateValue: string;
   setStateValue: (value: string) => void;
@@ -22,6 +23,7 @@ export function SyncedInput({
   name,
   label,
   tooltipInfo,
+  autoComplete,
   placeholder,
   form,
   stateValue,
@@ -47,6 +49,7 @@ export function SyncedInput({
                 type="text"
                 {...field}
                 value={stateValue}
+                autoComplete={autoComplete}
                 onChange={(e) => {
                   const value = e.target.value;
                   setStateValue(value);

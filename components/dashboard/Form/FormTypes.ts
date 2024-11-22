@@ -3,6 +3,8 @@ import { ChangeEvent, FormEvent } from "react";
 
 export const personalInformationSchema = z.object({
   yearsOfExperience: z.number().min(0).max(100),
+  personalFirstName: z.string().min(1, "Enter a first name").max(100),
+  personalLastName: z.string().min(1, "Enter a last name").max(100),
 });
 
 export const companyInformationSchema = z.object({

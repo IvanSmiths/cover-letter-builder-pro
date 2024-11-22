@@ -9,6 +9,8 @@ export async function POST(req: Request, res: Response) {
   const companyName = reqBody.data.companyName;
   const language = reqBody.data.languages;
   const resume = reqBody.data.resume;
+  const personalFirstName = reqBody.data.personalFirstName;
+  const personalLastName = reqBody.data.personalLastName;
 
   console.log(reqBody);
 
@@ -31,7 +33,7 @@ export async function POST(req: Request, res: Response) {
     The name of the company is ${companyName}. If stated remove the company business structure from any country, like inc., LLC, GmbH, Srl, Ltd, SARL, SA and more. 
     Spend some words about the company product/service if available.
     State that i have ${yearsOfExperience} years of experience. If is is 0, do not mention it. 
-    Give me just the body of the cover letter, without final salutation and signatures. It is subdivided into three paragraphs.Separate the paragraphs with a line break.
+    Give me just the body of the cover letter, and the final salutation, with my name: ${personalFirstName} ${personalLastName}. It is subdivided into three paragraphs.Separate the paragraphs with a line break.
     Don´t add any explanation, give me just the body of the letter. Fit it in one pdf page.`,
   });
 

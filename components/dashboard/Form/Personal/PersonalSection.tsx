@@ -6,8 +6,22 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SyncedInput } from "@/components/dashboard/Form/SyncedInput";
+import { useFormStore } from "@/lib/store";
+import { UseFormReturn } from "react-hook-form";
+import { FormValues } from "@/components/dashboard/Form/FormTypes";
 
-function PersonalSection() {
+interface PersonalSectionProps {
+  form: UseFormReturn<FormValues>;
+}
+
+function PersonalSection({ form }: PersonalSectionProps) {
+  const {
+    personalFirstName,
+    setPersonalFirstName,
+    personalLastName,
+    setPersonalLastName,
+  } = useFormStore((state) => state);
   return (
     <AccordionItem value="item-1">
       <AccordionTrigger className="">
@@ -16,17 +30,23 @@ function PersonalSection() {
       <AccordionContent>
         <div className="flex flex-col gap-small">
           <div className="flex gap-small">
-            <LocalInput
-              field="personalFirstName"
+            <SyncedInput
+              name="personalFirstName"
               label="First Name"
-              autoComplete="given-name"
+              form={form}
+              stateValue={personalFirstName}
+              setStateValue={setPersonalFirstName}
               placeholder="John"
+              autoComplete="given-name"
             />
-            <LocalInput
-              field="personalLastName"
+            <SyncedInput
+              name="personalLastName"
               label="Last Name"
               autoComplete="family-name"
               placeholder="Doe"
+              stateValue={personalLastName}
+              form={form}
+              setStateValue={setPersonalLastName}
             />
           </div>
           <div className="flex gap-small">

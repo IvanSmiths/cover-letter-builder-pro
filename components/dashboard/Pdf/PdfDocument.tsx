@@ -119,11 +119,6 @@ const PdfDocument = ({
           {messages[messages.length - 1].content || "No content available."}
         </Text>
       ) : null}
-      <View style={styles[selectedStyle].subjectHeader}>
-        <Text style={styles[selectedStyle].text}>
-          Sincerely, {personalFirstName} {personalLastName}
-        </Text>
-      </View>
     </Page>
   </Document>
 );

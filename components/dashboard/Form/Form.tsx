@@ -42,6 +42,8 @@ export function Form({
                 companyName: validatedData.companyName,
                 languages: validatedData.languages,
                 resume: validatedData.resume,
+                personalFirstName: validatedData.personalFirstName,
+                personalLastName: validatedData.personalLastName,
               },
             });
           })(event);
@@ -51,7 +53,7 @@ export function Form({
           type="multiple"
           defaultValue={["item-1", "item-2", "item-3"]}
         >
-          <PersonalSection />
+          <PersonalSection form={form} />
           <CompanySection form={form} />
           <PromptSection
             input={input}

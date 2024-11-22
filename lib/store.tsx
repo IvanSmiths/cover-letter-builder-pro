@@ -27,12 +27,16 @@ interface PdfStyleState {
 }
 
 export interface FormState {
+  personalFirstName: string;
+  personalLastName: string;
   resume: string;
   recruiter: string;
   companyName: string;
   setResume: (value: string) => void;
   setRecruiter: (value: string) => void;
   setCompanyName: (value: string) => void;
+  setPersonalFirstName: (value: string) => void;
+  setPersonalLastName: (value: string) => void;
 }
 
 export type Language = {
@@ -94,12 +98,16 @@ export const usePdfStyleStore = create<PdfStyleState>()(
 export const useFormStore = create<FormState>()(
   persist(
     (set) => ({
+      personalFirstName: "",
+      personalLastName: "",
       resume: "",
       recruiter: "",
       companyName: "",
       setResume: (value) => set({ resume: value }),
       setRecruiter: (value) => set({ recruiter: value }),
       setCompanyName: (value) => set({ companyName: value }),
+      setPersonalFirstName: (value) => set({ personalFirstName: value }),
+      setPersonalLastName: (value) => set({ personalLastName: value }),
     }),
     {
       name: "form-storage",
