@@ -3,27 +3,32 @@ const Faq = () => {
     {
       question: "How does the free cover letter builder work?",
       answer:
-        "Our AI-powered cover letter maker uses the job description you provide to generate a tailored, professional cv letter for job applications in minutes. Just paste the job details, add your information, and let AI handle the rest!",
+        "Our <strong>free cover letter builder</strong> uses cutting-edge AI technology to create a customized and professional cv letter for job applications. Simply paste the job description, add your personal details, and our system will generate a tailored cover letter for a job application within minutes. The tool ensures your letter aligns with industry standards and highlights your unique skills to match the job requirements.",
     },
     {
-      question: "Can I use this for European cover letters?",
+      question: "Are the cover letters optimized for ATS systems?",
       answer:
-        "Yes, our tool is optimized to meet European cover letter standards, including German DIN-Norm 5008.",
+        "Yes, every cv created with our builder is optimized for Applicant Tracking Systems (ATS). This means your cover letter for job applications is designed to pass through hiring algorithms while showcasing your qualifications in a professional and concise way.",
     },
     {
       question: "Are there cover letter examples available?",
       answer:
-        "Yes! Our platform provides a variety of cover letter examples that you can use or customize based on your needs.",
+        "Absolutely! We provide a variety of <strong>cover letter examples</strong> that you can use as templates. These examples are tailored for various industries and job positions. Whether you're applying for tech, finance, healthcare, or creative roles, our examples will guide you in crafting the perfect application.",
     },
     {
       question: "Is this service really free?",
       answer:
-        "Absolutely! You can generate unlimited cover letters for job applications at no cost.",
+        "Yes, our <strong>free cover letter builder</strong> is completely free to use with no hidden costs. You can generate unlimited cover letters for job applications, saving time and money. Start creating a professional and tailored <strong>cv letter for job applications</strong> today without spending a dime!",
     },
     {
       question: "How long does it take to create a cover letter?",
       answer:
-        "With our free cover letter builder, you can generate a professional cover letter for a job in under a minute!",
+        "Simply copy the job details and your personal information, and let our system handle the rest. It's the fastest way to create a high-quality <strong>cover letter for a resume</strong>.",
+    },
+    {
+      question: "Why should I use AI to create a cover letter?",
+      answer:
+        "Using AI to create a cover letter for a job saves time, ensures accuracy, and enhances personalization. Our <strong>cover letter maker</strong> generates professional letters that highlight your strengths while aligning with the job description. AI eliminates guesswork, ensuring your cv letter meets all requirements and maximizes your chances of getting noticed.",
     },
   ];
 
@@ -37,7 +42,10 @@ const Faq = () => {
               <summary className="cursor-pointer p-3 text-lg">
                 {faq.question}
               </summary>
-              <p className="mt-2 pb-3 pl-3">{faq.answer}</p>
+              <p
+                dangerouslySetInnerHTML={{ __html: faq.answer }}
+                className="mt-2 pb-3 pl-3"
+              ></p>
             </details>
             <div className="w-full bg-lightSecondary pt-0.5 dark:bg-darkSecondary"></div>
           </div>
