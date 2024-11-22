@@ -14,7 +14,7 @@ const Faq = () => {
               <p
                 dangerouslySetInnerHTML={{ __html: faq.answer }}
                 className="mt-2 pb-3 pl-3"
-              ></p>
+              />
             </details>
             <div className="w-full bg-lightSecondary pt-0.5 dark:bg-darkSecondary"></div>
           </div>

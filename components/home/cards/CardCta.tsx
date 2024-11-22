@@ -1,4 +1,4 @@
-import SimpleButton from "@/components/home/header/SimpleButton";
+import SimpleInternalButton from "@/components/home/header/SimpleInternalButton";
 
 const CardCta = () => {
   return (
@@ -7,7 +7,7 @@ const CardCta = () => {
         Stand Out in the <br />
         Crowd of Applicants.
       </h4>
-      <SimpleButton />
+      <SimpleInternalButton />
     </div>
   );
 };

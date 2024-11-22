@@ -1,5 +1,5 @@
 import React from "react";
-import SimpleButton from "@/components/home/header/SimpleButton";
+import SimpleInternalButton from "@/components/home/header/SimpleInternalButton";
 
 type HeaderProps = {
   isHero?: boolean;
@@ -22,7 +22,7 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
       >
         {paragraph}
       </p>
-      {isHero ? <SimpleButton /> : null}
+      {isHero ? <SimpleInternalButton /> : null}
     </div>
   );
 };
