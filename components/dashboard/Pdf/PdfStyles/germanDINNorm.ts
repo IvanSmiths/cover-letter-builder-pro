@@ -9,7 +9,7 @@ export const germanDINNorm = {
     paddingLeft: 94.48,
   },
   headerText: {
-    fontSize: 12,
+    fontSize: 11,
     paddingTop: 3,
   },
   headerName: {
@@ -43,7 +43,8 @@ export const germanDINNorm = {
     width: "100%",
   },
   text: {
-    fontSize: 12,
+    fontSize: 11,
+    lineHeight: 1.4,
     fontFamily: "Helvetica",
     color: "black",
   },
