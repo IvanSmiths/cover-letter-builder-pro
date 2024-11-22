@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Header from "@/components/home/header/Header";
 import Main from "@/components/home/main/Main";
 import Navbar from "@/components/home/header/Navbar";
+import Faq from "@/components/home/faq/Faq";
 
 const Home: NextPage = () => {
   return (
@@ -9,6 +10,7 @@ const Home: NextPage = () => {
       <Navbar />
       <Header />
       <Main />
+      <Faq />
     </div>
   );
 };
