@@ -19,6 +19,9 @@ export async function POST(req: Request, res: Response) {
 
   const result = streamText({
     model: groq("llama-3.1-8b-instant"),
+    maxTokens: 400,
+    system:
+      "You are a professional cover letter writer. You are able to write tailored cover letter to a specific job, professionally.",
     prompt: `Write a cover letter based on this job posting: ${prompt}.
     Write a tailored cover letter based on this skills about me: ${resume}.
     Do not write skills that are not mentioned in this prompt. If the skills are undefined send the best possible match with the job posting skills required.
