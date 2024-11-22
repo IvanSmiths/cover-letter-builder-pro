@@ -14,19 +14,19 @@ const BigCard = () => {
 
   const benefits = [
     {
-      headline: "Stand Out in the Crowd.",
+      headline: "Be Memorable.",
       paragraph:
-        "In a competitive markets, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+        "Make the difference between landing your dream job or being overlooked.",
     },
     {
-      headline: "Stand Out in the Crowd.",
+      headline: "Get Noticed.",
       paragraph:
-        "In a markets, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+        "Increase your chances of getting called for an interview with a cover letter that grabs the hiring manager's attention",
     },
     {
-      headline: "Stand Out in the Crowd.",
+      headline: "Build hundreds of cover letters effortlessly.",
       paragraph:
-        "In a competitive, hiring managers receive hundreds of applications. A personalized, well-written, tailored cover letter immediately sets you apart.",
+        "Cover Letter Builder Pro`s powerful AI engine generates high-quality, customized cover letters at lightning speed. No more agonizing over wording - let AI do the heavy lifting.",
     },
     {
       headline: "Stand Out in the Crowd.",

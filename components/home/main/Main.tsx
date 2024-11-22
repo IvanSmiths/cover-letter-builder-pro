@@ -8,10 +8,9 @@ import CardCta from "@/components/home/cards/CardCta";
 const Main = () => {
   const title = "Impress hiring managers.";
   const paragraph =
-    "Applying for a job has never been easier or faster. With our cutting-edge AI-powered platform, " +
-    "all you need to do is copy and paste the job description, fill in a few details, and let our system handle the rest. " +
-    "Our tool creates polished, professional, and perfectly tailored cover letters designed to showcase your qualifications, " +
-    "save you time, and impress hiring managers.";
+    "A cover letter written specifically for a company/role is the cherry on top of a perfect application. " +
+    "Use Cover Letter Builder Pro`s AI-driven cover letter builder to create professional," +
+    " customized documents that showcase your qualifications and passion for the role and the company you are applying to.";
 
   return (
     <section className="relative z-10 mt-xxlarge">
@@ -27,8 +26,8 @@ const Main = () => {
             iconAbsolute={Sparkles}
           />
           <Card
-            title="77%"
-            description="Of possibilities to find your dream job with a well written cover letter."
+            title="53%"
+            description="Of hiring managers consider a great cover letter as important as a strong resume."
             color="dark"
             size="small"
             icon={ActivitySquare}
@@ -37,7 +36,7 @@ const Main = () => {
         <div className="flex flex-col gap-small lg:flex-row">
           <Card
             title="10x"
-            description="Generate up to 10 perfectly tailored cover letters per minute, saving hours of manual work."
+            description="Speed up the process of creating a cover letter by using Cover Letter Builder Pro`s AI-driven cover letter builder."
             color="dark"
             size="small"
           />

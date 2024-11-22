@@ -4,8 +4,8 @@ import HeaderImage from "@/components/home/header/HeaderImage";
 const Header = () => {
   const title = "Build Hundreds of Cover Letters for Free!";
   const paragraph =
-    "Leveraging AI, create Cover Letter tailored specifically for the job you are applying to. " +
-    "Build cover letters that fits national standards (German DIN-Norm 5008) for free, blazingly fast, with an extreme cure in design details.";
+    "Optimize your job search with our powerful cover letter generator. Craft personalized, " +
+    "attention-grabbing cover letters that impress hiring managers and land you interviews.";
 
   return (
     <header>
