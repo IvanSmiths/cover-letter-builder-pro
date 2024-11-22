@@ -118,7 +118,13 @@ const PdfDocument = ({
         >
           {messages[messages.length - 1].content || "No content available."}
         </Text>
-      ) : null}
+      ) : (
+        <View style={styles[selectedStyle].placeholderSection}>
+          <Text style={[styles[selectedStyle].text]}>
+            Generate the Cover Letter to see the result.
+          </Text>
+        </View>
+      )}
     </Page>
   </Document>
 );

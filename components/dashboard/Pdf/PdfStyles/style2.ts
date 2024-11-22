@@ -27,6 +27,16 @@ export const style2 = {
   promptSection: {
     marginTop: 20,
   },
+  placeholderSection: {
+    marginTop: 20,
+    borderRadius: 10,
+    backgroundColor: "#efefef",
+    justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
+    height: 430,
+    width: "100%",
+  },
   text: {
     fontSize: 22,
     color: "red",
