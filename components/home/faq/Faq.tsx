@@ -1,11 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import React from "react";
 
 const Faq: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   const faqData = [
     {
       question: "How does the free cover letter builder work?",
@@ -34,29 +31,18 @@ const Faq: React.FC = () => {
     },
   ];
 
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <div className="mx-auto max-w-2xl space-y-2 p-4">
       {faqData.map((faq, index) => (
-        <div key={index} className="overflow-hidden rounded-lg border">
-          <div
-            onClick={() => toggleAccordion(index)}
-            className="relative flex cursor-pointer items-center justify-between p-4"
-          >
-            <span className="text-lg font-semibold">{faq.question}</span>
-            <ChevronDown
-              className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : "rotate-0"} `}
-            />
-          </div>
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-96" : "max-h-0"} `}
-          >
-            <p className="p-4 pt-0">{faq.answer}</p>
-          </div>
-        </div>
+        <details
+          key={index}
+          className="rounded-lg border p-2 transition-colors duration-200"
+        >
+          <summary className="cursor-pointer select-none text-lg font-semibold">
+            {faq.question}
+          </summary>
+          <p className="mt-2 pl-2">{faq.answer}</p>
+        </details>
       ))}
     </div>
   );
