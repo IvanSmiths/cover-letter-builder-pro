@@ -1,8 +1,4 @@
-"use client";
-
-import React from "react";
-
-const Faq: React.FC = () => {
+const Faq = () => {
   const faqData = [
     {
       question: "How does the free cover letter builder work?",
