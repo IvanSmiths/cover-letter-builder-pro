@@ -1,4 +1,4 @@
-import { createOpenAI as createGroq, OpenAIProvider } from "@ai-sdk/openai";
+import { createGroq, GroqProvider } from "@ai-sdk/groq";
 import { streamText } from "ai";
 
 export async function POST(req: Request, res: Response) {
@@ -10,16 +10,14 @@ export async function POST(req: Request, res: Response) {
   const language = reqBody.data.languages;
   const resume = reqBody.data.resume;
 
-  console.log(resume);
-  console.log(companyName);
-  console.log(language);
+  console.log(reqBody);
 
-  const groq: OpenAIProvider = createGroq({
+  const groq: GroqProvider = createGroq({
     baseURL: "https://api.groq.com/openai/v1",
     apiKey: process.env.API_KEY,
   });
 
-  const result = await streamText({
+  const result = streamText({
     model: groq("llama-3.1-8b-instant"),
     prompt: `Write a cover letter based on this job posting: ${prompt}.
     Write a tailored cover letter based on this skills about me: ${resume}.
