@@ -121,7 +121,7 @@ const PdfDocument = ({
       ) : (
         <View style={styles[selectedStyle].placeholderSection}>
           <Text style={[styles[selectedStyle].text]}>
-            Generate the Cover Letter to see the result.
+            Fill up the required form inputs to generate the cover letter body.
           </Text>
         </View>
       )}
