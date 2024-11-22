@@ -36,6 +36,7 @@ export const germanDINNorm = {
     borderRadius: 10,
     backgroundColor: "#efefef",
     justifyContent: "center",
+    border: "2px dashed #D1D5DB",
     alignItems: "center",
     display: "flex",
     height: 430,
@@ -43,6 +44,7 @@ export const germanDINNorm = {
   },
   text: {
     fontSize: 12,
+    fontFamily: "Helvetica",
     color: "black",
   },
 };
