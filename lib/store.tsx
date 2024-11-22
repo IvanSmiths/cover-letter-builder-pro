@@ -3,8 +3,6 @@ import { persist } from "zustand/middleware";
 import { LANGUAGES } from "@/lib/languages";
 
 export interface UserFormState {
-  personalFirstName: string;
-  personalLastName: string;
   personalCity: string;
   personalNation: string;
   personalEmail: string;
@@ -69,8 +67,6 @@ export const useLanguageStore = create<LanguageStore>()(
 export const useUserFormState = create<UserFormState>()(
   persist(
     (set) => ({
-      personalFirstName: "",
-      personalLastName: "",
       personalCity: "",
       personalTelephone: "",
       personalZip: "",

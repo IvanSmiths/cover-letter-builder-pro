@@ -28,8 +28,6 @@ const Pdf = ({ messages, isLoading }: PdfProps) => {
     style3,
   };
   const {
-    personalFirstName,
-    personalLastName,
     personalAddress,
     personalZip,
     personalCity,
@@ -38,7 +36,8 @@ const Pdf = ({ messages, isLoading }: PdfProps) => {
     letterSubject,
     companyFullAddress,
   } = useUserFormState();
-  const { companyName, recruiter } = useFormStore((state) => state);
+  const { companyName, recruiter, personalFirstName, personalLastName } =
+    useFormStore((state) => state);
   const { selectedStyle } = usePdfStyleStore();
   const { street, city } = parseAddress(companyFullAddress);
   const { selectedLanguage } = useLanguageStore();

@@ -8,8 +8,8 @@ type PdfDocumentProps = {
   styles: any;
   isLoading: any;
   selectedStyle: "germanDINNorm" | "style2" | "style3";
-  personalFirstName: UserFormState["personalFirstName"];
-  personalLastName: UserFormState["personalLastName"];
+  personalFirstName: FormState["personalFirstName"];
+  personalLastName: FormState["personalLastName"];
   personalAddress: UserFormState["personalAddress"];
   personalZip: UserFormState["personalZip"];
   personalCity: UserFormState["personalCity"];
