@@ -29,7 +29,7 @@ export default function Dashboard() {
         />
       </section>
       <main className="w-8/12">
-        <Pdf messages={messages} />
+        <Pdf isLoading={isLoading} messages={messages} />
       </main>
       <section className="h-full w-4/12 p-small">
         <SelectCoverLetterStyle />

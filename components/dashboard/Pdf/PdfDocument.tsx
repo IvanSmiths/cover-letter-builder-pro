@@ -6,6 +6,7 @@ import { FormState, UserFormState } from "@/lib/store";
 type PdfDocumentProps = {
   messages: Message[];
   styles: any;
+  isLoading: any;
   selectedStyle: "germanDINNorm" | "style2" | "style3";
   personalFirstName: UserFormState["personalFirstName"];
   personalLastName: UserFormState["personalLastName"];
@@ -38,6 +39,7 @@ const PdfDocument = ({
   city,
   currentDate,
   letterSubject,
+  isLoading,
   messages,
 }: PdfDocumentProps) => (
   <Document
@@ -109,7 +111,7 @@ const PdfDocument = ({
       <View style={styles[selectedStyle].subjectHeader}>
         <Text style={styles[selectedStyle].text}>{letterSubject}</Text>
       </View>
-      {messages && messages.length > 0 ? (
+      {messages && messages.length > 0 && !isLoading ? (
         <Text
           style={[
             styles[selectedStyle].text,

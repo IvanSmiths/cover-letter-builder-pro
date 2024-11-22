@@ -18,9 +18,10 @@ import { Message } from "ai";
 
 type PdfProps = {
   messages: Message[];
+  isLoading: any;
 };
 
-const Pdf = ({ messages }: PdfProps) => {
+const Pdf = ({ messages, isLoading }: PdfProps) => {
   const styles = {
     germanDINNorm,
     style2,
@@ -49,6 +50,7 @@ const Pdf = ({ messages }: PdfProps) => {
 
   const pdfDocument = (
     <PdfDocument
+      isLoading={isLoading}
       styles={styles}
       selectedStyle={selectedStyle}
       personalFirstName={personalFirstName}
