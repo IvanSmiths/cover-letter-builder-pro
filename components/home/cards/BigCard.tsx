@@ -36,7 +36,7 @@ const BigCard = () => {
   ];
 
   return (
-    <div className="mt-large flex w-full flex-col gap-large rounded-3xl border border-background bg-background p-small dark:bg-[#111316] md:flex-row md:gap-0 md:p-12">
+    <div className="mt-small flex w-full flex-col gap-large rounded-3xl border border-lightSecondary bg-background p-small dark:border-darkSecondary dark:bg-[#111316] md:flex-row md:gap-0 md:p-12">
       <div className="flex flex-col justify-between gap-regular md:gap-0 md:pr-8">
         <h3 className="text-3xl font-bold md:text-4xl lg:text-5xl 3xl:text-6xl">
           Make the difference between landing your dream job or being

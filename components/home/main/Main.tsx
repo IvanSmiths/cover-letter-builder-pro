@@ -48,10 +48,7 @@ const Main = () => {
             link="Go to dashboard"
           />
         </div>
-        <section className="mt-xlarge">
-          <HeaderText title={title} paragraph={paragraph} isHero={false} />
-          <BigCard />
-        </section>
+        <BigCard />
         <CardCta />
       </main>
     </section>
