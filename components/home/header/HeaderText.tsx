@@ -1,5 +1,6 @@
 import React from "react";
 import SimpleInternalButton from "@/components/home/header/SimpleInternalButton";
+import SimpleExternalButton from "@/components/home/header/SimpleExternalButton";
 
 type HeaderProps = {
   isHero?: boolean;
@@ -22,7 +23,12 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
       >
         {paragraph}
       </p>
-      {isHero ? <SimpleInternalButton /> : null}
+      {isHero ? (
+        <div className="flex items-center justify-center gap-small">
+          <SimpleInternalButton />
+          <SimpleExternalButton />
+        </div>
+      ) : null}
     </div>
   );
 };

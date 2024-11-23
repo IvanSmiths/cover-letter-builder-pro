@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="bg-backgroundPrimary/40 fixed left-0 top-0 z-20 flex w-full items-center justify-between gap-smallest bg-clip-padding px-small py-smallest backdrop-blur-xl backdrop-filter md:px-medium lg:px-xlarge xl:px-xxlarge">
+    <nav className="fixed left-0 top-0 z-20 flex w-full items-center justify-between gap-smallest bg-backgroundPrimary/40 bg-clip-padding px-small py-smallest backdrop-blur-xl backdrop-filter md:px-medium lg:px-xlarge xl:px-xxlarge">
       <div className="flex items-center justify-center gap-smallest sm:gap-small">
         <img
           src="/logo.svg"
@@ -16,11 +15,23 @@ const Navbar = () => {
           Cover letter builder
         </span>
       </div>
-      <Link prefetch={false} href="/dashboard">
-        <Button variant="outline" size="sm">
+      <div className="space-x-small">
+        <a
+          href="https://github.com/IvanSmiths/"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="rounded-md border-2 border-dark px-6 py-2 dark:border-light/60"
+        >
+          Star it on GitHub
+        </a>
+        <Link
+          prefetch={false}
+          className="rounded-md bg-background px-6 py-2"
+          href="/dashboard"
+        >
           Go to Dashboard
-        </Button>
-      </Link>
+        </Link>
+      </div>
     </nav>
   );
 };
