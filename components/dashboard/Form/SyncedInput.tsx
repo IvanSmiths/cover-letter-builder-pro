@@ -7,14 +7,16 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
+import { FormValues } from "@/components/dashboard/Form/FormTypes";
+import { UseFormReturn } from "react-hook-form";
 
 interface SyncedInputProps {
-  name: string;
+  name: keyof FormValues;
   label: string;
   tooltipInfo?: string;
   placeholder?: string;
   autoComplete?: string;
-  form: any;
+  form: UseFormReturn<FormValues>;
   stateValue: string;
   setStateValue: (value: string) => void;
 }

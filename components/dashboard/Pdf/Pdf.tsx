@@ -17,7 +17,7 @@ import { Message } from "ai";
 
 type PdfProps = {
   messages: Message[];
-  isLoading: any;
+  isLoading: boolean;
 };
 
 const Pdf = ({ messages, isLoading }: PdfProps) => {

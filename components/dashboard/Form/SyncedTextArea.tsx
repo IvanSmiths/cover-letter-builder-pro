@@ -7,14 +7,16 @@ import {
 } from "@/components/ui/form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
 import { Textarea } from "@/components/ui/textarea";
+import { UseFormReturn } from "react-hook-form";
+import { FormValues } from "@/components/dashboard/Form/FormTypes";
 
 interface SyncedTextAreaProps {
-  name: string;
+  name: keyof FormValues;
   label: string;
   tooltipInfo?: string;
   placeholder?: string;
   autoComplete?: string;
-  form: any;
+  form: UseFormReturn<FormValues>;
   stateValue: string;
   setStateValue: (value: string) => void;
 }
