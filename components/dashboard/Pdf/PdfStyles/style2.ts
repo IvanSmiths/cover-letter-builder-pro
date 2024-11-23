@@ -44,7 +44,6 @@ export const style2 = {
     borderRadius: 10,
     border: "1px dashed #D1D5DB",
     textAlign: "center" as const,
-    color: "#9CA3AF",
     height: 400,
     display: "flex",
     justifyContent: "center",
