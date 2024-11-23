@@ -31,12 +31,11 @@ const SelectCoverLetterStyle = () => {
   const { setSelectedStyle } = usePdfStyleStore();
 
   return (
-    <div className="flex h-full flex-row flex-wrap gap-small">
+    <div className="flex h-full flex-col flex-wrap gap-small lg:flex-row">
       {styles.map((style) => (
         <div
           key={style.id}
-          style={{ width: `calc(50% - 10px)` }}
-          className="group relative cursor-pointer rounded-md"
+          className="group relative w-full cursor-pointer rounded-md lg:w-[calc(50%-10px)]"
           onClick={() => setSelectedStyle(style.id)}
         >
           <img

@@ -29,7 +29,7 @@ function PersonalSection({ form }: PersonalSectionProps) {
       </AccordionTrigger>
       <AccordionContent>
         <div className="flex flex-col gap-small">
-          <div className="flex gap-small">
+          <div className="flex flex-col gap-small lg:flex-row">
             <SyncedInput
               name="personalFirstName"
               label="First Name"
@@ -49,7 +49,7 @@ function PersonalSection({ form }: PersonalSectionProps) {
               setStateValue={setPersonalLastName}
             />
           </div>
-          <div className="flex gap-small">
+          <div className="flex flex-col gap-small lg:flex-row">
             <LocalInput
               field="personalCity"
               label="City"
@@ -63,7 +63,7 @@ function PersonalSection({ form }: PersonalSectionProps) {
               placeholder="10117"
             />
           </div>
-          <div className="flex items-end gap-small">
+          <div className="flex flex-col items-end gap-small lg:flex-row">
             <LocalInput
               field="personalNation"
               label="Nation"
@@ -77,7 +77,7 @@ function PersonalSection({ form }: PersonalSectionProps) {
               placeholder="Holiday st. 24"
             />
           </div>
-          <div className="flex gap-small">
+          <div className="flex flex-col gap-small lg:flex-row">
             <LocalInput
               field="personalEmail"
               label="Email"

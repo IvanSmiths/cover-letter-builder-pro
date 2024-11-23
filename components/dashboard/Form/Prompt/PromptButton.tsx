@@ -11,7 +11,7 @@ const PromptButton = ({ isLoading, stop }: PromptButtonProps) => {
     <Button
       size="lg"
       type="submit"
-      className="bg-brand text-base text-light hover:bg-brand/70"
+      className="bg-brand text-sm text-light hover:bg-brand/70 lg:text-base"
     >
       {isLoading ? (
         <>

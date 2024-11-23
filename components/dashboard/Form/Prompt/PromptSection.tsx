@@ -39,7 +39,7 @@ function PromptSection({
       </AccordionTrigger>
       <AccordionContent>
         <div className="flex flex-col gap-small">
-          <div className="flex gap-small">
+          <div className="flex flex-col gap-small lg:flex-row">
             <PromptLanguages form={form} />
             <PersonalYearsInput form={form} />
           </div>
