@@ -30,7 +30,8 @@ function CompanySection({ form }: CompanyInformationProps) {
           <SyncedInput
             name="companyName"
             label="Company Name"
-            tooltipInfo="Enter the name of the company you are applying to."
+            tooltipInfo="The company business structure (Inc., LLC, GmbH, etc.) will be added to the header
+            but hidden in the cover letter body to give a more genuine feeling."
             placeholder="e.g., Google, Meta, Statworx"
             form={form}
             stateValue={companyName}
