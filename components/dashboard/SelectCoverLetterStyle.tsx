@@ -35,7 +35,8 @@ const SelectCoverLetterStyle = () => {
       {styles.map((style) => (
         <div
           key={style.id}
-          className="relative w-1/2"
+          style={{ width: `calc(50% - 10px)` }}
+          className="relative"
           onClick={() => setSelectedStyle(style.id)}
         >
           <img
@@ -45,7 +46,8 @@ const SelectCoverLetterStyle = () => {
             width={style.imgWidth}
             height={style.imgHeight}
           />
-          <h3 className="absolute bottom-small left-1/2 -translate-x-1/2 transform">
+          <div className="absolute top-0 h-full w-full bg-gradient-to-t from-black/90 to-transparent" />
+          <h3 className="absolute bottom-small left-1/2 -translate-x-1/2 transform text-center text-sm">
             {style.label}
           </h3>
         </div>
