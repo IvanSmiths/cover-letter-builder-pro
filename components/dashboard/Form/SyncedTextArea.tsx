@@ -4,6 +4,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
 import { Textarea } from "@/components/ui/textarea";
@@ -42,6 +43,7 @@ export function SyncedTextArea({
         name={name}
         render={({ field }) => (
           <FormItem>
+            <FormMessage />
             <div className="flex items-center gap-smallest">
               <FormLabel>{label}</FormLabel>
               {tooltipInfo && <TooltipWrapper info={tooltipInfo} />}

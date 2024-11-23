@@ -5,6 +5,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import TooltipWrapper from "@/components/ui/TooltipWrapper";
 import { FormValues } from "@/components/dashboard/Form/FormTypes";
@@ -42,6 +43,7 @@ export function SyncedInput({
         name={name}
         render={({ field }) => (
           <FormItem>
+            <FormMessage />
             <div className="flex items-center gap-smallest">
               <FormLabel>{label}</FormLabel>
               {tooltipInfo && <TooltipWrapper info={tooltipInfo} />}
