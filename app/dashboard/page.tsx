@@ -19,7 +19,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex h-full w-full flex-col bg-backgroundPrimary md:flex-row">
-      <section className="h-screen w-full overflow-y-scroll md:w-4/12">
+      <section className="h-screen w-full overflow-y-scroll lg:w-3/12">
         <Header />
         <Form
           input={input}
@@ -29,10 +29,10 @@ export default function Dashboard() {
           stop={stop}
         />
       </section>
-      <main className="w-full max-md:min-h-[calc(100vh-100px)] md:w-8/12">
+      <main className="w-full max-md:min-h-[calc(100vh-100px)] lg:w-6/12">
         <Pdf isLoading={isLoading} messages={messages} />
       </main>
-      <section className="h-full w-full p-small md:w-4/12">
+      <section className="h-full w-full p-small lg:w-3/12">
         <SelectCoverLetterStyle />
       </section>
       <script
