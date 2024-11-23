@@ -37,8 +37,8 @@ export function PromptInput({
               {...field}
               placeholder={
                 isLoading
-                  ? "Generating . . ."
-                  : "Paste the job description here . . . "
+                  ? "Generating..."
+                  : "Paste the job description here..."
               }
               value={input}
               disabled={isLoading}

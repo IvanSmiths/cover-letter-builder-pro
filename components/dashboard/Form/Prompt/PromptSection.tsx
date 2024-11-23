@@ -45,9 +45,9 @@ function PromptSection({
           </div>
           <SyncedTextArea
             name="resume"
-            label="Things that you want to highlight"
+            label="Your resume"
             tooltipInfo="Leave empty if you want to get an absolute match based on the job posting required skills."
-            placeholder="I have worked with TypeScript for 3 years. I have studied machine learning at..."
+            placeholder="I have worked with TypeScript for 3 years at Apple. I have studied machine learning at..."
             form={form}
             stateValue={resume}
             setStateValue={setResume}
