@@ -39,7 +39,7 @@ export const germanDINNorm = {
     border: "2px dashed #D1D5DB",
     alignItems: "center",
     display: "flex",
-    height: 430,
+    height: 426,
     width: "100%",
   },
   text: {

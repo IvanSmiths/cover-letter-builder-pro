@@ -36,7 +36,7 @@ const SelectCoverLetterStyle = () => {
         <div
           key={style.id}
           style={{ width: `calc(50% - 10px)` }}
-          className="relative"
+          className="group relative cursor-pointer rounded-md"
           onClick={() => setSelectedStyle(style.id)}
         >
           <img
@@ -46,7 +46,7 @@ const SelectCoverLetterStyle = () => {
             width={style.imgWidth}
             height={style.imgHeight}
           />
-          <div className="absolute top-0 h-full w-full bg-gradient-to-t from-black/90 to-transparent" />
+          <div className="absolute top-0 h-full w-full bg-gradient-to-t from-white/90 to-transparent transition-all duration-200 group-hover:bg-dark/40 dark:from-black/90" />
           <h3 className="absolute bottom-small left-1/2 -translate-x-1/2 transform text-center text-sm">
             {style.label}
           </h3>
