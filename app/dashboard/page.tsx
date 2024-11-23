@@ -5,6 +5,7 @@ import { Form } from "@/components/dashboard/Form/Form";
 import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
 import Header from "@/components/dashboard/Header";
+import { dashboardSchema } from "@/lib/Schema/dashboardSchema";
 
 const Pdf = dynamic(() => import("@/components/dashboard/Pdf/Pdf"), {
   ssr: false,
@@ -17,7 +18,7 @@ export default function Dashboard() {
     });
 
   return (
-    <div className="bg-backgroundPrimary flex h-full w-full">
+    <div className="flex h-full w-full bg-backgroundPrimary">
       <section className="h-screen w-4/12 overflow-y-scroll">
         <Header />
         <Form
@@ -34,6 +35,10 @@ export default function Dashboard() {
       <section className="h-full w-4/12 p-small">
         <SelectCoverLetterStyle />
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dashboardSchema) }}
+      />
     </div>
   );
 }
