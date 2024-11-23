@@ -29,7 +29,7 @@ export default function Dashboard() {
           stop={stop}
         />
       </section>
-      <main className="w-full md:w-8/12">
+      <main className="w-full max-md:min-h-[calc(100vh-100px)] md:w-8/12">
         <Pdf isLoading={isLoading} messages={messages} />
       </main>
       <section className="h-full w-full p-small md:w-4/12">

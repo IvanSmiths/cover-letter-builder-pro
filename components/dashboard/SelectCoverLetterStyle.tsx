@@ -55,7 +55,7 @@ const SelectCoverLetterStyle = () => {
         href="https://github.com/IvanSmiths/"
         target="_blank"
         rel="noreferrer noopener"
-        className="absolute bottom-small right-large rounded-md border-2 border-dark px-6 py-2 text-sm dark:border-light/60"
+        className="fixed bottom-small right-large rounded-md border-2 border-dark px-6 py-2 text-sm dark:border-light/60"
       >
         Star it on GitHub
       </a>
