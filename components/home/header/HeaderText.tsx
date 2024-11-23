@@ -1,4 +1,3 @@
-import React from "react";
 import SimpleInternalButton from "@/components/home/header/SimpleInternalButton";
 import SimpleExternalButton from "@/components/home/header/SimpleExternalButton";
 
@@ -13,6 +12,9 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
     <div
       className={`${isHero ? "px-0 pt-large md:pt-xxlarge xl:px-xlarge 2xl:px-xxxlarge" : "mt-large"} align-center relative z-10 flex flex-col items-center gap-medium`}
     >
+      {isHero && (
+        <div className="rounded-md bg-brand p-1 px-3 text-sm">beta 0.16.0</div>
+      )}
       <h1
         className={`${isHero ? "h-full bg-gradient-to-r from-dark via-dark to-gray-500 bg-clip-text text-5xl text-transparent dark:from-light dark:via-light dark:to-gray-400 md:text-7xl 3xl:text-9xl" : "text-6xl 3xl:text-8xl"} text-center font-bold`}
       >
