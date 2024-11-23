@@ -1,13 +1,14 @@
 import React from "react";
 import { Document, Page, Text, View } from "@react-pdf/renderer";
 import { Message } from "ai";
-import { FormState, UserFormState } from "@/lib/store";
+import { FormState, PdfStyle, UserFormState } from "@/lib/store";
+import { PdfStyleDefinition } from "@/lib/Types/pdfStyleDefinition";
 
 type PdfDocumentProps = {
   messages: Message[];
-  styles: any;
-  isLoading: any;
-  selectedStyle: "germanDINNorm" | "elegant" | "style3";
+  styles: PdfStyleDefinition;
+  isLoading: boolean;
+  selectedStyle: PdfStyle;
   personalFirstName: FormState["personalFirstName"];
   personalLastName: FormState["personalLastName"];
   personalAddress: UserFormState["personalAddress"];

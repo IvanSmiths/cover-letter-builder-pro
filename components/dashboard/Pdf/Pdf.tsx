@@ -14,6 +14,7 @@ import PdfDocument from "./PdfDocument";
 import { Download, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Message } from "ai";
+import { PdfStyleDefinition } from "@/lib/Types/pdfStyleDefinition";
 
 type PdfProps = {
   messages: Message[];
@@ -21,7 +22,7 @@ type PdfProps = {
 };
 
 const Pdf = ({ messages, isLoading }: PdfProps) => {
-  const styles = {
+  const styles: PdfStyleDefinition = {
     germanDINNorm,
     elegant,
   };
