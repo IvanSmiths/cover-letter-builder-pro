@@ -1,1 +1,1 @@
-# next-ai
+# Cover Letter Builder Pro
