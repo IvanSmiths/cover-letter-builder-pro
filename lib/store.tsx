@@ -17,7 +17,7 @@ export interface UserFormState {
   ) => void;
 }
 
-type PdfStyle = "germanDINNorm" | "style2" | "style3";
+export type PdfStyle = "germanDINNorm" | "style2" | "style3";
 
 interface PdfStyleState {
   selectedStyle: PdfStyle;
