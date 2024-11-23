@@ -12,7 +12,7 @@ const Navbar = () => {
           className="w-10"
         />
         <span className="text-base font-semibold sm:text-xl">
-          Cover letter builder
+          Cover Letter Builder Pro
         </span>
       </div>
       <div className="space-x-small">
