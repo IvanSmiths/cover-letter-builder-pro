@@ -7,13 +7,13 @@ import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/dashboard/Form/FormHeader";
 import { PromptLanguages } from "@/components/dashboard/Form/Prompt/PromptLanguages";
 import { PersonalYearsInput } from "@/components/dashboard/Form/Personal/PersonalYearsInput";
-import { SyncedInput } from "@/components/dashboard/Form/SyncedInput";
 import { useFormStore } from "@/lib/store";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SyncedTextArea } from "@/components/dashboard/Form/SyncedTextArea";
 
 interface PromptSectionProps {
   input: string;
@@ -43,7 +43,7 @@ function PromptSection({
             <PromptLanguages form={form} />
             <PersonalYearsInput form={form} />
           </div>
-          <SyncedInput
+          <SyncedTextArea
             name="resume"
             label="Things that you want to highlight"
             tooltipInfo="Leave empty if you want to get an absolute match based on the job posting required skills."
