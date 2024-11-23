@@ -1,4 +1,4 @@
-export const style2 = {
+export const elegant = {
   viewer: {
     width: "100%",
     height: "100%",

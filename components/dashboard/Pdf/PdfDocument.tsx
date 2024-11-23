@@ -7,7 +7,7 @@ type PdfDocumentProps = {
   messages: Message[];
   styles: any;
   isLoading: any;
-  selectedStyle: "germanDINNorm" | "style2" | "style3";
+  selectedStyle: "germanDINNorm" | "elegant" | "style3";
   personalFirstName: FormState["personalFirstName"];
   personalLastName: FormState["personalLastName"];
   personalAddress: UserFormState["personalAddress"];

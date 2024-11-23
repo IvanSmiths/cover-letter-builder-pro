@@ -7,8 +7,7 @@ import {
   useUserFormState,
 } from "@/lib/store";
 import { germanDINNorm } from "@/components/dashboard/Pdf/PdfStyles/germanDINNorm";
-import { style2 } from "@/components/dashboard/Pdf/PdfStyles/style2";
-import { style3 } from "@/components/dashboard/Pdf/PdfStyles/style3";
+import { elegant } from "@/components/dashboard/Pdf/PdfStyles/elegant";
 import { getTodayDate } from "@/lib/Pdf/getTodayDate";
 import { parseAddress } from "@/lib/Pdf/parseAddress";
 import PdfDocument from "./PdfDocument";
@@ -24,8 +23,7 @@ type PdfProps = {
 const Pdf = ({ messages, isLoading }: PdfProps) => {
   const styles = {
     germanDINNorm,
-    style2,
-    style3,
+    elegant,
   };
   const {
     personalAddress,

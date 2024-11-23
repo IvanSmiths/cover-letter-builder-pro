@@ -20,7 +20,7 @@ const SelectCoverLetterStyle = () => {
       label: "German DIN-Norm 5008",
     },
     {
-      id: "style2",
+      id: "elegant",
       imgSrc: "/elegant.png",
       imgAlt: "elegant",
       imgWidth: 665,
