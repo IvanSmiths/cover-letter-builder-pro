@@ -7,11 +7,11 @@ const HeaderImage = () => {
         alt="background"
       />
       <img
-        src="/dashboard.png"
+        src="https://ik.imagekit.io/ivansmiths/cover%20letter%20builder/dashboard.png?updatedAt=1732383542546"
         alt="cover letter builder screenshot"
         width="1584"
         height="773"
-        className="relative z-10 mt-large w-full border-darkSecondary dark:border-lightSecondary"
+        className="relative z-10 mt-large rounded-lg border-2 border-lightSecondary dark:border-darkSecondary"
       />
     </div>
   );
