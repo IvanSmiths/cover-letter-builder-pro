@@ -4,13 +4,11 @@ import { streamText } from "ai";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log("Received body:", body); // Debug log
+    console.log("Received body:", body);
 
-    // Extract messages and data from the request body
     const { messages, data } = body;
     const prompt = messages?.[messages.length - 1]?.content || "";
 
-    // Destructure data with default values
     const {
       yearsOfExperience = 0,
       recruiter = "",
