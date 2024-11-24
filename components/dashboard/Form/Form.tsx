@@ -4,6 +4,7 @@ import PersonalSection from "@/components/dashboard/Form/Personal/PersonalSectio
 import CompanySection from "@/components/dashboard/Form/Company/CompanySection";
 import PromptSection from "@/components/dashboard/Form/Prompt/PromptSection";
 import { UseFormReturn } from "react-hook-form";
+import { ChatRequestOptions } from "ai";
 
 interface FormData {
   yearsOfExperience: number;
@@ -18,7 +19,10 @@ interface FormData {
 interface FormProps {
   form: UseFormReturn<FormData>;
   input: string;
-  handleSubmit: (message: string, data?: any) => void;
+  handleSubmit: (
+    event?: string,
+    chatRequestOptions?: ChatRequestOptions | FormData,
+  ) => void;
   handleInputChange: (e: any) => void;
   isLoading: boolean;
   stop: () => void;
@@ -27,15 +31,14 @@ interface FormProps {
 export const Form = ({
   form,
   input,
-  handleSubmit: chatHandleSubmit,
+  handleSubmit,
   handleInputChange,
   isLoading,
   stop,
 }: FormProps) => {
   const onSubmit = async (validatedData: FormData) => {
     try {
-      // Pass the input as the message and the form data as additional data
-      await chatHandleSubmit(input, {
+      handleSubmit(input, {
         yearsOfExperience: validatedData.yearsOfExperience,
         recruiter: validatedData.recruiter,
         companyName: validatedData.companyName,
