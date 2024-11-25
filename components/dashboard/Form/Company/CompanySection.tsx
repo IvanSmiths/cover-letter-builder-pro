@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { UseFormReturn } from "react-hook-form";
+import { FormValues } from "@/components/dashboard/Form/FormTypes";
 
 interface CompanyInformationProps {
   form: UseFormReturn<FormValues>;
