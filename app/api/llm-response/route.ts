@@ -1,9 +1,7 @@
 import { createGroq, GroqProvider } from "@ai-sdk/groq";
 import { streamText } from "ai";
-import { unstable_noStore as noStore } from "next/cache";
 
 export async function POST(req: Request, res: Response) {
-  noStore();
   const reqBody = await req.json();
   const prompt = reqBody.data.prompt;
   const yearsOfExperience = reqBody.data.yearsOfExperience;
