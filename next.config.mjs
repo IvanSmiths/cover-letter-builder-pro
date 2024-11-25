@@ -52,10 +52,9 @@ const nextConfig = {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
-          // Add CORS headers
           {
             key: "Access-Control-Allow-Origin",
-            value: "*", // Consider restricting this to specific origins in production
+            value: "*",
           },
           {
             key: "Access-Control-Allow-Methods",
