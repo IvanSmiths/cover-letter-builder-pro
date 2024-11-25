@@ -1,8 +1,8 @@
 # Cover Letter Builder Pro
 
 Cover Letter Builder Pro is a web application that allows you to create a cover letter based on a job posting. It uses
-the [Groq](https://groq.dev/) library with Llama to generate the cover letter content. Heavily tested with various job
-application, but still in beta.
+Groq library with Llama to generate the cover letter content. Heavily tested with various job
+application, still in beta.
 
 ## Contributing
 
