@@ -15,18 +15,18 @@ const Navbar = () => {
           Cover Letter Builder Pro
         </span>
       </div>
-      <div className="space-x-small">
+      <div className="flex items-center gap-smallest sm:gap-small">
         <a
           href="https://github.com/IvanSmiths/cover-letter-builder-pro"
           target="_blank"
           rel="noreferrer noopener"
-          className="rounded-md border-2 border-dark px-6 py-2 dark:border-light/60"
+          className="hidden rounded-md border-2 border-dark px-6 py-2 dark:border-light/60 md:block"
         >
           Star it on GitHub
         </a>
         <Link
           prefetch={false}
-          className="rounded-md bg-background px-6 py-2"
+          className="rounded-md bg-background px-6 py-2 text-center"
           href="/dashboard"
         >
           Go to Dashboard
