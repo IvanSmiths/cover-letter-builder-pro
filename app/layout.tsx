@@ -4,6 +4,7 @@ import React from "react";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { red_hat_display } from "@/lib/fonts";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,6 +32,7 @@ export default function RootLayout({
           {children}
           <ThemeToggle />
         </ThemeProvider>
+        <GoogleAnalytics gaId="G-0W6D42PTMZ" />
       </body>
     </html>
   );
