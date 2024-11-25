@@ -1,12 +1,7 @@
 const BigCard = () => {
   const stats = [
     {
-      percentage: "78%",
-      description:
-        "Of recruiters prefer applications that follow standard formatting guidelines.",
-    },
-    {
-      percentage: "78%",
+      percentage: "60%",
       description:
         "Of recruiters prefer applications that follow standard formatting guidelines.",
     },
