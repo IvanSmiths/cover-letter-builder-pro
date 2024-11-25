@@ -1,16 +1,16 @@
 import { createGroq, GroqProvider } from "@ai-sdk/groq";
 import { streamText } from "ai";
+import { NextResponse } from "next/server";
+
+export const runtime = "edge";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log("Received body:", body);
 
-    // Extract messages and data from the request body
     const { messages, data } = body;
     const prompt = messages?.[messages.length - 1]?.content || "";
 
-    // Destructure data with default values
     const {
       yearsOfExperience = 0,
       recruiter = "",
@@ -47,16 +47,25 @@ export async function POST(req: Request) {
     return result.toDataStreamResponse();
   } catch (error) {
     console.error("Error processing request:", error);
-    return new Response(
-      JSON.stringify({
-        error: "Internal Server Error",
-      }),
+    return NextResponse.json(
       {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
+        error: "Internal Server Error",
       },
+      { status: 500 },
     );
   }
+}
+
+export async function OPTIONS() {
+  return NextResponse.json(
+    { success: true },
+    {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      },
+    },
+  );
 }
