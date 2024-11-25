@@ -1,9 +1,7 @@
 import { Sparkles } from "lucide-react";
 import { ChangeEvent } from "react";
-import { UseFormReturn } from "react-hook-form";
 import { PromptInput } from "./PromptInput";
 import PromptButton from "./PromptButton";
-import { FormValues } from "../FormTypes";
 import FormHeader from "@/components/dashboard/Form/FormHeader";
 import { PromptLanguages } from "@/components/dashboard/Form/Prompt/PromptLanguages";
 import { PersonalYearsInput } from "@/components/dashboard/Form/Personal/PersonalYearsInput";
@@ -20,7 +18,7 @@ interface PromptSectionProps {
   isLoading: boolean;
   handleInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   stop: () => void;
-  form: UseFormReturn<FormValues>;
+  form: any;
 }
 
 function PromptSection({

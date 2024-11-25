@@ -1,53 +1,49 @@
-import { FormEvent } from "react";
+import { Accordion } from "@/components/ui/accordion";
 import { Form as FormComponent } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
 import PersonalSection from "@/components/dashboard/Form/Personal/PersonalSection";
 import CompanySection from "@/components/dashboard/Form/Company/CompanySection";
-import PromptSection from "./Prompt/PromptSection";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
-import { useFormStore } from "@/lib/store";
-import { Accordion } from "@/components/ui/accordion";
+import PromptSection from "@/components/dashboard/Form/Prompt/PromptSection";
+import { UseFormReturn } from "react-hook-form";
+import { FormData } from "@/app/dashboard/page";
 
-export function Form({
+interface FormProps {
+  form: UseFormReturn<FormData>;
+  input: string;
+  handleSubmit: any;
+  handleInputChange: (e: any) => void;
+  isLoading: boolean;
+  stop: () => void;
+}
+
+export const Form = ({
+  form,
   input,
-  isLoading,
-  handleInputChange,
   handleSubmit,
+  handleInputChange,
+  isLoading,
   stop,
-}: ChatFormProps) {
-  const form = useForm<FormValues>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      yearsOfExperience: 0,
-      languages: "🇺🇸 US English",
-      resume: useFormStore.getState().resume,
-      recruiter: useFormStore.getState().recruiter,
-    },
-    mode: "onSubmit",
-  });
+}: FormProps) => {
+  const onSubmit = async (validatedData: FormData) => {
+    try {
+      handleSubmit(input, {
+        yearsOfExperience: validatedData.yearsOfExperience,
+        recruiter: validatedData.recruiter,
+        companyName: validatedData.companyName,
+        languages: validatedData.languages,
+        resume: validatedData.resume,
+        personalFirstName: validatedData.personalFirstName,
+        personalLastName: validatedData.personalLastName,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
 
   return (
     <FormComponent {...form}>
       <form
         className="flex flex-col gap-small"
-        onSubmit={(event: FormEvent<HTMLFormElement>) => {
-          event.preventDefault();
-          form.handleSubmit((validatedData) => {
-            handleSubmit(event, {
-              data: {
-                prompt: input,
-                yearsOfExperience: validatedData.yearsOfExperience,
-                recruiter: validatedData.recruiter,
-                companyName: validatedData.companyName,
-                languages: validatedData.languages,
-                resume: validatedData.resume,
-                personalFirstName: validatedData.personalFirstName,
-                personalLastName: validatedData.personalLastName,
-              },
-            });
-          })(event);
-        }}
+        onSubmit={form.handleSubmit(onSubmit)}
       >
         <Accordion
           type="multiple"
@@ -66,4 +62,4 @@ export function Form({
       </form>
     </FormComponent>
   );
-}
+};

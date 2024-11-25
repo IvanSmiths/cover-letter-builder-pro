@@ -8,14 +8,8 @@ import {
 } from "@/components/ui/accordion";
 import { SyncedInput } from "@/components/dashboard/Form/SyncedInput";
 import { useFormStore } from "@/lib/store";
-import { UseFormReturn } from "react-hook-form";
-import { FormValues } from "@/components/dashboard/Form/FormTypes";
 
-interface PersonalSectionProps {
-  form: UseFormReturn<FormValues>;
-}
-
-function PersonalSection({ form }: PersonalSectionProps) {
+function PersonalSection({ form }: any) {
   const {
     personalFirstName,
     setPersonalFirstName,

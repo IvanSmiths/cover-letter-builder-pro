@@ -8,14 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { UseFormReturn } from "react-hook-form";
-import { FormValues } from "@/components/dashboard/Form/FormTypes";
 
-interface CompanyInformationProps {
-  form: UseFormReturn<FormValues>;
-}
-
-function CompanySection({ form }: CompanyInformationProps) {
+function CompanySection({ form }: any) {
   const { companyName, setCompanyName, recruiter, setRecruiter } = useFormStore(
     (state) => state,
   );
