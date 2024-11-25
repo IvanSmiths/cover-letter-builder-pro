@@ -6,50 +6,15 @@ import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
 import Header from "@/components/dashboard/Header";
 import { dashboardSchema } from "@/lib/Schema/dashboardSchema";
-import { pdfjs } from "react-pdf";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
 
 const Pdf = dynamic(() => import("@/components/dashboard/Pdf/Pdf"), {
   ssr: false,
 });
 
-export interface FormData {
-  yearsOfExperience: number;
-  recruiter: string;
-  companyName: string;
-  languages: string;
-  resume: string;
-  personalFirstName: string;
-  personalLastName: string;
-}
-
 export default function Dashboard() {
-  const form = useForm<FormData>({
-    defaultValues: {
-      yearsOfExperience: 0,
-      recruiter: "",
-      companyName: "",
-      languages: "",
-      resume: "",
-      personalFirstName: "",
-      personalLastName: "",
-    },
-  });
-
-  useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-  }, []);
-
   const { messages, input, handleInputChange, handleSubmit, isLoading, stop } =
     useChat({
       api: "api/llm-response",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        data: form.getValues(),
-      },
     });
 
   return (
@@ -57,7 +22,6 @@ export default function Dashboard() {
       <section className="h-screen w-full overflow-y-scroll lg:w-3/12">
         <Header />
         <Form
-          form={form}
           input={input}
           isLoading={isLoading}
           handleInputChange={handleInputChange}
