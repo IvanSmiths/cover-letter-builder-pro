@@ -4,25 +4,12 @@ import PersonalSection from "@/components/dashboard/Form/Personal/PersonalSectio
 import CompanySection from "@/components/dashboard/Form/Company/CompanySection";
 import PromptSection from "@/components/dashboard/Form/Prompt/PromptSection";
 import { UseFormReturn } from "react-hook-form";
-import { ChatRequestOptions } from "ai";
-
-interface FormData {
-  yearsOfExperience: number;
-  recruiter: string;
-  companyName: string;
-  languages: string;
-  resume: string;
-  personalFirstName: string;
-  personalLastName: string;
-}
+import { FormData } from "@/app/dashboard/page";
 
 interface FormProps {
   form: UseFormReturn<FormData>;
   input: string;
-  handleSubmit: (
-    event?: string,
-    chatRequestOptions?: ChatRequestOptions | FormData,
-  ) => void;
+  handleSubmit: any;
   handleInputChange: (e: any) => void;
   isLoading: boolean;
   stop: () => void;

@@ -14,7 +14,7 @@ const Pdf = dynamic(() => import("@/components/dashboard/Pdf/Pdf"), {
   ssr: false,
 });
 
-interface FormData {
+export interface FormData {
   yearsOfExperience: number;
   recruiter: string;
   companyName: string;

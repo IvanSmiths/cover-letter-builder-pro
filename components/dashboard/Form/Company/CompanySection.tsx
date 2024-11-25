@@ -1,5 +1,3 @@
-import { UseFormReturn } from "react-hook-form";
-import { FormValues } from "@/components/dashboard/Form/FormTypes";
 import FormHeader from "@/components/dashboard/Form/FormHeader";
 import { Building } from "lucide-react";
 import { SyncedInput } from "../SyncedInput";
@@ -11,11 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-interface CompanyInformationProps {
-  form: UseFormReturn<FormValues>;
-}
-
-function CompanySection({ form }: CompanyInformationProps) {
+function CompanySection({ form }: any) {
   const { companyName, setCompanyName, recruiter, setRecruiter } = useFormStore(
     (state) => state,
   );
