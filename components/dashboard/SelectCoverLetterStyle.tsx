@@ -54,7 +54,7 @@ const SelectCoverLetterStyle = () => {
         </div>
       ))}
       <a
-        href="https://github.com/IvanSmiths/"
+        href="https://github.com/IvanSmiths/cover-letter-builder-pro"
         target="_blank"
         rel="noreferrer noopener"
         className="fixed bottom-small right-large rounded-md border-2 border-dark px-6 py-2 text-sm dark:border-light/60"

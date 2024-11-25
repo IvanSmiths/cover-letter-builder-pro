@@ -3,7 +3,7 @@ import React from "react";
 const SimpleExternalButton = () => {
   return (
     <a
-      href="https://github.com/IvanSmiths/"
+      href="https://github.com/IvanSmiths/cover-letter-builder-pro"
       target="_blank"
       rel="noreferrer noopener"
     >
