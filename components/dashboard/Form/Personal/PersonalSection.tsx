@@ -65,16 +65,16 @@ function PersonalSection({ form }: PersonalSectionProps) {
           </div>
           <div className="flex flex-col items-end gap-small xl:flex-row">
             <LocalInput
-              field="personalNation"
-              label="Nation"
-              autoComplete="country-name"
-              placeholder="Germany"
-            />
-            <LocalInput
               field="personalAddress"
               label="Address"
               autoComplete="address-line1"
               placeholder="Holiday st. 24"
+            />
+            <LocalInput
+              field="personalTelephone"
+              label="Telephone"
+              autoComplete="tel"
+              placeholder="123456789"
             />
           </div>
           <div className="flex flex-col gap-small xl:flex-row">
@@ -83,12 +83,6 @@ function PersonalSection({ form }: PersonalSectionProps) {
               label="Email"
               autoComplete="email"
               placeholder="john.doe@example.com"
-            />
-            <LocalInput
-              field="personalTelephone"
-              label="Telephone"
-              autoComplete="tel"
-              placeholder="123456789"
             />
           </div>
         </div>
