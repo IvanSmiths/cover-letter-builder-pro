@@ -30,7 +30,10 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
       {isHero ? (
         <div className="flex items-center justify-center gap-small">
           <SimpleInternalButton />
-          <SimpleExternalButton />
+          <SimpleExternalButton
+            link="https://github.com/IvanSmiths/cover-letter-builder-pro"
+            label="Star it on GitHub"
+          />
         </div>
       ) : null}
     </div>
