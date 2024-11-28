@@ -5,6 +5,7 @@ import Navbar from "@/components/home/header/Navbar";
 import Faq from "@/components/home/faq/Faq";
 import { homeMetadata } from "@/lib/Metadata/homeMetadata";
 import { homeSchema } from "@/lib/Schema/homeSchema";
+import Footer from "@/components/home/footer/Footer";
 
 export const metadata: Metadata = homeMetadata;
 
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <Header />
       <Main />
       <Faq />
+      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }}
