@@ -14,7 +14,7 @@ const HeaderText = ({ title, paragraph, isHero }: HeaderProps) => {
     >
       {isHero && (
         <div className="rounded-md bg-brand p-1 px-3 text-sm text-white">
-          beta 0.18.0
+          beta 0.18.1
         </div>
       )}
       <h1
