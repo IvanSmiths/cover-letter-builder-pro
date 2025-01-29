@@ -88,11 +88,14 @@ const Pdf = ({ messages, isLoading }: PdfProps) => {
               >
                 <Button
                   variant="outline"
-                  size="sm"
-                  className="group absolute bottom-small left-1/2 -translate-x-1/2 transform bg-white text-dark"
+                  size="default"
+                  className="group absolute bottom-small left-1/2 -translate-x-1/2 transform border-0 bg-brand font-bold text-white"
                 >
                   Download PDF
-                  <Download className="ml-2 h-4 w-4 text-dark group-hover:text-white" />
+                  <Download
+                    strokeWidth={3}
+                    className="ml-1 h-6 w-6 text-white group-hover:text-white"
+                  />
                 </Button>
               </PDFDownloadLink>
             )
