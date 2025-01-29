@@ -34,7 +34,6 @@ export const elegant = {
   },
   promptSection: {
     marginTop: 20,
-    backgroundColor: "#F9FAFB",
     fontStyle: "italic",
     color: "#374151",
   },
