@@ -70,38 +70,49 @@ const Pdf = ({ messages, isLoading }: PdfProps) => {
 
   return (
     <main className="w-full max-md:min-h-[calc(100vh-100px)] lg:w-6/12">
-      <PDFViewer showToolbar={false} style={styles[selectedStyle].viewer}>
-        {pdfDocument}
-      </PDFViewer>
-      {messages && messages.length > 0 ? (
-        <BlobProvider document={pdfDocument}>
-          {({ loading }) =>
-            loading ? (
-              <span className="text-dark">
-                Preparing document...
-                <Loader2 className="ml-2 h-4 w-4 animate-spin text-dark" />
-              </span>
-            ) : (
-              <PDFDownloadLink
-                document={pdfDocument}
-                fileName={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter.pdf`}
-              >
-                <Button
-                  variant="outline"
-                  size="default"
-                  className="group absolute bottom-small left-1/2 -translate-x-1/2 transform border-0 bg-brand font-bold text-white"
-                >
-                  Download PDF
-                  <Download
-                    strokeWidth={3}
-                    className="ml-1 h-6 w-6 text-white group-hover:text-white"
-                  />
-                </Button>
-              </PDFDownloadLink>
-            )
-          }
-        </BlobProvider>
-      ) : null}
+      {isLoading ? (
+        <div className="flex h-full w-full items-center justify-center">
+          <Button>
+            Generating...
+            <Loader2 onClick={stop} className="ml-2 animate-spin" />
+          </Button>
+        </div>
+      ) : (
+        <>
+          <PDFViewer showToolbar={false} style={styles[selectedStyle].viewer}>
+            {pdfDocument}
+          </PDFViewer>
+          {messages && messages.length > 0 ? (
+            <BlobProvider document={pdfDocument}>
+              {({ loading }) =>
+                loading ? (
+                  <span className="text-dark">
+                    Preparing document...
+                    <Loader2 className="ml-2 h-4 w-4 animate-spin text-dark" />
+                  </span>
+                ) : (
+                  <PDFDownloadLink
+                    document={pdfDocument}
+                    fileName={`${personalFirstName} ${personalLastName} - ${companyName} Cover Letter.pdf`}
+                  >
+                    <Button
+                      variant="outline"
+                      size="default"
+                      className="group absolute bottom-small left-1/2 -translate-x-1/2 transform border-0 bg-brand font-bold text-white"
+                    >
+                      Download PDF
+                      <Download
+                        strokeWidth={3}
+                        className="ml-1 h-6 w-6 text-white group-hover:text-white"
+                      />
+                    </Button>
+                  </PDFDownloadLink>
+                )
+              }
+            </BlobProvider>
+          ) : null}
+        </>
+      )}
     </main>
   );
 };
