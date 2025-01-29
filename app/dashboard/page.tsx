@@ -32,9 +32,7 @@ export default function Dashboard() {
       <main className="w-full max-md:min-h-[calc(100vh-100px)] lg:w-6/12">
         <Pdf isLoading={isLoading} messages={messages} />
       </main>
-      <section className="h-full w-full p-small lg:w-3/12">
-        <SelectCoverLetterStyle />
-      </section>
+      <SelectCoverLetterStyle />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(dashboardSchema) }}
