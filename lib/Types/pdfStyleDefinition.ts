@@ -57,7 +57,6 @@ export type PdfStyleDefinition = {
       marginTop: number;
     };
     promptSection: {
-      backgroundColor: string;
       color: string;
       fontStyle: string;
       marginTop: number;
