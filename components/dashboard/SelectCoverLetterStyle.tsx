@@ -1,41 +1,13 @@
-import { PdfStyle, usePdfStyleStore } from "@/lib/store";
-
-type StyleOption = {
-  id: PdfStyle;
-  imgSrc: string;
-  imgAlt: string;
-  imgWidth: number;
-  imgHeight: number;
-  label: string;
-};
+import { usePdfStyleStore } from "@/lib/store";
+import { coverLetterStyles } from "@/lib/Pdf/coverLetterStyles";
 
 const SelectCoverLetterStyle = () => {
-  const styles: StyleOption[] = [
-    {
-      id: "germanDINNorm",
-      imgSrc:
-        "https://ik.imagekit.io/ivansmiths/cover%20letter%20builder/german-din-norm.png?updatedAt=1732383542392",
-      imgAlt: "german-din-norm",
-      imgWidth: 665,
-      imgHeight: 945,
-      label: "German DIN-Norm 5008",
-    },
-    {
-      id: "elegant",
-      imgSrc:
-        "https://ik.imagekit.io/ivansmiths/cover%20letter%20builder/elegant.png?updatedAt=1732383542426",
-      imgAlt: "elegant",
-      imgWidth: 665,
-      imgHeight: 945,
-      label: "Elegant",
-    },
-  ];
   const { setSelectedStyle } = usePdfStyleStore();
 
   return (
     <section className="h-full w-full p-small lg:w-3/12">
       <div className="flex h-full flex-col flex-wrap gap-small lg:flex-row">
-        {styles.map((style) => (
+        {coverLetterStyles.map((style) => (
           <div
             key={style.id}
             className="group relative w-full cursor-pointer rounded-md lg:w-[calc(50%-10px)]"
