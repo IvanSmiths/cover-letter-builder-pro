@@ -69,7 +69,7 @@ const Pdf = ({ messages, isLoading }: PdfProps) => {
   );
 
   return (
-    <>
+    <main className="w-full max-md:min-h-[calc(100vh-100px)] lg:w-6/12">
       <PDFViewer showToolbar={false} style={styles[selectedStyle].viewer}>
         {pdfDocument}
       </PDFViewer>
@@ -99,7 +99,7 @@ const Pdf = ({ messages, isLoading }: PdfProps) => {
           }
         </BlobProvider>
       ) : null}
-    </>
+    </main>
   );
 };
 

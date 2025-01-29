@@ -18,7 +18,7 @@ export default function Dashboard() {
     });
 
   return (
-    <div className="flex h-full w-full flex-col bg-backgroundPrimary md:flex-row">
+    <div className="flex h-full w-full flex-col justify-between bg-backgroundPrimary md:flex-row">
       <section className="h-screen w-full overflow-y-scroll lg:w-3/12">
         <Header />
         <Form
@@ -29,9 +29,7 @@ export default function Dashboard() {
           stop={stop}
         />
       </section>
-      <main className="w-full max-md:min-h-[calc(100vh-100px)] lg:w-6/12">
-        <Pdf isLoading={isLoading} messages={messages} />
-      </main>
+      <Pdf isLoading={isLoading} messages={messages} />
       <SelectCoverLetterStyle />
       <script
         type="application/ld+json"
