@@ -9,7 +9,7 @@ import { ChatFormProps, FormSchema, FormValues } from "./FormTypes";
 import { useFormStore } from "@/lib/store";
 import { Accordion } from "@/components/ui/accordion";
 
-export function Form({
+export function FormBody({
   input,
   isLoading,
   handleInputChange,

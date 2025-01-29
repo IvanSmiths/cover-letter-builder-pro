@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "ai/react";
-import { Form } from "@/components/dashboard/Form/Form";
+import { FormBody } from "@/components/dashboard/Form/FormBody";
 import dynamic from "next/dynamic";
 import SelectCoverLetterStyle from "@/components/dashboard/SelectCoverLetterStyle";
 import Header from "@/components/dashboard/Header";
@@ -21,7 +21,7 @@ export default function Dashboard() {
     <div className="flex h-full w-full flex-col justify-between bg-backgroundPrimary md:flex-row">
       <section className="h-screen w-full overflow-y-scroll lg:w-3/12">
         <Header />
-        <Form
+        <FormBody
           input={input}
           isLoading={isLoading}
           handleInputChange={handleInputChange}
